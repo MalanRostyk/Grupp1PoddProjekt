@@ -8,4 +8,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CCData-Access-Layer\CCData-Access-Layer.csproj" />
+    <ProjectReference Include="..\DDModels\DDModels.csproj" />
+  </ItemGroup>
+
 </Project>
