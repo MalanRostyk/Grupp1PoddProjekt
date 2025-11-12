@@ -13,7 +13,7 @@ namespace AAPresentation_Layer
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
 
-            //testar
+            //ändrat
         }
     }
 }
