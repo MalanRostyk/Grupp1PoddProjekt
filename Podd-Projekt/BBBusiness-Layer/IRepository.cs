@@ -15,7 +15,7 @@ namespace BBBusiness_Layer
         //R
         Task<List<T>> GetAllAsync();
         //U
-        bool UpdateAsync(T obj);
+        Task<bool> UpdateAsync(T obj);
         //D
         Task DeletAsync(string id);
     }
