@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DDModels\DDModels.csproj" />
+	<ProjectReference Include="..\BBBusiness-Layer\BBBusiness-Layer.csproj" />
   </ItemGroup>
 
 </Project>
