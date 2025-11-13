@@ -14,9 +14,9 @@ namespace AAPresentation_Layer
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            podFeedService.AddPodAsync(new Pod(
+            await podFeedService.AddPodAsync(new Pod(
                 textBox1.Text,
                 textBox2.Text,
                 participantsList,
@@ -28,12 +28,15 @@ namespace AAPresentation_Layer
                 int.Parse(textBox9.Text)
                 ));
             listBox1.Items.Clear();
+            Pod? enPod = await podFeedService.GetPodAsync("3");
+            label1.Text = enPod.Category;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             participantsList.Add(textBox3.Text);
             FillListBox();
+            textBox3.Clear();
         }
 
         private void FillListBox()
