@@ -9,7 +9,7 @@ using MongoDB.Driver;
 
 namespace CCData_Access_Layer
 {
-    public class PodFeedRepository : IRepository<Pod>//asfd
+    public class PodFeedRepository : IRepository<Pod>
     {
         public readonly IMongoCollection<Pod> podRepo;
         public PodFeedRepository()
