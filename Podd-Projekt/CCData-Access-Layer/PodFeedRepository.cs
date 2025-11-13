@@ -9,7 +9,7 @@ using MongoDB.Driver;
 
 namespace CCData_Access_Layer
 {
-    public class PodFeedRepository : IRepository<Pod>//asfd
+    public class PodFeedRepository : IRepository<Pod>
     {
         public readonly IMongoCollection<Pod> podRepo;
         public PodFeedRepository()
@@ -37,7 +37,7 @@ namespace CCData_Access_Layer
             return update.MatchedCount == 1 & update.ModifiedCount == 1;
         }
         //D
-        public async Task DeletAsync(string id)
+        public async Task DeleteAsync(string id)
         {
             var filter = Builders<Pod>.Filter.Eq(p => p.Id, id);
             await podRepo.DeleteOneAsync(filter);
