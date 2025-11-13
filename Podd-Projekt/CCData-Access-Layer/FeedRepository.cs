@@ -12,19 +12,19 @@ namespace CCData_Access_Layer
 {
     public class FeedRepository
     {
-        public List<SyndicationItem> nyaPods { get; private set; } = new();
+        //public List<SyndicationItem> nyaPods { get; private set; } = new();
 
-        private readonly string path = "C:\\PodXml\\MyCurrent.xml";
+        //private readonly string path = "C:\\PodXml\\MyCurrent.xml";
 
 
-        public FeedRepository() { }
+        //public FeedRepository() { }
 
-        public async Task<SyndicationFeed> GetSyndicationFeed(string rssUrl)
-        {
-            XmlReader xmlReader = XmlReader.Create(rssUrl);
-            SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
-            return syndicationFeed;
-        }
+        //public async Task<SyndicationFeed> GetSyndicationFeed(string rssUrl)
+        //{
+        //    XmlReader xmlReader = XmlReader.Create(rssUrl);
+        //    SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
+        //    return syndicationFeed;
+        //}
 
         //public async Task SerialiseraFeed(string rssUrl)
         //{
