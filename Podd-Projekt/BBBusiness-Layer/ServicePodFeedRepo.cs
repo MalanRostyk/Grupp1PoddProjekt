@@ -8,6 +8,6 @@ namespace BBBusiness_Layer
 {
     public class ServicePodFeedRepo
     {
-        public PodFeedRepository DD;
+
     }
 }
