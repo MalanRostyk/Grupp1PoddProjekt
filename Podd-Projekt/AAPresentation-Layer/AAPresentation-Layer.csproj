@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BBBusiness-Layer\BBBusiness-Layer.csproj" />
+    <ProjectReference Include="..\CCData-Access-Layer\CCData-Access-Layer.csproj" />
     <ProjectReference Include="..\DDModels\DDModels.csproj" />
   </ItemGroup>
 

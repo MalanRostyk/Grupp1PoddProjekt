@@ -1,4 +1,9 @@
+using BBBusiness_Layer;
+using DDModels;
+using CCData_Access_Layer;
+
 namespace AAPresentation_Layer
+    
 {
     internal static class Program
     {
@@ -14,6 +19,7 @@ namespace AAPresentation_Layer
             Application.Run(new Form1());
 
             //ändrat igen 2
+            IServicePodFeedRepo podfeedService = new ServicePodFeedRepo(new PodFeedRepository());
         }
     }
 }
