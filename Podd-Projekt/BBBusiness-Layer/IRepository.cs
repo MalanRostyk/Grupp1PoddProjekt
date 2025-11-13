@@ -11,7 +11,7 @@ namespace BBBusiness_Layer
         //C
         Task AddAsync(T obj);
         //R
-        Task<T?> GetOneAsync(string id);
+        Task<T?> GetOneAsync(string id);// SKA BORT
         //R
         Task<List<T>> GetAllAsync();
         //U

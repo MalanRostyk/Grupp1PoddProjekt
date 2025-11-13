@@ -2,6 +2,7 @@ using BBBusiness_Layer;
 using DDModels;
 using CCData_Access_Layer;
 using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace AAPresentation_Layer
 {
@@ -12,6 +13,7 @@ namespace AAPresentation_Layer
 
         //Data dependency injection 
         IPodFeedService podFeedService = new PodFeedService(new PodFeedRepository());
+        
         List<string> participantsList = new();
         public Form1()
         {
@@ -54,14 +56,9 @@ namespace AAPresentation_Layer
                 participantsList,
                 textBox4.Text,
                 textBox5.Text,
-                textBox6.Text,
-                textBox7.Text,
-                textBox8.Text,
-                int.Parse(textBox9.Text)
-                ));
+                double.Parse(textBox6.Text.ToString())));
             listBox1.Items.Clear();
             Pod? enPod = await podFeedService.GetPodAsync("3");
-            label1.Text = enPod.Category;
             refreshEvent?.Invoke();
         }
 
@@ -82,9 +79,29 @@ namespace AAPresentation_Layer
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void button3_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text != null | textBox1.Text != "")
+            {
+                Pod podBefore = await podFeedService.GetPodAsync(textBox1.Text);
+                List<string> participantsBefore = podBefore.Participants;
+                Pod podAfter = new Pod(
+                    podBefore.Id,
+                    textBox2.Text,
+                    podBefore.Participants,
+                    podBefore.Category,
+                    podBefore.Info,
+                    podBefore.Duration
+                );
+                await podFeedService.UpdatePodAsync(podAfter);
+                refreshEvent?.Invoke();
+            }
+        }
 
+        private async void button4_Click(object sender, EventArgs e)
+        {
+            await podFeedService.DeletePodAsync(textBox1.Text);
+            refreshEvent?.Invoke();
         }
     }
 }

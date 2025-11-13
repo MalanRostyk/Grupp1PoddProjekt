@@ -1,18 +1,23 @@
-﻿namespace DDModels
-{
-    public class Pod : PodFeed
-    {
-        public string EpisodeId { get; set; }
-        public string Title { get; set; }
-        public string Info { get; set; }
-        public int Duration { get; set; }
+﻿using MongoDB.Bson.Serialization.Attributes;
 
-        public Pod(string id, string pName, List<string> participants, string description, string category,
-            string eId, string title,string info, int duration)
-            : base(id, pName, participants, description, category)
+namespace DDModels
+{
+    public class Pod
+    {
+        [BsonId]
+        public string Id { get; set; }
+        public string PodName { get; set; }
+        public List<string> Participants { get; set; }
+        public string Category { get; set; }
+        public string Info { get; set; }
+        public double Duration { get; set; }
+
+        public Pod(string id, string pName, List<string> participants, string category, string info, double duration)
         {
-            EpisodeId = id;
-            Title = title;
+            Id = id;
+            PodName = pName;
+            Participants = participants;
+            Category = category;
             Info = info;
             Duration = duration;
         }
@@ -34,11 +39,9 @@
             return $"Id: {Id}| " +
                 $"PodName: {PodName}| " +
                 $"{GetParticipantsString()}| " +
-                $"Description: {Description}| " +
-                $"Category: {EpisodeId}| " +
-                $"Title: {Title}| " +
                 $"Info: {Info}| " +
-                $"Duration: {Duration}";
+                $"Duration: {Duration}" +
+                $"Category: {Category}";
         }
 
     }

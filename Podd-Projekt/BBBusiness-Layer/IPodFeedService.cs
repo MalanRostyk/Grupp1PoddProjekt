@@ -16,7 +16,7 @@ namespace BBBusiness_Layer
         //R
         Task<List<Pod>> GetPodsAsync();
         //U
-        Task<bool> UpdatePodAsync(Pod p);
+        //Task<bool> UpdatePodAsync(Pod p); //Skulle inte kunna updatera en pod
         //D
         Task DeletePodAsync(string id);
     }

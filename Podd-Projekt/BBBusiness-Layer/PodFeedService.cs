@@ -23,7 +23,7 @@ namespace BBBusiness_Layer
         //R
         public async Task<List<Pod>> GetPodsAsync() => await podRepo.GetAllAsync();
         //U
-        public async Task<bool> UpdatePodAsync(Pod p) => await podRepo.UpdateAsync(p);
+        //public async Task<bool> UpdatePodAsync(Pod p) => await podRepo.UpdateAsync(p);
         //D
         public async Task DeletePodAsync(string id) => await podRepo.DeleteAsync(id);
     }
