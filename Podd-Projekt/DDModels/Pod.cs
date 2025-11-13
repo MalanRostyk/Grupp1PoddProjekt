@@ -7,7 +7,7 @@
         public string Info { get; set; }
         public int Duration { get; set; }
 
-        public Pod(string id, string pName, string[] participants, string description, string category,
+        public Pod(string id, string pName, List<string> participants, string description, string category,
             string eId, string title,string info, int duration)
             : base(id, pName, participants, description, category)
         {
