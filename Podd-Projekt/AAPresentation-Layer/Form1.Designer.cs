@@ -41,12 +41,13 @@ partial class Form1
         textBox9 = new TextBox();
         textBox5 = new TextBox();
         label1 = new Label();
-        label2 = new Label();
+        listBox2 = new ListBox();
+        button3 = new Button();
         SuspendLayout();
         // 
         // button1
         // 
-        button1.Location = new Point(390, 350);
+        button1.Location = new Point(3, 418);
         button1.Name = "button1";
         button1.Size = new Size(94, 29);
         button1.TabIndex = 9;
@@ -56,7 +57,7 @@ partial class Form1
         // 
         // button2
         // 
-        button2.Location = new Point(417, 195);
+        button2.Location = new Point(159, 142);
         button2.Name = "button2";
         button2.Size = new Size(94, 29);
         button2.TabIndex = 11;
@@ -67,70 +68,70 @@ partial class Form1
         // listBox1
         // 
         listBox1.FormattingEnabled = true;
-        listBox1.Location = new Point(417, 42);
+        listBox1.Location = new Point(3, 109);
         listBox1.Name = "listBox1";
         listBox1.Size = new Size(150, 104);
         listBox1.TabIndex = 12;
         // 
         // textBox1
         // 
-        textBox1.Location = new Point(164, 39);
+        textBox1.Location = new Point(12, 43);
         textBox1.Name = "textBox1";
         textBox1.Size = new Size(125, 27);
         textBox1.TabIndex = 13;
         // 
         // textBox2
         // 
-        textBox2.Location = new Point(164, 72);
+        textBox2.Location = new Point(12, 76);
         textBox2.Name = "textBox2";
         textBox2.Size = new Size(125, 27);
         textBox2.TabIndex = 14;
         // 
         // textBox3
         // 
-        textBox3.Location = new Point(417, 152);
+        textBox3.Location = new Point(159, 109);
         textBox3.Name = "textBox3";
         textBox3.Size = new Size(125, 27);
         textBox3.TabIndex = 15;
         // 
         // textBox4
         // 
-        textBox4.Location = new Point(164, 195);
+        textBox4.Location = new Point(3, 220);
         textBox4.Name = "textBox4";
         textBox4.Size = new Size(125, 27);
         textBox4.TabIndex = 16;
         // 
         // textBox6
         // 
-        textBox6.Location = new Point(164, 261);
+        textBox6.Location = new Point(3, 286);
         textBox6.Name = "textBox6";
         textBox6.Size = new Size(125, 27);
         textBox6.TabIndex = 18;
         // 
         // textBox7
         // 
-        textBox7.Location = new Point(164, 294);
+        textBox7.Location = new Point(3, 319);
         textBox7.Name = "textBox7";
         textBox7.Size = new Size(125, 27);
         textBox7.TabIndex = 19;
         // 
         // textBox8
         // 
-        textBox8.Location = new Point(164, 327);
+        textBox8.Location = new Point(3, 352);
         textBox8.Name = "textBox8";
         textBox8.Size = new Size(125, 27);
         textBox8.TabIndex = 20;
         // 
         // textBox9
         // 
-        textBox9.Location = new Point(164, 360);
+        textBox9.Location = new Point(3, 385);
         textBox9.Name = "textBox9";
         textBox9.Size = new Size(125, 27);
         textBox9.TabIndex = 21;
         // 
         // textBox5
         // 
-        textBox5.Location = new Point(164, 228);
+        textBox5.Location = new Point(3, 253);
         textBox5.Name = "textBox5";
         textBox5.Size = new Size(125, 27);
         textBox5.TabIndex = 22;
@@ -138,27 +139,37 @@ partial class Form1
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(584, 202);
+        label1.Location = new Point(26, 20);
         label1.Name = "label1";
         label1.Size = new Size(50, 20);
         label1.TabIndex = 23;
         label1.Text = "label1";
         // 
-        // label2
+        // listBox2
         // 
-        label2.AutoSize = true;
-        label2.Location = new Point(24, 21);
-        label2.Name = "label2";
-        label2.Size = new Size(50, 20);
-        label2.TabIndex = 24;
-        label2.Text = "label2";
+        listBox2.FormattingEnabled = true;
+        listBox2.Location = new Point(290, 9);
+        listBox2.Name = "listBox2";
+        listBox2.Size = new Size(973, 284);
+        listBox2.TabIndex = 24;
+        // 
+        // button3
+        // 
+        button3.Location = new Point(140, 418);
+        button3.Name = "button3";
+        button3.Size = new Size(94, 29);
+        button3.TabIndex = 25;
+        button3.Text = "Update";
+        button3.UseVisualStyleBackColor = true;
+        button3.Click += button3_Click;
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 450);
-        Controls.Add(label2);
+        ClientSize = new Size(1275, 450);
+        Controls.Add(button3);
+        Controls.Add(listBox2);
         Controls.Add(label1);
         Controls.Add(textBox5);
         Controls.Add(textBox9);
@@ -192,5 +203,6 @@ partial class Form1
     private TextBox textBox9;
     private TextBox textBox5;
     private Label label1;
-    private Label label2;
+    private ListBox listBox2;
+    private Button button3;
 }

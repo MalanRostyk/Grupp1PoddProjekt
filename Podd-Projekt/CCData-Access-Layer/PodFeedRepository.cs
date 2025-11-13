@@ -22,7 +22,7 @@ namespace CCData_Access_Layer
         //C
         public async Task AddAsync(Pod p) => await podRepo.InsertOneAsync(p);
         //R
-        public async Task<Pod?> GetOneAsync(string id) //Finns i Repot men vi kan inte använda för att det inte finns i IRepository
+        public async Task<Pod?> GetOneAsync(string id)//TROR inte den ska kunna användas
         {
             var filter = Builders<Pod>.Filter.Eq(p => p.Id, id);
             return await podRepo.Find(filter).FirstOrDefaultAsync();

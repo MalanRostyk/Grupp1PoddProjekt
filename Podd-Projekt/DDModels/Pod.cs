@@ -17,7 +17,29 @@
             Duration = duration;
         }
 
+        public List<string> GetParticipants() => Participants;
 
+        public string GetParticipantsString()
+        {
+            List<string> participants = GetParticipants();
+            string medverkande = "";
+            for(int i = 0; i < participants.Count; i++)
+            {
+                medverkande += "|" + participants[i];
+            }
+            return medverkande;
+        }
+        public string GetAllPodInfo()
+        {
+            return $"Id: {Id}| " +
+                $"PodName: {PodName}| " +
+                $"{GetParticipantsString()}| " +
+                $"Description: {Description}| " +
+                $"Category: {EpisodeId}| " +
+                $"Title: {Title}| " +
+                $"Info: {Info}| " +
+                $"Duration: {Duration}";
+        }
 
     }
 }
