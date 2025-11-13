@@ -1,6 +1,7 @@
 using BBBusiness_Layer;
-using DDModels;
+using InterfacesLayer;
 using CCData_Access_Layer;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AAPresentation_Layer
     
@@ -13,13 +14,22 @@ namespace AAPresentation_Layer
         [STAThread]
         static void Main()
         {
+            var services = new ServiceCollection();
+
+            services.AddScoped<IPodFeedRepository, PodFeedRepository>();
+            services.AddScoped<IPodFeedService, PodFeedService>();
+
+            var provider = services.BuildServiceProvider();
+
+            var form = ActivatorUtilities.CreateInstance< Form1 > (provider);
+
+
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(form);
 
-            //ändrat igen 2
-            IServicePodFeedRepo podfeedService = new ServicePodFeedRepo(new PodFeedRepository());
-        }
+       }
     }
 }

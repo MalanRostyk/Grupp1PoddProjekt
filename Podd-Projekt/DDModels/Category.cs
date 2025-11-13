@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BBBusiness_Layer
+namespace DDModels
 {
-    internal interface IPodFeedRepository
+    public class Category
     {
+
+        public string Name { get; set; }
+
     }
 }
