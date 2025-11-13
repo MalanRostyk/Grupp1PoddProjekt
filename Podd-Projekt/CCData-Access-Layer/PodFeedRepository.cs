@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using BBBusiness_Layer;
 using DDModels;
 using MongoDB.Driver;
@@ -42,5 +43,17 @@ namespace CCData_Access_Layer
             var filter = Builders<Pod>.Filter.Eq(p => p.Id, id);
             await podRepo.DeleteOneAsync(filter);
         }
+
+        //För Deserialisering av XML
+
+        //public async Task<List<Pod>> Deserialisera()
+        //{
+        //    XmlSerializer xmlSerializer = new(typeof(List<Pod>));
+        //    using (FileStream fs = new("C:\\PodXml\\MyCurrent.xml", FileMode.Open, FileAccess.Read))
+        //    {
+
+        //    }
+        //}
+
     }
 }
