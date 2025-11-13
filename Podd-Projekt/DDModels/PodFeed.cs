@@ -13,11 +13,11 @@ namespace DDModels
         [BsonId]
         public string Id { get; set; }
         public string PodName { get; set; }
-        public string[] Participants { get; set; }
+        public List<string> Participants { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
 
-        public PodFeed(string id, string pName, string[] participants, string description, string category)
+        public PodFeed(string id, string pName, List<string> participants, string description, string category)
         {
             Id = id;
             PodName = pName;
