@@ -36,9 +36,6 @@ partial class Form1
         textBox3 = new TextBox();
         textBox4 = new TextBox();
         textBox6 = new TextBox();
-        textBox7 = new TextBox();
-        textBox8 = new TextBox();
-        textBox9 = new TextBox();
         textBox5 = new TextBox();
         label1 = new Label();
         listBox2 = new ListBox();
@@ -110,27 +107,6 @@ partial class Form1
         textBox6.Name = "textBox6";
         textBox6.Size = new Size(125, 27);
         textBox6.TabIndex = 18;
-        // 
-        // textBox7
-        // 
-        textBox7.Location = new Point(86, 320);
-        textBox7.Name = "textBox7";
-        textBox7.Size = new Size(125, 27);
-        textBox7.TabIndex = 19;
-        // 
-        // textBox8
-        // 
-        textBox8.Location = new Point(86, 353);
-        textBox8.Name = "textBox8";
-        textBox8.Size = new Size(125, 27);
-        textBox8.TabIndex = 20;
-        // 
-        // textBox9
-        // 
-        textBox9.Location = new Point(86, 386);
-        textBox9.Name = "textBox9";
-        textBox9.Size = new Size(125, 27);
-        textBox9.TabIndex = 21;
         // 
         // textBox5
         // 
@@ -206,9 +182,6 @@ partial class Form1
         Controls.Add(listBox2);
         Controls.Add(label1);
         Controls.Add(textBox5);
-        Controls.Add(textBox9);
-        Controls.Add(textBox8);
-        Controls.Add(textBox7);
         Controls.Add(textBox6);
         Controls.Add(textBox4);
         Controls.Add(textBox3);
@@ -232,9 +205,6 @@ partial class Form1
     private TextBox textBox3;
     private TextBox textBox4;
     private TextBox textBox6;
-    private TextBox textBox7;
-    private TextBox textBox8;
-    private TextBox textBox9;
     private TextBox textBox5;
     private Label label1;
     private ListBox listBox2;

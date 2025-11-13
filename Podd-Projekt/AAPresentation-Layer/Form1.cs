@@ -43,9 +43,6 @@ namespace AAPresentation_Layer
             textBox4.Clear();
             textBox5.Clear();
             textBox6.Clear();
-            textBox7.Clear();
-            textBox8.Clear();
-            textBox9.Clear();
         }
 
         private async void button1_Click(object sender, EventArgs e)

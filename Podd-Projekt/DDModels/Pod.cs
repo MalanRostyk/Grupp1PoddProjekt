@@ -40,8 +40,19 @@ namespace DDModels
                 $"PodName: {PodName}| " +
                 $"{GetParticipantsString()}| " +
                 $"Info: {Info}| " +
-                $"Duration: {Duration}" +
-                $"Category: {Category}";
+                $"Duration: {Duration}| " +
+                $"Category: {Category}| " +
+                $"Duration string: {GetDurationString()}";
+        }
+
+        private string GetDurationString()
+        {
+            double toHours = Duration / 60; 
+            int roundedHours = (int)toHours % 1000; //antal timmar att visa avrundat, 1000 eftersom tror inte längre än 1000h lång pod
+
+            double restMins = Duration % 60; //minuter att visa efter timmar tas bort
+
+            return string.Format("{0}h : {1}min", roundedHours, restMins);
         }
 
     }
