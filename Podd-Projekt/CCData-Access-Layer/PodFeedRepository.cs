@@ -37,7 +37,7 @@ namespace CCData_Access_Layer
             return update.MatchedCount == 1 & update.ModifiedCount == 1;
         }
         //D
-        public async Task DeletAsync(string id)
+        public async Task DeleteAsync(string id)
         {
             var filter = Builders<Pod>.Filter.Eq(p => p.Id, id);
             await podRepo.DeleteOneAsync(filter);

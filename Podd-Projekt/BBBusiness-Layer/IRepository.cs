@@ -17,6 +17,6 @@ namespace BBBusiness_Layer
         //U
         Task<bool> UpdateAsync(T obj);
         //D
-        Task DeletAsync(string id);
+        Task DeleteAsync(string id);
     }
 }
