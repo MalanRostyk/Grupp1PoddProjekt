@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <!--<OutputType>Library</OutputType>-->
+    <OutputType>Library</OutputType>
     <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>CCData_Access_Layer</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -14,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BBBusiness-Layer\BBBusiness-Layer.csproj" />
     <ProjectReference Include="..\DDModels\DDModels.csproj" />
   </ItemGroup>
 

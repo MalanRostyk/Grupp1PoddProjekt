@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace DDModels
 {
-    public class Pod
+    public class PodFeed
     {
         public string Id { set; get; }
-        public string Titel{ set; get; }
+        public string Name { set; get; }
+        public string Category { set; get; }
+        //public string Info { set; get; }
         public string Link { set; get; }
-        public string? LinkRef { set; get; }
 
-        public Pod() { }
+
+        public PodFeed() { }
     }
 }
