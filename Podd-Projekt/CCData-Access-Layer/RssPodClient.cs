@@ -19,26 +19,33 @@ namespace CCData_Access_Layer
             this.httpClient = httpClient;
         }
 
+        //Denna klass är till för att skapa c# objekt av flödet, dvs tolka flödet.
+
         public async Task<List<Pod>> GetAllPodsAsync(string link)
         {
-            Stream stream = await this.httpClient.GetStreamAsync(link);
-            XmlReader xmlReader = XmlReader.Create(stream);
-            SyndicationFeed syndFeed = SyndicationFeed.Load(xmlReader);
-            xmlReader.Dispose();
-            stream.Dispose();
-
             List<Pod> podList = new();
 
-            foreach(SyndicationItem sItem in syndFeed.Items)
+            //Stream stream = await httpClient.GetStreamAsync(link) = Hämtar stream från webben
+
+            //XmlReader.Create(stream) = Formatera stremens data från Xml "språk" till något C# kan tolka
+
+            //SyndicationFeed.Load(xmlReader) = Representerar tillfälligt data i minnet som
+            //"Hela = SyncationFeed, dvs som en list", och varje "objekt = SyndicationItem"
+            //Så sammasatt blir det som en List<SyndicationItem>
+
+            using (Stream stream = await httpClient.GetStreamAsync(link))
             {
-                Pod newPod = new();
-                newPod.Id = sItem.Id;
-                newPod.Titel = sItem.Title.Text;
-                newPod.Link = sItem.Links.First().Uri.ToString();
-
-                podList.Add(newPod);
+                XmlReader xmlReader = XmlReader.Create(stream);
+                SyndicationFeed syndFeed = SyndicationFeed.Load(xmlReader);
+                foreach (SyndicationItem sItem in syndFeed.Items)
+                {
+                    Pod newPod = new();
+                    newPod.Id = sItem.Id;
+                    newPod.Titel = sItem.Title.Text;
+                    newPod.Link = sItem.Links.First().Uri.ToString();
+                    podList.Add(newPod);
+                }
             }
-
             return podList;
         }
     }

@@ -24,7 +24,8 @@ namespace BBBusiness_Layer
             foreach(var pod in podList)
             {
                 pod.LinkRef = pf.Id;
-                pod.Id = $"{pf.Id} --> {pod.Id}";
+                pod.Id = $"{pod.Id} tillhör {pf.Id}";//"Serien" som "episoden" tillhör, metaforsikt
+                //Så vi vet vilkent feed podden tillhör
             }
 
             return podList;

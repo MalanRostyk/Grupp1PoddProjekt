@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace DDModels
 {
-    public class PodFeed
+    public class PodFeed //Motsarigheten till en serie typ
     {
         public string Id { set; get; }
+        public string Link { set; get; }
         public string Name { set; get; }
         public string Category { set; get; }
-        //public string Info { set; get; }
-        public string Link { set; get; }
 
 
         public PodFeed() { }
