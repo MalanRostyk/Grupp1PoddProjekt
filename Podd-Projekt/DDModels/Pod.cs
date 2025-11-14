@@ -12,14 +12,16 @@ namespace DDModels
         public string Info { get; set; }
         public double Duration { get; set; }
 
+        public Pod() { }
+
         public Pod(string id, string pName, List<string> participants, string category, string info, double duration)
         {
             Id = id;
             PodName = pName;
-            Participants = participants;
+            Participants = new List<string>();
             Category = category;
             Info = info;
-            Duration = duration;
+            Duration = 0.0;
         }
 
         public List<string> GetParticipants() => Participants;

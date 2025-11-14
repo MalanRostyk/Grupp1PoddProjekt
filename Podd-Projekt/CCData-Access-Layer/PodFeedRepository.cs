@@ -10,7 +10,7 @@ using MongoDB.Driver;
 
 namespace CCData_Access_Layer
 {
-    public class PodFeedRepository : IRepository<Pod>
+    public class PodFeedRepository : AAAIPodFeedRepository //IRepository<Pod>
     {
         public readonly IMongoCollection<Pod> podRepo;
         public PodFeedRepository()
@@ -22,12 +22,7 @@ namespace CCData_Access_Layer
 
         //C
         public async Task AddAsync(Pod p) => await podRepo.InsertOneAsync(p);
-        //R
-        public async Task<Pod?> GetOneAsync(string id)//TROR inte den ska kunna användas
-        {
-            var filter = Builders<Pod>.Filter.Eq(p => p.Id, id);
-            return await podRepo.Find(filter).FirstOrDefaultAsync();
-        }
+
         //R
         public async Task<List<Pod>> GetAllAsync() => await podRepo.Find(FilterDefinition<Pod>.Empty).ToListAsync();
         //U
@@ -42,6 +37,12 @@ namespace CCData_Access_Layer
         {
             var filter = Builders<Pod>.Filter.Eq(p => p.Id, id);
             await podRepo.DeleteOneAsync(filter);
+        }
+        //R
+        public async Task<Pod?> GetOneAsync(string id)
+        {
+            var filter = Builders<Pod>.Filter.Eq(p => p.Id, id);
+            return await podRepo.Find(filter).FirstOrDefaultAsync();
         }
 
         //För Deserialisering av XML

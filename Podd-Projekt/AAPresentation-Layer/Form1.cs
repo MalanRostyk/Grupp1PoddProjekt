@@ -12,7 +12,7 @@ namespace AAPresentation_Layer
         public event RefreshDelegat refreshEvent;
 
         //Data dependency injection 
-        IPodFeedService podFeedService = new PodFeedService(new PodFeedRepository());
+        AAAIPodFeedService podFeedService = new PodFeedService(new PodFeedRepository());
         
         List<string> participantsList = new();
         public Form1()

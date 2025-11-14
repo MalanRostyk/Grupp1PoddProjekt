@@ -1,23 +1,24 @@
-﻿using System;
+﻿using DDModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DDModels;
 
 namespace BBBusiness_Layer
 {
-    public interface IPodFeedService
+    public interface AAAIPodFeedService
     {
-        //C
-        Task AddPodAsync(Pod p);
-        //R
+        Task AddPodAsync(string rssUrl);
+
         Task<Pod?> GetPodAsync(string id);
-        //R
+
         Task<List<Pod>> GetPodsAsync();
-        //U
-        //Task<bool> UpdatePodAsync(Pod p); //Skulle inte kunna updatera en pod
-        //D
+
+        Task<bool> UpdatePodAsync(string oldTitle, string newTitle);
+
         Task DeletePodAsync(string id);
+        
+
     }
 }
