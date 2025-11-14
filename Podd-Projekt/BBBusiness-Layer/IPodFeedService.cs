@@ -13,8 +13,9 @@ namespace BBBusiness_Layer
         Task AddPodFeedAsync(PodFeed pf);
         Task<PodFeed?> GetPodFeedAsync(string id);
         Task<List<PodFeed>> GetAllAsync();
-        Task<bool> UpdateNameAsync(PodFeed pf, string newName);
-        Task<bool> UpdateCategoryAsync(PodFeed pf, string newCategory);
+        //Task<bool> UpdateNameAsync(PodFeed pf, string newName);
+        //Task<bool> UpdateCategoryAsync(PodFeed pf, string newCategory);
+        Task<bool> UpdatePodFeedAsync(PodFeed pf, string newName, string newCategory);
         Task DeletePodFeedAsync(string id);
     }
 }

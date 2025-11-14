@@ -11,18 +11,15 @@ namespace AAPresentation_Layer
         [STAThread]
         static void Main()
         {
-            HttpClient client = new();
-            var rssClient = new RssPodClient(client);
-            PodFeedRepository pfRepo = new();
-            PodFeedService pfService = new(pfRepo);
-            Service service = new(rssClient);
-            
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1(service));
+            //HttpClient client = new();
+            //var rssClient = new RssPodClient(client);
+            //PodFeedRepository pfRepo = new();
 
-            //ändrat igen 2
+            IService service = new Service(new RssPodClient(new HttpClient()));//Dependency Injection
+            IPodFeedService pfService = new PodFeedService(new PodFeedRepository());//Dependency Injection
+
+            ApplicationConfiguration.Initialize();
+            Application.Run(new Form1(service, pfService));
         }
     }
 }

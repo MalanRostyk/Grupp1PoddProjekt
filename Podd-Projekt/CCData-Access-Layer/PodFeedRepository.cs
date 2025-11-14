@@ -37,7 +37,7 @@ namespace CCData_Access_Layer
                 }
             }
         }
-        public async Task<PodFeed?> GetAsync(string id)
+        public async Task<PodFeed?> GetAsync(string id)//Dirty read?
         {
             var filter = Builders<PodFeed>.Filter.Eq(pf => pf.Id, id);
             return await pfCollection.Find(filter).FirstOrDefaultAsync();
@@ -55,6 +55,9 @@ namespace CCData_Access_Layer
                     var update = await pfCollection.ReplaceOneAsync(filter, pf);
                     isUpdated = update.MatchedCount == 1 && update.ModifiedCount == 1;
                     session.CommitTransaction();
+                }catch(NullReferenceException e)//Kan bli null? för dirty read, kom tillbaka tänk igenom.
+                {
+                    session.AbortTransaction();
                 }catch(Exception e)
                 {
                     session.AbortTransaction();

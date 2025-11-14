@@ -20,22 +20,52 @@ namespace BBBusiness_Layer
         }
 
         public async Task AddPodFeedAsync(PodFeed pf) => await pfRepo.AddAsync(pf);
-        public async Task<PodFeed?> GetPodFeedAsync(string id) => await pfRepo.GetAsync(id);
-        public async Task<List<PodFeed>> GetAllAsync() => await pfRepo.GetAllAsync();
-        public async Task<bool> UpdateNameAsync(PodFeed pf, string newName)
+        public async Task<PodFeed?> GetPodFeedAsync(string id)
         {
-            bool wasUpdated = false;
-            PodFeed p = await pfRepo.GetAsync(pf.Id); //Hämta dok som PodFeed
-            p.Name = newName;//Ändra det som ska ändras
-            wasUpdated = await pfRepo.UpdateAsync(p);//Skicka tillbaks PodFeed och gör uppdatering
-            return wasUpdated;
+            PodFeed? p = null;
+            try
+            {
+                p = await pfRepo.GetAsync(id);
+            }
+            catch (NullReferenceException e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return p;
         }
-        public async Task<bool> UpdateCategoryAsync(PodFeed pf, string newCategory)
+        public async Task<List<PodFeed>> GetAllAsync() => await pfRepo.GetAllAsync();
+        //public async Task<bool> UpdateNameAsync(PodFeed pf, string newName)
+        //{
+        //    bool wasUpdated = false;
+        //    PodFeed p = await pfRepo.GetAsync(pf.Id); //Hämta dok som PodFeed
+        //    p.Name = newName;//Ändra det som ska ändras
+        //    wasUpdated = await pfRepo.UpdateAsync(p);//Skicka tillbaks PodFeed och gör uppdatering
+        //    return wasUpdated;
+        //}
+        //public async Task<bool> UpdateCategoryAsync(PodFeed pf, string newCategory)
+        //{
+        //    bool wasUpdated = false;
+        //    PodFeed p = await pfRepo.GetAsync(pf.Id); //Hämta dok som PodFeed
+        //    p.Name = newCategory;//Ändra det som ska ändras
+        //    wasUpdated = await pfRepo.UpdateAsync(p);//Skicka tillbaks PodFeed och gör uppdatering
+        //    return wasUpdated;
+        //}
+
+        public async Task<bool> UpdatePodFeedAsync(PodFeed pf, string newName, string newCategory)
         {
             bool wasUpdated = false;
-            PodFeed p = await pfRepo.GetAsync(pf.Id); //Hämta dok som PodFeed
-            p.Name = newCategory;//Ändra det som ska ändras
-            wasUpdated = await pfRepo.UpdateAsync(p);//Skicka tillbaks PodFeed och gör uppdatering
+            try
+            {
+                PodFeed p = await pfRepo.GetAsync(pf.Id);
+                p.Name = newName;
+                p.Category = newCategory;
+
+                wasUpdated = await pfRepo.UpdateAsync(p);
+            }catch(NullReferenceException e)
+            {
+                Debug.WriteLine(e.Message);
+            }
             return wasUpdated;
         }
         public async Task DeletePodFeedAsync(string id) => await pfRepo.DeleteAsync(id);
