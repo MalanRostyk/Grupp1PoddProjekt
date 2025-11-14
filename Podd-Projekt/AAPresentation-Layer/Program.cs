@@ -13,8 +13,10 @@ namespace AAPresentation_Layer
         {
             HttpClient client = new();
             var rssClient = new RssPodClient(client);
+            PodFeedRepository pfRepo = new();
+            PodFeedService pfService = new(pfRepo);
             Service service = new(rssClient);
-
+            
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
