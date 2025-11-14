@@ -11,6 +11,7 @@ namespace DDModels
         public string Category { get; set; }
         public string Info { get; set; }
         public double Duration { get; set; }
+        public string? Länk { set; get; }
 
         public Pod(string id, string pName, List<string> participants, string category, string info, double duration)
         {

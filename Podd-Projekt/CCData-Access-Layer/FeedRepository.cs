@@ -26,20 +26,20 @@ namespace CCData_Access_Layer
             return syndicationFeed;
         }
 
-        //public async Task SerialiseraFeed(string rssUrl)
-        //{
-        //    XmlSerializer xmlSer = new(typeof(SyndicationFeed));
-        //    await using var fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+        public async Task SerialiseraFeed(string rssUrl)
+        {
+            XmlSerializer xmlSer = new(typeof(SyndicationFeed));
+            await using var fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
 
-        //    await using var enWriter = XmlWriter.Create(fs, new XmlWriterSettings()
-        //    {
-        //        Indent = true
-        //    });
+            await using var enWriter = XmlWriter.Create(fs, new XmlWriterSettings()
+            {
+                Indent = true
+            });
 
-        //    var formaterare = new Rss20FeedFormatter(await GetSyndicationFeed(rssUrl));
-        //    formaterare.WriteTo(enWriter);
-        //    await enWriter.FlushAsync();
-        //}
+            var formaterare = new Rss20FeedFormatter(await GetSyndicationFeed(rssUrl));
+            formaterare.WriteTo(enWriter);
+            await enWriter.FlushAsync();
+        }
 
         //public async Task SerialiseraFeed(string rssUrl)
         //{
