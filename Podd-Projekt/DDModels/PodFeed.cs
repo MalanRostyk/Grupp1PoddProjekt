@@ -11,8 +11,13 @@ namespace DDModels
         public string Id { set; get; }
         public string Link { set; get; }
         public string Name { set; get; }
+        public string CategoryId { set; get; }
         public string Category { set; get; }
 
-        public PodFeed() { }
+
+        public PodFeed()
+        {
+            Id = Guid.NewGuid().ToString();
+        }
     }
 }
