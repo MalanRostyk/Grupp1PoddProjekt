@@ -13,7 +13,6 @@ namespace DDModels
         public string Name { set; get; }
         public string Category { set; get; }
 
-
         public PodFeed() { }
     }
 }

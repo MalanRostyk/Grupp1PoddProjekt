@@ -17,7 +17,8 @@ namespace AAPresentation_Layer
             InitializeComponent();
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+
+        private async void button1_Click(object sender, EventArgs e) //I Start tab, Search knapp
         {
             PodFeed pf = new(); //En feed att använda
             pf.Link = tbLink.Text; //Rss feed i form av länk användaren vill se
@@ -31,13 +32,13 @@ namespace AAPresentation_Layer
             lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)//I Start Tabben
         {
             Pod p = podList[lbSearchedResults.SelectedIndex];//Välj motsvarande index i listBox från podList
             rtbSearchedPodInfo.Text = $"{p.Link}"; //Det som visas i richTextBox när vi valt en pod i listBox
         }
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e) //radera ej
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e) //I Start tabben
         {
 
         }
@@ -47,7 +48,7 @@ namespace AAPresentation_Layer
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)//I start tab, 
         {
 
         }
