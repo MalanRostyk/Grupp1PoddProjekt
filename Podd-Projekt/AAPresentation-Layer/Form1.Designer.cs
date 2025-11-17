@@ -36,6 +36,7 @@ partial class Form1
         label2 = new Label();
         tabControl1 = new TabControl();
         tabPage1 = new TabPage();
+        btnSave = new Button();
         label6 = new Label();
         tbNewFeedName = new TextBox();
         label5 = new Label();
@@ -51,7 +52,7 @@ partial class Form1
         lblDisplayLink = new Label();
         lblToUpdate = new Label();
         tabPage4 = new TabPage();
-        btnSave = new Button();
+        tabPage5 = new TabPage();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
@@ -128,6 +129,7 @@ partial class Form1
         tabControl1.Controls.Add(tabPage2);
         tabControl1.Controls.Add(tabPage3);
         tabControl1.Controls.Add(tabPage4);
+        tabControl1.Controls.Add(tabPage5);
         tabControl1.Location = new Point(12, -2);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
@@ -153,6 +155,20 @@ partial class Form1
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Start";
         tabPage1.UseVisualStyleBackColor = true;
+        // 
+        // btnSave
+        // 
+        btnSave.BackColor = Color.DarkSlateGray;
+        btnSave.FlatStyle = FlatStyle.Popup;
+        btnSave.ForeColor = SystemColors.GradientActiveCaption;
+        btnSave.Location = new Point(420, 429);
+        btnSave.Margin = new Padding(4);
+        btnSave.Name = "btnSave";
+        btnSave.Size = new Size(129, 41);
+        btnSave.TabIndex = 11;
+        btnSave.Text = "Save";
+        btnSave.UseVisualStyleBackColor = false;
+        btnSave.Click += btnSave_Click;
         // 
         // label6
         // 
@@ -187,10 +203,10 @@ partial class Form1
         // 
         tabPage2.Controls.Add(label4);
         tabPage2.Controls.Add(listBox1);
-        tabPage2.Location = new Point(4, 29);
+        tabPage2.Location = new Point(4, 37);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(1070, 478);
+        tabPage2.Size = new Size(1070, 470);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Register";
         tabPage2.UseVisualStyleBackColor = true;
@@ -221,9 +237,9 @@ partial class Form1
         tabPage3.Controls.Add(lblToUpdateName);
         tabPage3.Controls.Add(lblDisplayLink);
         tabPage3.Controls.Add(lblToUpdate);
-        tabPage3.Location = new Point(4, 29);
+        tabPage3.Location = new Point(4, 37);
         tabPage3.Name = "tabPage3";
-        tabPage3.Size = new Size(1070, 478);
+        tabPage3.Size = new Size(1070, 470);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Update";
         tabPage3.UseVisualStyleBackColor = true;
@@ -290,26 +306,21 @@ partial class Form1
         // 
         // tabPage4
         // 
-        tabPage4.Location = new Point(4, 29);
+        tabPage4.Location = new Point(4, 37);
         tabPage4.Name = "tabPage4";
-        tabPage4.Size = new Size(1070, 478);
+        tabPage4.Size = new Size(1070, 470);
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Delete";
         tabPage4.UseVisualStyleBackColor = true;
         // 
-        // btnSave
+        // tabPage5
         // 
-        btnSave.BackColor = Color.DarkSlateGray;
-        btnSave.FlatStyle = FlatStyle.Popup;
-        btnSave.ForeColor = SystemColors.GradientActiveCaption;
-        btnSave.Location = new Point(420, 429);
-        btnSave.Margin = new Padding(4);
-        btnSave.Name = "btnSave";
-        btnSave.Size = new Size(129, 41);
-        btnSave.TabIndex = 11;
-        btnSave.Text = "Save";
-        btnSave.UseVisualStyleBackColor = false;
-        btnSave.Click += btnSave_Click;
+        tabPage5.Location = new Point(4, 37);
+        tabPage5.Name = "tabPage5";
+        tabPage5.Size = new Size(1070, 470);
+        tabPage5.TabIndex = 4;
+        tabPage5.Text = "Category";
+        tabPage5.UseVisualStyleBackColor = true;
         // 
         // Form1
         // 
@@ -361,4 +372,5 @@ partial class Form1
     private TextBox tbNewFeedName;
     private Label label6;
     private Button btnSave;
+    private TabPage tabPage5;
 }
