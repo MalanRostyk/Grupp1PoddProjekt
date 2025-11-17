@@ -59,7 +59,7 @@ namespace BBBusiness_Layer
             {
                 PodFeed p = await pfRepo.GetAsync(pf.Id);
                 p.Name = newName;
-                p.Category = newCategory;
+                p.CategoryId = newCategory;
 
                 wasUpdated = await pfRepo.UpdateAsync(p);
             }catch(NullReferenceException e)

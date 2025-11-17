@@ -36,6 +36,8 @@ partial class Form1
         label2 = new Label();
         tabControl1 = new TabControl();
         tabPage1 = new TabPage();
+        tbeEmptyName = new Label();
+        btnSave = new Button();
         label6 = new Label();
         tbNewFeedName = new TextBox();
         label5 = new Label();
@@ -51,11 +53,16 @@ partial class Form1
         lblDisplayLink = new Label();
         lblToUpdate = new Label();
         tabPage4 = new TabPage();
-        btnSave = new Button();
+        tabPage5 = new TabPage();
+        button4 = new Button();
+        textBox2 = new TextBox();
+        label7 = new Label();
+        label11 = new Label();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
         tabPage3.SuspendLayout();
+        tabPage5.SuspendLayout();
         SuspendLayout();
         // 
         // lbSearchedResults
@@ -128,6 +135,7 @@ partial class Form1
         tabControl1.Controls.Add(tabPage2);
         tabControl1.Controls.Add(tabPage3);
         tabControl1.Controls.Add(tabPage4);
+        tabControl1.Controls.Add(tabPage5);
         tabControl1.Location = new Point(12, -2);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
@@ -136,6 +144,7 @@ partial class Form1
         // 
         // tabPage1
         // 
+        tabPage1.Controls.Add(tbeEmptyName);
         tabPage1.Controls.Add(btnSave);
         tabPage1.Controls.Add(label6);
         tabPage1.Controls.Add(tbNewFeedName);
@@ -153,6 +162,28 @@ partial class Form1
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Start";
         tabPage1.UseVisualStyleBackColor = true;
+        // 
+        // tbeEmptyName
+        // 
+        tbeEmptyName.AutoSize = true;
+        tbeEmptyName.Location = new Point(557, 435);
+        tbeEmptyName.Name = "tbeEmptyName";
+        tbeEmptyName.Size = new Size(0, 28);
+        tbeEmptyName.TabIndex = 12;
+        // 
+        // btnSave
+        // 
+        btnSave.BackColor = Color.DarkSlateGray;
+        btnSave.FlatStyle = FlatStyle.Popup;
+        btnSave.ForeColor = SystemColors.GradientActiveCaption;
+        btnSave.Location = new Point(420, 429);
+        btnSave.Margin = new Padding(4);
+        btnSave.Name = "btnSave";
+        btnSave.Size = new Size(129, 41);
+        btnSave.TabIndex = 11;
+        btnSave.Text = "Save";
+        btnSave.UseVisualStyleBackColor = false;
+        btnSave.Click += btnSave_Click;
         // 
         // label6
         // 
@@ -179,18 +210,18 @@ partial class Form1
         label5.Location = new Point(17, 400);
         label5.Margin = new Padding(4, 0, 4, 0);
         label5.Name = "label5";
-        label5.Size = new Size(295, 28);
+        label5.Size = new Size(319, 28);
         label5.TabIndex = 8;
-        label5.Text = "Enter name to save RSS Feed as: ";
+        label5.Text = "Enter category to save RSS Feed as:";
         // 
         // tabPage2
         // 
         tabPage2.Controls.Add(label4);
         tabPage2.Controls.Add(listBox1);
-        tabPage2.Location = new Point(4, 29);
+        tabPage2.Location = new Point(4, 37);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(1070, 478);
+        tabPage2.Size = new Size(1070, 470);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Register";
         tabPage2.UseVisualStyleBackColor = true;
@@ -221,9 +252,9 @@ partial class Form1
         tabPage3.Controls.Add(lblToUpdateName);
         tabPage3.Controls.Add(lblDisplayLink);
         tabPage3.Controls.Add(lblToUpdate);
-        tabPage3.Location = new Point(4, 29);
+        tabPage3.Location = new Point(4, 37);
         tabPage3.Name = "tabPage3";
-        tabPage3.Size = new Size(1070, 478);
+        tabPage3.Size = new Size(1070, 470);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Update";
         tabPage3.UseVisualStyleBackColor = true;
@@ -290,26 +321,68 @@ partial class Form1
         // 
         // tabPage4
         // 
-        tabPage4.Location = new Point(4, 29);
+        tabPage4.Location = new Point(4, 37);
         tabPage4.Name = "tabPage4";
-        tabPage4.Size = new Size(1070, 478);
+        tabPage4.Size = new Size(1070, 470);
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Delete";
         tabPage4.UseVisualStyleBackColor = true;
         // 
-        // btnSave
+        // tabPage5
         // 
-        btnSave.BackColor = Color.DarkSlateGray;
-        btnSave.FlatStyle = FlatStyle.Popup;
-        btnSave.ForeColor = SystemColors.GradientActiveCaption;
-        btnSave.Location = new Point(420, 429);
-        btnSave.Margin = new Padding(4);
-        btnSave.Name = "btnSave";
-        btnSave.Size = new Size(129, 41);
-        btnSave.TabIndex = 11;
-        btnSave.Text = "Save";
-        btnSave.UseVisualStyleBackColor = false;
-        btnSave.Click += btnSave_Click;
+        tabPage5.Controls.Add(label11);
+        tabPage5.Controls.Add(label7);
+        tabPage5.Controls.Add(button4);
+        tabPage5.Controls.Add(textBox2);
+        tabPage5.Location = new Point(4, 37);
+        tabPage5.Name = "tabPage5";
+        tabPage5.Size = new Size(1070, 470);
+        tabPage5.TabIndex = 4;
+        tabPage5.Text = "Category";
+        tabPage5.UseVisualStyleBackColor = true;
+        // 
+        // button4
+        // 
+        button4.BackColor = Color.DarkSlateGray;
+        button4.FlatStyle = FlatStyle.Popup;
+        button4.ForeColor = SystemColors.GradientActiveCaption;
+        button4.Location = new Point(468, 56);
+        button4.Margin = new Padding(4);
+        button4.Name = "button4";
+        button4.Size = new Size(129, 41);
+        button4.TabIndex = 19;
+        button4.Text = "Create";
+        button4.UseVisualStyleBackColor = false;
+        // 
+        // textBox2
+        // 
+        textBox2.BackColor = SystemColors.ButtonHighlight;
+        textBox2.Location = new Point(127, 56);
+        textBox2.Margin = new Padding(4);
+        textBox2.Name = "textBox2";
+        textBox2.Size = new Size(333, 34);
+        textBox2.TabIndex = 18;
+        // 
+        // label7
+        // 
+        label7.AutoSize = true;
+        label7.Font = new Font("Segoe UI", 13.8F);
+        label7.Location = new Point(55, 21);
+        label7.Margin = new Padding(4, 0, 4, 0);
+        label7.Name = "label7";
+        label7.Size = new Size(226, 31);
+        label7.TabIndex = 21;
+        label7.Text = "Create new Category";
+        // 
+        // label11
+        // 
+        label11.AutoSize = true;
+        label11.Location = new Point(55, 59);
+        label11.Margin = new Padding(4, 0, 4, 0);
+        label11.Name = "label11";
+        label11.Size = new Size(64, 28);
+        label11.TabIndex = 24;
+        label11.Text = "Name";
         // 
         // Form1
         // 
@@ -332,6 +405,8 @@ partial class Form1
         tabPage2.PerformLayout();
         tabPage3.ResumeLayout(false);
         tabPage3.PerformLayout();
+        tabPage5.ResumeLayout(false);
+        tabPage5.PerformLayout();
         ResumeLayout(false);
     }
 
@@ -361,4 +436,10 @@ partial class Form1
     private TextBox tbNewFeedName;
     private Label label6;
     private Button btnSave;
+    private Label tbeEmptyName;
+    private TabPage tabPage5;
+    private Label label11;
+    private Label label7;
+    private Button button4;
+    private TextBox textBox2;
 }

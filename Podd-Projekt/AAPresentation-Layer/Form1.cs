@@ -9,7 +9,7 @@ namespace AAPresentation_Layer
     {
         private IService service;//Dependcy injection måste, ej gjort
         private IPodFeedService pfService;
-        private List<Pod> podList;
+        private PodFeed pf;
         public Form1(IService service, IPodFeedService pFs)
         {
             this.service = service;
@@ -20,13 +20,14 @@ namespace AAPresentation_Layer
 
         private async void button1_Click(object sender, EventArgs e) //I Start tab, Search knapp
         {
-            PodFeed pf = new(); //En feed att använda
+            pf = new(); //En feed att använda
             pf.Link = tbLink.Text; //Rss feed i form av länk användaren vill se
-            podList = await service.ReadAllPodAsync(pf); //Fyll listan med Pod objekt från länken
+            pf.podList = await service.ReadAllPodAsync(pf); //Fyll listan med Pod objekt från länken
 
-            foreach (Pod p in podList)
+            foreach (Pod p in pf.podList)
             {
                 lbSearchedResults.Items.Add(p);
+                p.LinkRef = pf.Link;
             }
 
             lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
@@ -34,7 +35,7 @@ namespace AAPresentation_Layer
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)//I Start Tabben
         {
-            Pod p = podList[lbSearchedResults.SelectedIndex];//Välj motsvarande index i listBox från podList
+            Pod p = pf.podList[lbSearchedResults.SelectedIndex];//Välj motsvarande index i listBox från podList
             rtbSearchedPodInfo.Text = $"{p.Link}"; //Det som visas i richTextBox när vi valt en pod i listBox
         }
 
@@ -50,6 +51,12 @@ namespace AAPresentation_Layer
 
         private void btnSave_Click(object sender, EventArgs e)//I start tab, 
         {
+            if(tbNewFeedName.Text != string.Empty)
+            {
+                pf.Name = tbNewFeedName.Text;
+                pfService.AddPodFeedAsync(pf);
+            }
+            else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
 
         }
     }
