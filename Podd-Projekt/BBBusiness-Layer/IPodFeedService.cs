@@ -1,5 +1,4 @@
 ﻿using DDModels;
-using CCData_Access_Layer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +12,11 @@ namespace BBBusiness_Layer
         Task AddPodFeedAsync(PodFeed pf);
         Task<PodFeed?> GetPodFeedAsync(string id);
         Task<List<PodFeed>> GetAllAsync();
-        //Task<bool> UpdateNameAsync(PodFeed pf, string newName);
-        //Task<bool> UpdateCategoryAsync(PodFeed pf, string newCategory);
-        Task<bool> UpdatePodFeedAsync(PodFeed pf, string newName, string newCategory);
+        Task<bool> UpdatePodFeedAsync(PodFeed pf, string newName, string newCategoryId);
         Task DeletePodFeedAsync(string id);
+        Task<List<PodFeed>> GetByCategoryAsync(string categoryId);
+        Task<bool> UpdateCategoryAsync(string podFeedId, string newCategoryId);
+        Task<List<PodFeed>> GetUncategorizedAsync();
+        Task<bool> UpdateNameAsync(string podFeedId, string newName);
     }
 }
