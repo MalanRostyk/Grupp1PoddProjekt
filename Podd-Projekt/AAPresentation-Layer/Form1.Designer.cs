@@ -36,6 +36,7 @@ partial class Form1
         label2 = new Label();
         tabControl1 = new TabControl();
         tabPage1 = new TabPage();
+        cbChooseCategory = new ComboBox();
         tbeEmptyName = new Label();
         btnSave = new Button();
         label6 = new Label();
@@ -54,6 +55,7 @@ partial class Form1
         lblToUpdate = new Label();
         tabPage4 = new TabPage();
         tabPage5 = new TabPage();
+        CategoryList = new ListBox();
         tabCreateCategory = new TabControl();
         tabPage7 = new TabPage();
         textBox2 = new TextBox();
@@ -67,7 +69,7 @@ partial class Form1
         tabPage6 = new TabPage();
         label9 = new Label();
         btnDeleteCategory = new Button();
-        CategoryList = new ListBox();
+        btnAddCategoryToPodeFeed = new Button();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
@@ -94,7 +96,7 @@ partial class Form1
         btnSearch.BackColor = Color.DarkSlateGray;
         btnSearch.FlatStyle = FlatStyle.Popup;
         btnSearch.ForeColor = SystemColors.GradientActiveCaption;
-        btnSearch.Location = new Point(420, 359);
+        btnSearch.Location = new Point(355, 359);
         btnSearch.Margin = new Padding(4);
         btnSearch.Name = "btnSearch";
         btnSearch.Size = new Size(129, 41);
@@ -109,7 +111,7 @@ partial class Form1
         tbLink.Location = new Point(17, 362);
         tbLink.Margin = new Padding(4);
         tbLink.Name = "tbLink";
-        tbLink.Size = new Size(395, 34);
+        tbLink.Size = new Size(337, 34);
         tbLink.TabIndex = 2;
         // 
         // rtbSearchedPodInfo
@@ -158,6 +160,8 @@ partial class Form1
         // 
         // tabPage1
         // 
+        tabPage1.Controls.Add(btnAddCategoryToPodeFeed);
+        tabPage1.Controls.Add(cbChooseCategory);
         tabPage1.Controls.Add(tbeEmptyName);
         tabPage1.Controls.Add(btnSave);
         tabPage1.Controls.Add(label6);
@@ -177,6 +181,15 @@ partial class Form1
         tabPage1.Text = "Start";
         tabPage1.UseVisualStyleBackColor = true;
         // 
+        // cbChooseCategory
+        // 
+        cbChooseCategory.FormattingEnabled = true;
+        cbChooseCategory.Location = new Point(557, 359);
+        cbChooseCategory.Name = "cbChooseCategory";
+        cbChooseCategory.Size = new Size(249, 36);
+        cbChooseCategory.TabIndex = 13;
+        cbChooseCategory.SelectedIndexChanged += cbChooseCategory_SelectedIndexChanged;
+        // 
         // tbeEmptyName
         // 
         tbeEmptyName.AutoSize = true;
@@ -190,7 +203,7 @@ partial class Form1
         btnSave.BackColor = Color.DarkSlateGray;
         btnSave.FlatStyle = FlatStyle.Popup;
         btnSave.ForeColor = SystemColors.GradientActiveCaption;
-        btnSave.Location = new Point(420, 429);
+        btnSave.Location = new Point(355, 422);
         btnSave.Margin = new Padding(4);
         btnSave.Name = "btnSave";
         btnSave.Size = new Size(129, 41);
@@ -212,11 +225,12 @@ partial class Form1
         // tbNewFeedName
         // 
         tbNewFeedName.BackColor = SystemColors.ButtonHighlight;
-        tbNewFeedName.Location = new Point(17, 432);
+        tbNewFeedName.Location = new Point(17, 429);
         tbNewFeedName.Margin = new Padding(4);
         tbNewFeedName.Name = "tbNewFeedName";
-        tbNewFeedName.Size = new Size(395, 34);
+        tbNewFeedName.Size = new Size(337, 34);
         tbNewFeedName.TabIndex = 9;
+        tbNewFeedName.TextChanged += tbNewFeedName_TextChanged;
         // 
         // label5
         // 
@@ -224,9 +238,9 @@ partial class Form1
         label5.Location = new Point(17, 400);
         label5.Margin = new Padding(4, 0, 4, 0);
         label5.Name = "label5";
-        label5.Size = new Size(319, 28);
+        label5.Size = new Size(290, 28);
         label5.TabIndex = 8;
-        label5.Text = "Enter category to save RSS Feed as:";
+        label5.Text = "Enter name to save RSS Feed as:";
         // 
         // tabPage2
         // 
@@ -346,12 +360,21 @@ partial class Form1
         // 
         tabPage5.Controls.Add(CategoryList);
         tabPage5.Controls.Add(tabCreateCategory);
-        tabPage5.Location = new Point(4, 37);
+        tabPage5.Location = new Point(4, 29);
         tabPage5.Name = "tabPage5";
-        tabPage5.Size = new Size(1070, 470);
+        tabPage5.Size = new Size(1070, 478);
         tabPage5.TabIndex = 4;
         tabPage5.Text = "Category";
         tabPage5.UseVisualStyleBackColor = true;
+        // 
+        // CategoryList
+        // 
+        CategoryList.FormattingEnabled = true;
+        CategoryList.Location = new Point(607, 61);
+        CategoryList.Name = "CategoryList";
+        CategoryList.Size = new Size(410, 368);
+        CategoryList.TabIndex = 26;
+        CategoryList.SelectedIndexChanged += CategoryList_SelectedIndexChanged;
         // 
         // tabCreateCategory
         // 
@@ -470,9 +493,9 @@ partial class Form1
         // 
         tabPage6.Controls.Add(label9);
         tabPage6.Controls.Add(btnDeleteCategory);
-        tabPage6.Location = new Point(4, 37);
+        tabPage6.Location = new Point(4, 29);
         tabPage6.Name = "tabPage6";
-        tabPage6.Size = new Size(439, 378);
+        tabPage6.Size = new Size(439, 386);
         tabPage6.TabIndex = 3;
         tabPage6.Text = "Delete";
         tabPage6.UseVisualStyleBackColor = true;
@@ -498,14 +521,17 @@ partial class Form1
         btnDeleteCategory.UseVisualStyleBackColor = false;
         btnDeleteCategory.Click += btnDeleteCategory_Click;
         // 
-        // CategoryList
+        // btnAddCategoryToPodeFeed
         // 
-        CategoryList.FormattingEnabled = true;
-        CategoryList.Location = new Point(607, 61);
-        CategoryList.Name = "CategoryList";
-        CategoryList.Size = new Size(410, 368);
-        CategoryList.TabIndex = 26;
-        CategoryList.SelectedIndexChanged += CategoryList_SelectedIndexChanged;
+        btnAddCategoryToPodeFeed.BackColor = Color.DarkSlateGray;
+        btnAddCategoryToPodeFeed.ForeColor = SystemColors.ActiveCaption;
+        btnAddCategoryToPodeFeed.Location = new Point(557, 420);
+        btnAddCategoryToPodeFeed.Name = "btnAddCategoryToPodeFeed";
+        btnAddCategoryToPodeFeed.Size = new Size(249, 43);
+        btnAddCategoryToPodeFeed.TabIndex = 14;
+        btnAddCategoryToPodeFeed.Text = "Add Category";
+        btnAddCategoryToPodeFeed.UseVisualStyleBackColor = false;
+        btnAddCategoryToPodeFeed.Click += btnAddCategoryToPodeFeed_Click;
         // 
         // Form1
         // 
@@ -581,4 +607,6 @@ partial class Form1
     private Label label9;
     private Button btnDeleteCategory;
     private ListBox CategoryList;
+    private ComboBox cbChooseCategory;
+    private Button btnAddCategoryToPodeFeed;
 }

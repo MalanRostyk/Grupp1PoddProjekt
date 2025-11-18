@@ -57,15 +57,23 @@ namespace AAPresentation_Layer
 
         }
 
-        private void btnSave_Click(object sender, EventArgs e)//I start tab, 
+        private void btnSave_Click(object sender, EventArgs e)//I start tab, spara feed
         {
             if (tbNewFeedName.Text != string.Empty)
             {
                 pf.Name = tbNewFeedName.Text;
+                
+                pf.CategoryId = GetCategoryName();
+
                 pfService.AddPodFeedAsync(pf);
             }
             else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
+        }
 
+        private string GetCategoryName()
+        {
+            Category selectedCat = (Category)cbChooseCategory.SelectedItem;
+            return selectedCat.Name; 
         }
 
         private void rrr(object sender, EventArgs e)
@@ -76,9 +84,22 @@ namespace AAPresentation_Layer
         {
 
         }
-        private void button4_Click(object sender, EventArgs e)//skapa categori knapp
+        private async void button4_Click(object sender, EventArgs e)//skapa categori knapp
         {
-
+            try
+            {
+                var name = textBox2.Text;
+                if (name != string.Empty)
+                {
+                    Category c = new Category() { Name = name };
+                    await catService.AddCategoryAsync(c);
+                    await DisplayCategories();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)//tbUpdateCategory
@@ -86,14 +107,45 @@ namespace AAPresentation_Layer
 
         }
 
-        private void btnUpdateCategory_Click(object sender, EventArgs e)//uppdatera categori knapp
+        private async void btnUpdateCategory_Click(object sender, EventArgs e)//uppdatera categori knapp
         {
+            try
+            {
 
+                var name = textBox1.Text;
+                if (!(CategoryList.SelectedItem is Category selectedCat))
+                {
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    return;
+                }
+                selectedCat.Name = name;
+                await catService.UpdateCategoryAsync(selectedCat);
+                await DisplayCategories();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void btnDeleteCategory_Click(object sender, EventArgs e)//ta bort categori knapp
+        private async void btnDeleteCategory_Click(object sender, EventArgs e)//ta bort categori knapp
         {
-
+            try
+            {
+                if (CategoryList.SelectedItem is not Category selectedCat)
+                {
+                    return;
+                }
+                await catService.DeleteCategoryAsync(selectedCat.Id);
+                await DisplayCategories();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void CategoryList_SelectedIndexChanged(object sender, EventArgs e)//listbox category
@@ -101,13 +153,48 @@ namespace AAPresentation_Layer
 
         }
 
-        private async void DisplayCategories()
+        private async Task DisplayCategories()
         {
-            List<Category> categories = await catService.GetAllCategoriesAsync();
-            CategoryList.DataSource = categories;
-            CategoryList.DisplayMember = "Name";
-            
+            try
+            {
+                CategoryList.DataSource = null;
+                cbChooseCategory.DataSource = null;
+                List<Category> categories = await catService.GetAllCategoriesAsync();
+                CategoryList.DataSource = categories;
+                CategoryList.DisplayMember = "Name";
+                cbChooseCategory.DataSource = categories;
+                cbChooseCategory.DisplayMember = "Name";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
 
+            }
+        }
+
+
+
+        private void tbNewFeedName_TextChanged(object sender, EventArgs e)//tbNewFeedName
+        {
+
+        }
+
+
+        private void cbChooseCategory_SelectedIndexChanged(object sender, EventArgs e)//combobox choose category
+        {
+
+        }
+
+        private async void btnAddCategoryToPodeFeed_Click(object sender, EventArgs e)//add category to podfeed knapp
+        {
+            //pf = new ();
+            //if (cbChooseCategory.SelectedItem is not Category selectedCat)
+            //{
+            //    return;
+            //}
+            //pf.CategoryId = selectedCat.Name;
+            
+            //await pfService.AddPodFeedAsync(pf);
         }
     }
 }
