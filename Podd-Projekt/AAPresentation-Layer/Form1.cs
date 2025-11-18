@@ -2,6 +2,7 @@ using BBBusiness_Layer;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using DDModels;
+using System.Diagnostics;
 
 namespace AAPresentation_Layer
 {
@@ -62,27 +63,25 @@ namespace AAPresentation_Layer
             if (tbNewFeedName.Text != string.Empty)
             {
                 pf.Name = tbNewFeedName.Text;
-                
-                pf.CategoryId = GetCategoryName();
+
+                if(cbChooseCategory.SelectedItem is not Category selectedCat)
+                {
+                    return;
+                }
+                pf.CategoryId = selectedCat.Id;
 
                 pfService.AddPodFeedAsync(pf);
             }
             else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
         }
 
-        private string GetCategoryName()
-        {
-            Category selectedCat = (Category)cbChooseCategory.SelectedItem;
-            return selectedCat.Name; 
-        }
+       
 
         private void rrr(object sender, EventArgs e)
         {
-
         }
         private void textBox2_TextChanged(object sender, EventArgs e)//tbcreate category
         {
-
         }
         private async void button4_Click(object sender, EventArgs e)//skapa categori knapp
         {
@@ -104,14 +103,12 @@ namespace AAPresentation_Layer
 
         private void textBox1_TextChanged(object sender, EventArgs e)//tbUpdateCategory
         {
-
         }
 
         private async void btnUpdateCategory_Click(object sender, EventArgs e)//uppdatera categori knapp
         {
             try
             {
-
                 var name = textBox1.Text;
                 if (!(CategoryList.SelectedItem is Category selectedCat))
                 {
@@ -119,6 +116,13 @@ namespace AAPresentation_Layer
                 }
                 if (string.IsNullOrWhiteSpace(name))
                 {
+                    return;
+                }
+                List<Category> cats = await catService.GetAllCategoriesAsync();
+                var resultat = cats.Count(c => c.Name == name);
+                if(resultat > 0)
+                {
+                    Debug.WriteLine("går inte ändra till samma namn");
                     return;
                 }
                 selectedCat.Name = name;
@@ -150,7 +154,6 @@ namespace AAPresentation_Layer
 
         private void CategoryList_SelectedIndexChanged(object sender, EventArgs e)//listbox category
         {
-
         }
 
         private async Task DisplayCategories()
@@ -168,7 +171,6 @@ namespace AAPresentation_Layer
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
         }
 
@@ -176,25 +178,15 @@ namespace AAPresentation_Layer
 
         private void tbNewFeedName_TextChanged(object sender, EventArgs e)//tbNewFeedName
         {
-
         }
 
 
         private void cbChooseCategory_SelectedIndexChanged(object sender, EventArgs e)//combobox choose category
         {
-
         }
 
         private async void btnAddCategoryToPodeFeed_Click(object sender, EventArgs e)//add category to podfeed knapp
         {
-            //pf = new ();
-            //if (cbChooseCategory.SelectedItem is not Category selectedCat)
-            //{
-            //    return;
-            //}
-            //pf.CategoryId = selectedCat.Name;
-            
-            //await pfService.AddPodFeedAsync(pf);
         }
     }
 }
