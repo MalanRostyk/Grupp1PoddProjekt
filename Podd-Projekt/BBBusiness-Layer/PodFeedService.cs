@@ -1,51 +1,74 @@
-﻿using System;
+﻿using CCData_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
 using DDModels;
-using CCData_Access_Layer;
 using MongoDB.Driver;
-using System.ServiceModel.Syndication;
+using System.Diagnostics;
 
 namespace BBBusiness_Layer
 {
-    public class PodFeedService : AAAIPodFeedService //IPodFeedService
+    public class PodFeedService : IPodFeedService
     {
-        public readonly AAAIPodFeedRepository podRepo;
+        private readonly PodFeedRepository pfRepo;
 
-        public PodFeedService(AAAIPodFeedRepository podRepo)
+        public PodFeedService(PodFeedRepository pfRepository)
         {
-            this.podRepo = podRepo;
+            pfRepo = pfRepository;
         }
-        //C
-        public async Task AddPodAsync(string rssUrl)
-        {
-            using var reader = XmlReader.Create(rssUrl);
-            var feed = SyndicationFeed.Load(reader);
 
-            var newPod = new Pod();
-            await podRepo.AddAsync(newPod);
-        }
-        //R
-        public async Task<List<Pod>> GetPodsAsync() => await podRepo.GetAllAsync();
-        //U
-        public async Task<bool> UpdatePodAsync(string oldTitle, string newTitle)
+        public async Task AddPodFeedAsync(PodFeed pf) => await pfRepo.AddAsync(pf);
+        public async Task<PodFeed?> GetPodFeedAsync(string id)
         {
-            var feeds = await podRepo.GetAllAsync();
-            var podToUpdate = feeds.FirstOrDefault(p => p.PodName == oldTitle);
-            if(podToUpdate != null)
+            PodFeed? p = null;
+            try
             {
-                podToUpdate.PodName = newTitle;
-                return await podRepo.UpdateAsync(podToUpdate);
+                p = await pfRepo.GetAsync(id);
             }
-            return false;
-        } 
-        //D
-        public async Task DeletePodAsync(string id) => await podRepo.DeleteAsync(id);
+            catch (NullReferenceException e)
+            {
+                Debug.WriteLine(e.Message);
+            }
 
-        //R
-        public async Task<Pod?> GetPodAsync(string id) => await podRepo.GetOneAsync(id);
+            return p;
+        }
+        public async Task<List<PodFeed>> GetAllAsync() => await pfRepo.GetAllAsync();
+        //public async Task<bool> UpdateNameAsync(PodFeed pf, string newName)
+        //{
+        //    bool wasUpdated = false;
+        //    PodFeed p = await pfRepo.GetAsync(pf.Id); //Hämta dok som PodFeed
+        //    p.Name = newName;//Ändra det som ska ändras
+        //    wasUpdated = await pfRepo.UpdateAsync(p);//Skicka tillbaks PodFeed och gör uppdatering
+        //    return wasUpdated;
+        //}
+        //public async Task<bool> UpdateCategoryAsync(PodFeed pf, string newCategory)
+        //{
+        //    bool wasUpdated = false;
+        //    PodFeed p = await pfRepo.GetAsync(pf.Id); //Hämta dok som PodFeed
+        //    p.Name = newCategory;//Ändra det som ska ändras
+        //    wasUpdated = await pfRepo.UpdateAsync(p);//Skicka tillbaks PodFeed och gör uppdatering
+        //    return wasUpdated;
+        //}
+
+        public async Task<bool> UpdatePodFeedAsync(PodFeed pf, string newName, string newCategory)
+        {
+            bool wasUpdated = false;
+            try
+            {
+                PodFeed p = await pfRepo.GetAsync(pf.Id);
+                p.Name = newName;
+                p.CategoryId = newCategory;
+
+                wasUpdated = await pfRepo.UpdateAsync(p);
+            }catch(NullReferenceException e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            return wasUpdated;
+        }
+        public async Task DeletePodFeedAsync(string id) => await pfRepo.DeleteAsync(id);
+
     }
 }

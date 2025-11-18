@@ -1,104 +1,63 @@
 using BBBusiness_Layer;
-using DDModels;
-using CCData_Access_Layer;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using DDModels;
 
 namespace AAPresentation_Layer
 {
     public partial class Form1 : Form
     {
-        public delegate void RefreshDelegat();
-        public event RefreshDelegat refreshEvent;
-
-        //Data dependency injection 
-        AAAIPodFeedService podFeedService = new PodFeedService(new PodFeedRepository());
-        
-        List<string> participantsList = new();
-        public Form1()
+        private IService service;//Dependcy injection måste, ej gjort
+        private IPodFeedService pfService;
+        private PodFeed pf;
+        public Form1(IService service, IPodFeedService pFs)
         {
+            this.service = service;
+            pfService = pFs;
             InitializeComponent();
-            FillListBoxAll();
-            refreshEvent += ClearForRefresh;
-            refreshEvent += FillListBoxAll;
-
         }
 
-        private async void FillListBoxAll()
-        {
-            List<Pod> podList = await podFeedService.GetPodsAsync();
 
-            foreach (Pod enPod in podList)
+        private async void button1_Click(object sender, EventArgs e) //I Start tab, Search knapp
+        {
+            pf = new(); //En feed att använda
+            pf.Link = tbLink.Text; //Rss feed i form av länk användaren vill se
+            pf.podList = await service.ReadAllPodAsync(pf); //Fyll listan med Pod objekt från länken
+
+            foreach (Pod p in pf.podList)
             {
-                listBox2.Items.Add(enPod.GetAllPodInfo());
-            }
-        }
-
-        private void ClearForRefresh()
-        {
-            listBox2.Items.Clear();
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            textBox6.Clear();
-        }
-
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            await podFeedService.AddPodAsync(new Pod(
-                textBox1.Text,
-                textBox2.Text,
-                participantsList,
-                textBox4.Text,
-                textBox5.Text,
-                double.Parse(textBox6.Text.ToString())));
-            listBox1.Items.Clear();
-            Pod? enPod = await podFeedService.GetPodAsync("3");
-            refreshEvent?.Invoke();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            participantsList.Add(textBox3.Text);
-            FillListBoxAddParticipants();
-            textBox3.Clear();
-        }
-
-        private void FillListBoxAddParticipants()
-        {
-            listBox1.Items.Clear();
-            foreach (string participant in participantsList)
-            {
-                listBox1.Items.Add(participant);
+                lbSearchedResults.Items.Add(p);
+                p.LinkRef = pf.Link;
             }
 
+            lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
         }
 
-        private async void button3_Click(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)//I Start Tabben
         {
-            //if (textBox1.Text != null | textBox1.Text != "")
-            //{
-            //    Pod podBefore = await podFeedService.GetPodAsync(textBox1.Text);
-            //    List<string> participantsBefore = podBefore.Participants;
-            //    Pod podAfter = new Pod(
-            //        podBefore.Id,
-            //        textBox2.Text,
-            //        podBefore.Participants,
-            //        podBefore.Category,
-            //        podBefore.Info,
-            //        podBefore.Duration
-            //    );
-            //    await podFeedService.UpdatePodAsync(podAfter);
-            //    refreshEvent?.Invoke();
-            //}
+            Pod p = pf.podList[lbSearchedResults.SelectedIndex];//Välj motsvarande index i listBox från podList
+            rtbSearchedPodInfo.Text = $"{p.Link}"; //Det som visas i richTextBox när vi valt en pod i listBox
         }
 
-        private async void button4_Click(object sender, EventArgs e)
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e) //I Start tabben
         {
-            await podFeedService.DeletePodAsync(textBox1.Text);
-            refreshEvent?.Invoke();
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)//I start tab, 
+        {
+            if(tbNewFeedName.Text != string.Empty)
+            {
+                pf.Name = tbNewFeedName.Text;
+                pfService.AddPodFeedAsync(pf);
+            }
+            else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
+
         }
     }
 }

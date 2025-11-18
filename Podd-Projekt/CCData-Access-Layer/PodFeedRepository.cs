@@ -1,60 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
-using BBBusiness_Layer;
 using DDModels;
 using MongoDB.Driver;
 
 namespace CCData_Access_Layer
 {
-    public class PodFeedRepository : AAAIPodFeedRepository //IRepository<Pod>
+    public class PodFeedRepository
     {
-        public readonly IMongoCollection<Pod> podRepo;
+        public IMongoClient dbClient;
+        public readonly IMongoCollection<PodFeed> pfCollection;
+
         public PodFeedRepository()
         {
-            var client = new MongoClient("mongodb+srv://OruMongoDBAdmin:qwe123@orumongodb.88ybr1l.mongodb.net/?appName=OruMongoDB");
-            var database = client.GetDatabase("PoddersDB");
-            podRepo = database.GetCollection<Pod>("podders");
+            dbClient = new MongoClient("mongodb+srv://OruMongoDBAdmin:qwe123@orumongodb.88ybr1l.mongodb.net/?appName=OruMongoDB");
+            var db = dbClient.GetDatabase("PodderDB");
+            pfCollection = db.GetCollection<PodFeed>("Podders");
         }
-
-        //C
-        public async Task AddAsync(Pod p) => await podRepo.InsertOneAsync(p);
-
-        //R
-        public async Task<List<Pod>> GetAllAsync() => await podRepo.Find(FilterDefinition<Pod>.Empty).ToListAsync();
-        //U
-        public async Task<bool> UpdateAsync(Pod p)
+        public async Task AddAsync(PodFeed pf)// Använder transaktion
         {
-            var filter = Builders<Pod>.Filter.Eq(pod => pod.Id, p.Id);
-            var update = await podRepo.ReplaceOneAsync(filter, p);
-            return update.MatchedCount == 1 & update.ModifiedCount == 1;
+            using (var session = dbClient.StartSession())
+            {
+                session.StartTransaction();
+                try
+                {
+                    await pfCollection.InsertOneAsync(pf);
+                    session.CommitTransaction();
+
+                }catch(Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                    session.AbortTransaction();
+                }
+            }
         }
-        //D
-        public async Task DeleteAsync(string id)
+        public async Task<PodFeed?> GetAsync(string id)//Dirty read?
         {
-            var filter = Builders<Pod>.Filter.Eq(p => p.Id, id);
-            await podRepo.DeleteOneAsync(filter);
+            var filter = Builders<PodFeed>.Filter.Eq(pf => pf.Id, id);
+            return await pfCollection.Find(filter).FirstOrDefaultAsync();
         }
-        //R
-        public async Task<Pod?> GetOneAsync(string id)
+        public async Task<List<PodFeed>> GetAllAsync() => await pfCollection.Find(FilterDefinition<PodFeed>.Empty).ToListAsync();
+        public async Task<bool> UpdateAsync(PodFeed pf)//Använder transaktion
         {
-            var filter = Builders<Pod>.Filter.Eq(p => p.Id, id);
-            return await podRepo.Find(filter).FirstOrDefaultAsync();
+            bool isUpdated = false;
+            using (var session = dbClient.StartSession())
+            {
+                session.StartTransaction();
+                try
+                {
+                    var filter = Builders<PodFeed>.Filter.Eq(p => p.Id, pf.Id);
+                    var update = await pfCollection.ReplaceOneAsync(filter, pf);
+                    isUpdated = update.MatchedCount == 1 && update.ModifiedCount == 1;
+                    session.CommitTransaction();
+                }catch(NullReferenceException e)//Kan bli null? för dirty read, kom tillbaka tänk igenom.
+                {
+                    session.AbortTransaction();
+                }catch(Exception e)
+                {
+                    session.AbortTransaction();
+                }
+            }
+            return isUpdated;
         }
-
-        //För Deserialisering av XML
-
-        //public async Task<List<Pod>> Deserialisera()
-        //{
-        //    XmlSerializer xmlSerializer = new(typeof(List<Pod>));
-        //    using (FileStream fs = new("C:\\PodXml\\MyCurrent.xml", FileMode.Open, FileAccess.Read))
-        //    {
-
-        //    }
-        //}
-
+        public async Task DeleteAsync(string id)//Använder transaktion
+        {
+            using (var session = dbClient.StartSession())
+            {
+                session.StartTransaction();
+                try
+                {
+                    var filter = Builders<PodFeed>.Filter.Eq(p => p.Id, id);
+                    await pfCollection.DeleteOneAsync(filter);
+                    session.CommitTransaction();
+                }catch(Exception e)
+                {
+                    session.AbortTransaction();
+                    Debug.WriteLine(e.Message);
+                }
+            }
+        }
     }
 }

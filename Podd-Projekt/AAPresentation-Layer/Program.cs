@@ -1,3 +1,6 @@
+using BBBusiness_Layer;
+using CCData_Access_Layer;
+
 namespace AAPresentation_Layer
 {
     internal static class Program
@@ -8,12 +11,15 @@ namespace AAPresentation_Layer
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            //HttpClient client = new();
+            //var rssClient = new RssPodClient(client);
+            //PodFeedRepository pfRepo = new();
 
-            //ändrat igen 2
+            IService service = new Service(new RssPodClient(new HttpClient()));//Dependency Injection
+            IPodFeedService pfService = new PodFeedService(new PodFeedRepository());//Dependency Injection
+
+            ApplicationConfiguration.Initialize();
+            Application.Run(new Form1(service, pfService));
         }
     }
 }
