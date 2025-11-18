@@ -54,6 +54,7 @@ partial class Form1
         lblToUpdate = new Label();
         tabPage4 = new TabPage();
         tabPage5 = new TabPage();
+        label13 = new Label();
         label12 = new Label();
         tabControl2 = new TabControl();
         tabPage6 = new TabPage();
@@ -70,7 +71,7 @@ partial class Form1
         button2 = new Button();
         label10 = new Label();
         listBox2 = new ListBox();
-        label13 = new Label();
+        comboBox1 = new ComboBox();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
@@ -162,6 +163,7 @@ partial class Form1
         // 
         // tabPage1
         // 
+        tabPage1.Controls.Add(comboBox1);
         tabPage1.Controls.Add(tbeEmptyName);
         tabPage1.Controls.Add(btnSave);
         tabPage1.Controls.Add(label6);
@@ -359,6 +361,15 @@ partial class Form1
         tabPage5.Text = "Category";
         tabPage5.UseVisualStyleBackColor = true;
         // 
+        // label13
+        // 
+        label13.AutoSize = true;
+        label13.Location = new Point(576, 334);
+        label13.Name = "label13";
+        label13.Size = new Size(344, 28);
+        label13.TabIndex = 35;
+        label13.Text = "När man klickar på ett index i list bosh";
+        // 
         // label12
         // 
         label12.AutoSize = true;
@@ -501,9 +512,9 @@ partial class Form1
         // 
         tabPage8.Controls.Add(button2);
         tabPage8.Controls.Add(label10);
-        tabPage8.Location = new Point(4, 29);
+        tabPage8.Location = new Point(4, 37);
         tabPage8.Name = "tabPage8";
-        tabPage8.Size = new Size(389, 371);
+        tabPage8.Size = new Size(389, 363);
         tabPage8.TabIndex = 2;
         tabPage8.Text = "Delete";
         tabPage8.UseVisualStyleBackColor = true;
@@ -542,14 +553,13 @@ partial class Form1
         listBox2.TabIndex = 25;
         listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged_1;
         // 
-        // label13
+        // comboBox1
         // 
-        label13.AutoSize = true;
-        label13.Location = new Point(576, 334);
-        label13.Name = "label13";
-        label13.Size = new Size(344, 28);
-        label13.TabIndex = 35;
-        label13.Text = "När man klickar på ett index i list bosh";
+        comboBox1.FormattingEnabled = true;
+        comboBox1.Location = new Point(579, 364);
+        comboBox1.Name = "comboBox1";
+        comboBox1.Size = new Size(151, 36);
+        comboBox1.TabIndex = 13;
         // 
         // Form1
         // 
@@ -629,4 +639,5 @@ partial class Form1
     private Label label10;
     private Label label12;
     private Label label13;
+    private ComboBox comboBox1;
 }

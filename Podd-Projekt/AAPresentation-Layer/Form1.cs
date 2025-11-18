@@ -1,5 +1,6 @@
 using BBBusiness_Layer;
 using DDModels;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -29,13 +30,14 @@ namespace AAPresentation_Layer
         }
 
 
-        //private void ClearListBox2() => listBox2.Items.Clear();
+        
         private void ClearListBox2() => listBox2.DataSource = null;
         private async void DisplayAllCategoryData()
         {
             List<Category> catList = await catService.GetAllCategoriesAsync();
             listBox2.DataSource = catList;
             listBox2.DisplayMember = "Name";
+            comboBox1.DataSource = catList;
         }
         private async void DisplayAllCategory()
         {
@@ -75,14 +77,19 @@ namespace AAPresentation_Layer
 
         }
 
-        private void btnSave_Click(object sender, EventArgs e)//I start tab, 
+        private async void btnSave_Click(object sender, EventArgs e)//I start tab, 
         {
             if (tbNewFeedName.Text != string.Empty)
             {
                 pf.Name = tbNewFeedName.Text;
-                pfService.AddPodFeedAsync(pf);
+                if(comboBox1.SelectedItem is not Category selectedCat)
+                {
+
+                }
+                await pfService.AddPodFeedAsync(pf);
             }
             else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
+            
 
         }
 
@@ -119,14 +126,26 @@ namespace AAPresentation_Layer
 
             try
             {
-
                 if(listBox2.SelectedItem is not Category selectedCat)
                 {
                     return;
                 }
-                
+
                 selectedCat.Name = tbCategoryUpdate.Text;
                 await catService.UpdateCategoryAsync(selectedCat);
+
+                List<PodFeed> pfLista = await pfService.GetAllAsync();
+
+                var query = pfLista.Where(p => p.CategoryId == selectedCat.Name)
+                    .Select(p => p);
+
+                if (query.Any())
+                {
+                    foreach (var pf in query)
+                    {
+                        await pfService.UpdatePodFeedAsync(pf, selectedCat.Name);
+                    }
+                }
             }
             catch (Exception ec) { Debug.WriteLine("Engine e kaput"); }
             refreshEvent?.Invoke();
