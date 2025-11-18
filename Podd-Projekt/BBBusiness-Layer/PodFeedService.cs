@@ -73,16 +73,22 @@ namespace BBBusiness_Layer
             bool wasUpdated = false;
             try
             {
-                PodFeed p = await pfRepo.GetAsync(pf.Id);
-                p.CategoryId = newCategory;
+                PodFeed newPf = new();
+                newPf.Id = pf.Id;
+                newPf.Link = pf.Link;
+                newPf.podList = pf.podList;
+                newPf.Name = pf.Name;
+                newPf.CategoryId = newCategory;
 
-                wasUpdated = await pfRepo.UpdateAsync(p);
+                wasUpdated = await pfRepo.UpdateAsync(newPf);
             }catch(NullReferenceException e)
             {
                 Debug.WriteLine(e.Message);
+
             }
             return wasUpdated;
         }
+
         public async Task DeletePodFeedAsync(string id) => await pfRepo.DeleteAsync(id);
 
     }

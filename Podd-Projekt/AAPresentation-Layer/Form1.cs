@@ -30,7 +30,7 @@ namespace AAPresentation_Layer
         }
 
 
-        
+
         private void ClearListBox2() => listBox2.DataSource = null;
         private async void DisplayAllCategoryData()
         {
@@ -38,6 +38,7 @@ namespace AAPresentation_Layer
             listBox2.DataSource = catList;
             listBox2.DisplayMember = "Name";
             comboBox1.DataSource = catList;
+            comboBox1.DisplayMember = "Name";
         }
         private async void DisplayAllCategory()
         {
@@ -82,14 +83,15 @@ namespace AAPresentation_Layer
             if (tbNewFeedName.Text != string.Empty)
             {
                 pf.Name = tbNewFeedName.Text;
-                if(comboBox1.SelectedItem is not Category selectedCat)
+                if (comboBox1.SelectedItem is Category selectedCat)
                 {
 
+                    pf.CategoryId = selectedCat.Name;
                 }
                 await pfService.AddPodFeedAsync(pf);
             }
             else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
-            
+
 
         }
 
@@ -113,38 +115,23 @@ namespace AAPresentation_Layer
 
         private async void btnUpdateCategory_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    c.Name = tbCategoryUpdate.Text;
-            //    Category updCat = new();
-            //    updCat.Id = c.Id;
-            //    updCat.Name = c.Name;
-            //    await catService.UpdateCategoryAsync(updCat);
-            //    refreshEvent?.Invoke();
-            //}catch(Exception ec) { Debug.WriteLine("Engine e kaput"); }
-
-
             try
             {
-                if(listBox2.SelectedItem is not Category selectedCat)
+                if (listBox2.SelectedItem is Category selectedCat)
                 {
-                    return;
-                }
+                    List<PodFeed> pfLista = await pfService.GetAllAsync();
 
-                selectedCat.Name = tbCategoryUpdate.Text;
-                await catService.UpdateCategoryAsync(selectedCat);
+                    var query = from enPf in pfLista
+                                where enPf.CategoryId.Equals(selectedCat.Name)
+                                select enPf;
 
-                List<PodFeed> pfLista = await pfService.GetAllAsync();
-
-                var query = pfLista.Where(p => p.CategoryId == selectedCat.Name)
-                    .Select(p => p);
-
-                if (query.Any())
-                {
-                    foreach (var pf in query)
+                    foreach(var enPf in query)
                     {
-                        await pfService.UpdatePodFeedAsync(pf, selectedCat.Name);
+                        await pfService.UpdatePodFeedAsync(enPf, tbCategoryUpdate.Text);
+
                     }
+                    selectedCat.Name = tbCategoryUpdate.Text;
+                    await catService.UpdateCategoryAsync(selectedCat);
                 }
             }
             catch (Exception ec) { Debug.WriteLine("Engine e kaput"); }
@@ -156,13 +143,22 @@ namespace AAPresentation_Layer
 
             try
             {
-                if(listBox2.SelectedItem is not Category selectedCat)
+                if (listBox2.SelectedItem is Category selectedCat)
                 {
                     Debug.WriteLine("Knappen klickades innan Category var vald");
-                    return;
+
+                    List<PodFeed> pfLista = await pfService.GetAllAsync();
+
+                    var query = pfLista.Where(p => p.CategoryId == selectedCat.Name);
+
+                    foreach(var pf in query)
+                    {
+                        await pfService.UpdatePodFeedAsync(pf, "Uncategorized");
+                    }
+                    
+                    await catService.DeleteCategoryAsync(selectedCat.Id);
                 }
-                await catService.DeleteCategoryAsync(selectedCat.Id);
-                
+
             }
             catch (Exception ec) { Debug.WriteLine(ec.Message); }
             refreshEvent?.Invoke();

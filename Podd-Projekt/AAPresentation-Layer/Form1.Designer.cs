@@ -36,6 +36,7 @@ partial class Form1
         label2 = new Label();
         tabControl1 = new TabControl();
         tabPage1 = new TabPage();
+        comboBox1 = new ComboBox();
         tbeEmptyName = new Label();
         btnSave = new Button();
         label6 = new Label();
@@ -71,7 +72,6 @@ partial class Form1
         button2 = new Button();
         label10 = new Label();
         listBox2 = new ListBox();
-        comboBox1 = new ComboBox();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
@@ -182,6 +182,14 @@ partial class Form1
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Start";
         tabPage1.UseVisualStyleBackColor = true;
+        // 
+        // comboBox1
+        // 
+        comboBox1.FormattingEnabled = true;
+        comboBox1.Location = new Point(557, 362);
+        comboBox1.Name = "comboBox1";
+        comboBox1.Size = new Size(354, 36);
+        comboBox1.TabIndex = 13;
         // 
         // tbeEmptyName
         // 
@@ -552,14 +560,6 @@ partial class Form1
         listBox2.Size = new Size(405, 256);
         listBox2.TabIndex = 25;
         listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged_1;
-        // 
-        // comboBox1
-        // 
-        comboBox1.FormattingEnabled = true;
-        comboBox1.Location = new Point(579, 364);
-        comboBox1.Name = "comboBox1";
-        comboBox1.Size = new Size(151, 36);
-        comboBox1.TabIndex = 13;
         // 
         // Form1
         // 

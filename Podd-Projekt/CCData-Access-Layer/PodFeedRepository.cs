@@ -27,7 +27,7 @@ namespace CCData_Access_Layer
                 session.StartTransaction();
                 try
                 {
-                    await pfCollection.InsertOneAsync(pf);
+                    await pfCollection.InsertOneAsync(session, pf);
                     session.CommitTransaction();
 
                 }catch(Exception e)
@@ -43,6 +43,8 @@ namespace CCData_Access_Layer
             return await pfCollection.Find(filter).FirstOrDefaultAsync();
         }
         public async Task<List<PodFeed>> GetAllAsync() => await pfCollection.Find(FilterDefinition<PodFeed>.Empty).ToListAsync();
+       
+        
         public async Task<bool> UpdateAsync(PodFeed pf)//Använder transaktion
         {
             bool isUpdated = false;
@@ -65,6 +67,7 @@ namespace CCData_Access_Layer
             }
             return isUpdated;
         }
+
         public async Task DeleteAsync(string id)//Använder transaktion
         {
             using (var session = dbClient.StartSession())
@@ -73,7 +76,7 @@ namespace CCData_Access_Layer
                 try
                 {
                     var filter = Builders<PodFeed>.Filter.Eq(p => p.Id, id);
-                    await pfCollection.DeleteOneAsync(filter);
+                    await pfCollection.DeleteOneAsync(session, filter);
                     session.CommitTransaction();
                 }catch(Exception e)
                 {
