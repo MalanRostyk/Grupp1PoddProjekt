@@ -19,6 +19,7 @@ namespace AAPresentation_Layer
         //private Category c;
         public Form1(IService service, IPodFeedService pFs, ICategoryService catService)
         {
+            refreshEvent += FillRegisterListBox;
             refreshEvent += ClearListBox2;
             refreshEvent += DisplayAllCategoryData;
 
@@ -26,6 +27,7 @@ namespace AAPresentation_Layer
             this.catService = catService;
             pfService = pFs;
             InitializeComponent();
+            FillRegisterListBox();
             DisplayAllCategoryData();
         }
 
@@ -40,15 +42,12 @@ namespace AAPresentation_Layer
             comboBox1.DataSource = catList;
             comboBox1.DisplayMember = "Name";
         }
-        private async void DisplayAllCategory()
+        private async void FillRegisterListBox()
         {
-            List<Category> catList = await catService.GetAllCategoriesAsync();
-            foreach (Category c in catList)
-            {
-                listBox2.Items.Add(c);
-            }
+            List<PodFeed> pfList = await pfService.GetAllAsync();
+            listBox1.DataSource = pfList;
 
-            listBox2.DisplayMember = "Name";
+            listBox1.DisplayMember = "Name";
         }
 
 
@@ -92,7 +91,7 @@ namespace AAPresentation_Layer
             }
             else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
 
-
+            refreshEvent?.Invoke();
         }
 
         private async void button4_Click(object sender, EventArgs e)//Category tab, add category
@@ -125,7 +124,7 @@ namespace AAPresentation_Layer
                                 where enPf.CategoryId.Equals(selectedCat.Name)
                                 select enPf;
 
-                    foreach(var enPf in query)
+                    foreach (var enPf in query)
                     {
                         await pfService.UpdatePodFeedAsync(enPf, tbCategoryUpdate.Text);
 
@@ -145,23 +144,55 @@ namespace AAPresentation_Layer
             {
                 if (listBox2.SelectedItem is Category selectedCat)
                 {
-                    Debug.WriteLine("Knappen klickades innan Category var vald");
+                    var confirm = MessageBox.Show(
+                        $"Are you sure you want to delete this category called {selectedCat.Name}?",
+                        "Confirm Deletion of Category",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
 
-                    List<PodFeed> pfLista = await pfService.GetAllAsync();
-
-                    var query = pfLista.Where(p => p.CategoryId == selectedCat.Name);
-
-                    foreach(var pf in query)
+                    if (confirm == DialogResult.Yes)
                     {
-                        await pfService.UpdatePodFeedAsync(pf, "Uncategorized");
+                        List<PodFeed> pfLista = await pfService.GetAllAsync();
+
+                        var query = pfLista.Where(p => p.CategoryId == selectedCat.Name);
+
+                        foreach (var pf in query)
+                        {
+                            await pfService.UpdatePodFeedAsync(pf, "Uncategorized");
+                        }
+
+                        await catService.DeleteCategoryAsync(selectedCat.Id);
                     }
-                    
-                    await catService.DeleteCategoryAsync(selectedCat.Id);
+
                 }
 
             }
             catch (Exception ec) { Debug.WriteLine(ec.Message); }
             refreshEvent?.Invoke();
+        }
+
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem is PodFeed selectedPf)
+            {
+                listBox3.DataSource = selectedPf.podList;
+                listBox3.DisplayMember = "Titel";
+            }
+        }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox3.SelectedItem is Pod selectedPod)
+            {
+                List<string> aPodValues = new();
+                
+                aPodValues.Add($"Id: {selectedPod.Id}");
+                aPodValues.Add($"Titel: {selectedPod.Titel}");
+                aPodValues.Add($"Link: {selectedPod.Link}");
+                aPodValues.Add($"LinkRef: {selectedPod.LinkRef}");
+
+                listBox4.DataSource = aPodValues;
+            }
         }
     }
 }

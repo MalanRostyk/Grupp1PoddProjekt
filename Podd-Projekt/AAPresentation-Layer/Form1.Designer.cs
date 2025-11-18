@@ -43,6 +43,7 @@ partial class Form1
         tbNewFeedName = new TextBox();
         label5 = new Label();
         tabPage2 = new TabPage();
+        listBox3 = new ListBox();
         label4 = new Label();
         listBox1 = new ListBox();
         tabPage3 = new TabPage();
@@ -72,6 +73,7 @@ partial class Form1
         button2 = new Button();
         label10 = new Label();
         listBox2 = new ListBox();
+        listBox4 = new ListBox();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
@@ -244,32 +246,44 @@ partial class Form1
         // 
         // tabPage2
         // 
+        tabPage2.Controls.Add(listBox4);
+        tabPage2.Controls.Add(listBox3);
         tabPage2.Controls.Add(label4);
         tabPage2.Controls.Add(listBox1);
-        tabPage2.Location = new Point(4, 29);
+        tabPage2.Location = new Point(4, 37);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(1070, 478);
+        tabPage2.Size = new Size(1070, 470);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Register";
         tabPage2.UseVisualStyleBackColor = true;
+        // 
+        // listBox3
+        // 
+        listBox3.FormattingEnabled = true;
+        listBox3.Location = new Point(369, 68);
+        listBox3.Name = "listBox3";
+        listBox3.Size = new Size(326, 396);
+        listBox3.TabIndex = 2;
+        listBox3.SelectedIndexChanged += listBox3_SelectedIndexChanged;
         // 
         // label4
         // 
         label4.AutoSize = true;
         label4.Location = new Point(6, 27);
         label4.Name = "label4";
-        label4.Size = new Size(211, 28);
+        label4.Size = new Size(223, 28);
         label4.TabIndex = 1;
-        label4.Text = "My save Podcast Feeds";
+        label4.Text = "My saved Podcast Feeds";
         // 
         // listBox1
         // 
         listBox1.FormattingEnabled = true;
         listBox1.Location = new Point(6, 68);
         listBox1.Name = "listBox1";
-        listBox1.Size = new Size(437, 396);
+        listBox1.Size = new Size(321, 396);
         listBox1.TabIndex = 0;
+        listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged_1;
         // 
         // tabPage3
         // 
@@ -362,9 +376,9 @@ partial class Form1
         tabPage5.Controls.Add(label12);
         tabPage5.Controls.Add(tabControl2);
         tabPage5.Controls.Add(listBox2);
-        tabPage5.Location = new Point(4, 37);
+        tabPage5.Location = new Point(4, 29);
         tabPage5.Name = "tabPage5";
-        tabPage5.Size = new Size(1070, 470);
+        tabPage5.Size = new Size(1070, 478);
         tabPage5.TabIndex = 4;
         tabPage5.Text = "Category";
         tabPage5.UseVisualStyleBackColor = true;
@@ -520,9 +534,9 @@ partial class Form1
         // 
         tabPage8.Controls.Add(button2);
         tabPage8.Controls.Add(label10);
-        tabPage8.Location = new Point(4, 37);
+        tabPage8.Location = new Point(4, 29);
         tabPage8.Name = "tabPage8";
-        tabPage8.Size = new Size(389, 363);
+        tabPage8.Size = new Size(389, 371);
         tabPage8.TabIndex = 2;
         tabPage8.Text = "Delete";
         tabPage8.UseVisualStyleBackColor = true;
@@ -560,6 +574,14 @@ partial class Form1
         listBox2.Size = new Size(405, 256);
         listBox2.TabIndex = 25;
         listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged_1;
+        // 
+        // listBox4
+        // 
+        listBox4.FormattingEnabled = true;
+        listBox4.Location = new Point(724, 68);
+        listBox4.Name = "listBox4";
+        listBox4.Size = new Size(326, 396);
+        listBox4.TabIndex = 3;
         // 
         // Form1
         // 
@@ -640,4 +662,6 @@ partial class Form1
     private Label label12;
     private Label label13;
     private ComboBox comboBox1;
+    private ListBox listBox3;
+    private ListBox listBox4;
 }
