@@ -12,9 +12,9 @@ namespace BBBusiness_Layer
 {
     public class PodFeedService : IPodFeedService
     {
-        private readonly PodFeedRepository pfRepo;
+        private readonly IRepository<PodFeed> pfRepo;
 
-        public PodFeedService(PodFeedRepository pfRepository)
+        public PodFeedService(IRepository<PodFeed> pfRepository)
         {
             pfRepo = pfRepository;
         }

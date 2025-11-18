@@ -12,7 +12,8 @@ namespace DDModels
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public int id { get; set; }//Detta värde hålls av en PodFeed
+        public string Id { get; set; }//Detta värde hålls av en PodFeed
         public string Name { get; set; }
+        public Category() { }
     }
 }

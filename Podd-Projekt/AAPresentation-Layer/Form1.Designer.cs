@@ -54,15 +54,32 @@ partial class Form1
         lblToUpdate = new Label();
         tabPage4 = new TabPage();
         tabPage5 = new TabPage();
+        label12 = new Label();
+        tabControl2 = new TabControl();
+        tabPage6 = new TabPage();
         button4 = new Button();
-        textBox2 = new TextBox();
-        label7 = new Label();
+        tbCreateCategoryName = new TextBox();
         label11 = new Label();
+        label7 = new Label();
+        tabPage7 = new TabPage();
+        btnUpdateCategory = new Button();
+        tbCategoryUpdate = new TextBox();
+        label9 = new Label();
+        label8 = new Label();
+        tabPage8 = new TabPage();
+        button2 = new Button();
+        label10 = new Label();
+        listBox2 = new ListBox();
+        label13 = new Label();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
         tabPage3.SuspendLayout();
         tabPage5.SuspendLayout();
+        tabControl2.SuspendLayout();
+        tabPage6.SuspendLayout();
+        tabPage7.SuspendLayout();
+        tabPage8.SuspendLayout();
         SuspendLayout();
         // 
         // lbSearchedResults
@@ -97,6 +114,7 @@ partial class Form1
         tbLink.Name = "tbLink";
         tbLink.Size = new Size(395, 34);
         tbLink.TabIndex = 2;
+        tbLink.Text = "https://blog.spreaker.com/feed/";
         // 
         // rtbSearchedPodInfo
         // 
@@ -218,10 +236,10 @@ partial class Form1
         // 
         tabPage2.Controls.Add(label4);
         tabPage2.Controls.Add(listBox1);
-        tabPage2.Location = new Point(4, 37);
+        tabPage2.Location = new Point(4, 29);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(1070, 470);
+        tabPage2.Size = new Size(1070, 478);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Register";
         tabPage2.UseVisualStyleBackColor = true;
@@ -252,9 +270,9 @@ partial class Form1
         tabPage3.Controls.Add(lblToUpdateName);
         tabPage3.Controls.Add(lblDisplayLink);
         tabPage3.Controls.Add(lblToUpdate);
-        tabPage3.Location = new Point(4, 37);
+        tabPage3.Location = new Point(4, 29);
         tabPage3.Name = "tabPage3";
-        tabPage3.Size = new Size(1070, 470);
+        tabPage3.Size = new Size(1070, 478);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Update";
         tabPage3.UseVisualStyleBackColor = true;
@@ -321,19 +339,19 @@ partial class Form1
         // 
         // tabPage4
         // 
-        tabPage4.Location = new Point(4, 37);
+        tabPage4.Location = new Point(4, 29);
         tabPage4.Name = "tabPage4";
-        tabPage4.Size = new Size(1070, 470);
+        tabPage4.Size = new Size(1070, 478);
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Delete";
         tabPage4.UseVisualStyleBackColor = true;
         // 
         // tabPage5
         // 
-        tabPage5.Controls.Add(label11);
-        tabPage5.Controls.Add(label7);
-        tabPage5.Controls.Add(button4);
-        tabPage5.Controls.Add(textBox2);
+        tabPage5.Controls.Add(label13);
+        tabPage5.Controls.Add(label12);
+        tabPage5.Controls.Add(tabControl2);
+        tabPage5.Controls.Add(listBox2);
         tabPage5.Location = new Point(4, 37);
         tabPage5.Name = "tabPage5";
         tabPage5.Size = new Size(1070, 470);
@@ -341,48 +359,197 @@ partial class Form1
         tabPage5.Text = "Category";
         tabPage5.UseVisualStyleBackColor = true;
         // 
+        // label12
+        // 
+        label12.AutoSize = true;
+        label12.Font = new Font("Segoe UI", 13.8F);
+        label12.Location = new Point(576, 27);
+        label12.Margin = new Padding(4, 0, 4, 0);
+        label12.Name = "label12";
+        label12.Size = new Size(274, 31);
+        label12.TabIndex = 34;
+        label12.Text = "Select category to modify";
+        // 
+        // tabControl2
+        // 
+        tabControl2.Controls.Add(tabPage6);
+        tabControl2.Controls.Add(tabPage7);
+        tabControl2.Controls.Add(tabPage8);
+        tabControl2.Location = new Point(38, 24);
+        tabControl2.Name = "tabControl2";
+        tabControl2.SelectedIndex = 0;
+        tabControl2.Size = new Size(397, 404);
+        tabControl2.TabIndex = 26;
+        // 
+        // tabPage6
+        // 
+        tabPage6.Controls.Add(button4);
+        tabPage6.Controls.Add(tbCreateCategoryName);
+        tabPage6.Controls.Add(label11);
+        tabPage6.Controls.Add(label7);
+        tabPage6.Location = new Point(4, 37);
+        tabPage6.Name = "tabPage6";
+        tabPage6.Padding = new Padding(3);
+        tabPage6.Size = new Size(389, 363);
+        tabPage6.TabIndex = 0;
+        tabPage6.Text = "Create";
+        tabPage6.UseVisualStyleBackColor = true;
+        // 
         // button4
         // 
         button4.BackColor = Color.DarkSlateGray;
         button4.FlatStyle = FlatStyle.Popup;
         button4.ForeColor = SystemColors.GradientActiveCaption;
-        button4.Location = new Point(468, 56);
+        button4.Location = new Point(116, 150);
         button4.Margin = new Padding(4);
         button4.Name = "button4";
         button4.Size = new Size(129, 41);
         button4.TabIndex = 19;
         button4.Text = "Create";
         button4.UseVisualStyleBackColor = false;
+        button4.Click += button4_Click;
         // 
-        // textBox2
+        // tbCreateCategoryName
         // 
-        textBox2.BackColor = SystemColors.ButtonHighlight;
-        textBox2.Location = new Point(127, 56);
-        textBox2.Margin = new Padding(4);
-        textBox2.Name = "textBox2";
-        textBox2.Size = new Size(333, 34);
-        textBox2.TabIndex = 18;
+        tbCreateCategoryName.BackColor = SystemColors.ButtonHighlight;
+        tbCreateCategoryName.Location = new Point(37, 99);
+        tbCreateCategoryName.Margin = new Padding(4);
+        tbCreateCategoryName.Name = "tbCreateCategoryName";
+        tbCreateCategoryName.Size = new Size(314, 34);
+        tbCreateCategoryName.TabIndex = 18;
+        // 
+        // label11
+        // 
+        label11.AutoSize = true;
+        label11.Location = new Point(37, 67);
+        label11.Margin = new Padding(4, 0, 4, 0);
+        label11.Name = "label11";
+        label11.Size = new Size(64, 28);
+        label11.TabIndex = 24;
+        label11.Text = "Name";
         // 
         // label7
         // 
         label7.AutoSize = true;
         label7.Font = new Font("Segoe UI", 13.8F);
-        label7.Location = new Point(55, 21);
+        label7.Location = new Point(19, 21);
         label7.Margin = new Padding(4, 0, 4, 0);
         label7.Name = "label7";
         label7.Size = new Size(226, 31);
         label7.TabIndex = 21;
         label7.Text = "Create new Category";
         // 
-        // label11
+        // tabPage7
         // 
-        label11.AutoSize = true;
-        label11.Location = new Point(55, 59);
-        label11.Margin = new Padding(4, 0, 4, 0);
-        label11.Name = "label11";
-        label11.Size = new Size(64, 28);
-        label11.TabIndex = 24;
-        label11.Text = "Name";
+        tabPage7.Controls.Add(btnUpdateCategory);
+        tabPage7.Controls.Add(tbCategoryUpdate);
+        tabPage7.Controls.Add(label9);
+        tabPage7.Controls.Add(label8);
+        tabPage7.Location = new Point(4, 29);
+        tabPage7.Name = "tabPage7";
+        tabPage7.Padding = new Padding(3);
+        tabPage7.Size = new Size(389, 371);
+        tabPage7.TabIndex = 1;
+        tabPage7.Text = "Update";
+        tabPage7.UseVisualStyleBackColor = true;
+        // 
+        // btnUpdateCategory
+        // 
+        btnUpdateCategory.BackColor = Color.DarkSlateGray;
+        btnUpdateCategory.FlatStyle = FlatStyle.Popup;
+        btnUpdateCategory.ForeColor = SystemColors.GradientActiveCaption;
+        btnUpdateCategory.Location = new Point(121, 168);
+        btnUpdateCategory.Margin = new Padding(4);
+        btnUpdateCategory.Name = "btnUpdateCategory";
+        btnUpdateCategory.Size = new Size(129, 41);
+        btnUpdateCategory.TabIndex = 28;
+        btnUpdateCategory.Text = "Update";
+        btnUpdateCategory.UseVisualStyleBackColor = false;
+        btnUpdateCategory.Click += btnUpdateCategory_Click;
+        // 
+        // tbCategoryUpdate
+        // 
+        tbCategoryUpdate.BackColor = SystemColors.ButtonHighlight;
+        tbCategoryUpdate.Location = new Point(42, 117);
+        tbCategoryUpdate.Margin = new Padding(4);
+        tbCategoryUpdate.Name = "tbCategoryUpdate";
+        tbCategoryUpdate.Size = new Size(314, 34);
+        tbCategoryUpdate.TabIndex = 27;
+        // 
+        // label9
+        // 
+        label9.AutoSize = true;
+        label9.Font = new Font("Segoe UI", 13.8F);
+        label9.Location = new Point(24, 32);
+        label9.Margin = new Padding(4, 0, 4, 0);
+        label9.Name = "label9";
+        label9.Size = new Size(90, 31);
+        label9.TabIndex = 29;
+        label9.Text = "Update";
+        // 
+        // label8
+        // 
+        label8.AutoSize = true;
+        label8.Location = new Point(42, 85);
+        label8.Margin = new Padding(4, 0, 4, 0);
+        label8.Name = "label8";
+        label8.Size = new Size(64, 28);
+        label8.TabIndex = 30;
+        label8.Text = "Name";
+        // 
+        // tabPage8
+        // 
+        tabPage8.Controls.Add(button2);
+        tabPage8.Controls.Add(label10);
+        tabPage8.Location = new Point(4, 29);
+        tabPage8.Name = "tabPage8";
+        tabPage8.Size = new Size(389, 371);
+        tabPage8.TabIndex = 2;
+        tabPage8.Text = "Delete";
+        tabPage8.UseVisualStyleBackColor = true;
+        // 
+        // button2
+        // 
+        button2.BackColor = Color.DarkSlateGray;
+        button2.FlatStyle = FlatStyle.Popup;
+        button2.ForeColor = SystemColors.GradientActiveCaption;
+        button2.Location = new Point(132, 148);
+        button2.Margin = new Padding(4);
+        button2.Name = "button2";
+        button2.Size = new Size(129, 41);
+        button2.TabIndex = 32;
+        button2.Text = "Delete";
+        button2.UseVisualStyleBackColor = false;
+        button2.Click += button2_Click;
+        // 
+        // label10
+        // 
+        label10.AutoSize = true;
+        label10.Font = new Font("Segoe UI", 13.8F);
+        label10.Location = new Point(26, 23);
+        label10.Margin = new Padding(4, 0, 4, 0);
+        label10.Name = "label10";
+        label10.Size = new Size(80, 31);
+        label10.TabIndex = 33;
+        label10.Text = "Delete";
+        // 
+        // listBox2
+        // 
+        listBox2.FormattingEnabled = true;
+        listBox2.Location = new Point(576, 61);
+        listBox2.Name = "listBox2";
+        listBox2.Size = new Size(405, 256);
+        listBox2.TabIndex = 25;
+        listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged_1;
+        // 
+        // label13
+        // 
+        label13.AutoSize = true;
+        label13.Location = new Point(576, 334);
+        label13.Name = "label13";
+        label13.Size = new Size(344, 28);
+        label13.TabIndex = 35;
+        label13.Text = "När man klickar på ett index i list bosh";
         // 
         // Form1
         // 
@@ -407,6 +574,13 @@ partial class Form1
         tabPage3.PerformLayout();
         tabPage5.ResumeLayout(false);
         tabPage5.PerformLayout();
+        tabControl2.ResumeLayout(false);
+        tabPage6.ResumeLayout(false);
+        tabPage6.PerformLayout();
+        tabPage7.ResumeLayout(false);
+        tabPage7.PerformLayout();
+        tabPage8.ResumeLayout(false);
+        tabPage8.PerformLayout();
         ResumeLayout(false);
     }
 
@@ -441,5 +615,18 @@ partial class Form1
     private Label label11;
     private Label label7;
     private Button button4;
-    private TextBox textBox2;
+    private TextBox tbCreateCategoryName;
+    private TabControl tabControl2;
+    private TabPage tabPage6;
+    private TabPage tabPage7;
+    private TabPage tabPage8;
+    private ListBox listBox2;
+    private Button btnUpdateCategory;
+    private TextBox tbCategoryUpdate;
+    private Label label9;
+    private Label label8;
+    private Button button2;
+    private Label label10;
+    private Label label12;
+    private Label label13;
 }
