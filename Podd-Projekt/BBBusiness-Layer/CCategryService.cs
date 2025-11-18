@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace BBBusiness_Layer
 {
-    public class CategoryService : ICategoryService
+    public class CategoryService : CICategoryService
     {
         private readonly CategoryRepository categoryRepo;
 

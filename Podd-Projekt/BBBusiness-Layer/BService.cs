@@ -8,11 +8,11 @@ using DDModels;
 
 namespace BBBusiness_Layer
 {
-    public class Service : IService
+    public class BService : IService
     {
         private RssPodClient podClient;
 
-        public Service(RssPodClient client)
+        public BService(RssPodClient client)
         {
             podClient = client;
         }

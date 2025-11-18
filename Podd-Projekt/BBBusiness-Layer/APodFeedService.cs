@@ -10,11 +10,11 @@ using System.Diagnostics;
 
 namespace BBBusiness_Layer
 {
-    public class PodFeedService : IPodFeedService
+    public class APodFeedService : IPodFeedService
     {
         private readonly PodFeedRepository pfRepo;
 
-        public PodFeedService(PodFeedRepository pfRepository)
+        public APodFeedService(PodFeedRepository pfRepository)
         {
             pfRepo = pfRepository;
         }
@@ -52,14 +52,14 @@ namespace BBBusiness_Layer
         //    return wasUpdated;
         //}
 
-        public async Task<bool> UpdatePodFeedAsync(PodFeed pf, string newName, string newCategory)
+        public async Task<bool> UpdatePodFeedAsync(PodFeed pf, string newName)
         {
             bool wasUpdated = false;
             try
             {
                 PodFeed p = await pfRepo.GetAsync(pf.Id);
                 p.Name = newName;
-                p.CategoryId = newCategory;
+                
 
                 wasUpdated = await pfRepo.UpdateAsync(p);
             }catch(NullReferenceException e)

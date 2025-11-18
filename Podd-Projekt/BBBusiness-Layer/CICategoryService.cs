@@ -7,7 +7,7 @@ using DDModels;
 
 namespace BBBusiness_Layer
 {
-    public interface ICategoryService
+    public interface CICategoryService
     {
         Task AddCategoryAsync(Category category);
         Task<Category?> GetCategoryAsync(string id);

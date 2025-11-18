@@ -10,11 +10,19 @@ namespace AAPresentation_Layer
         private IService service;//Dependcy injection måste, ej gjort
         private IPodFeedService pfService;
         private PodFeed pf;
-        public Form1(IService service, IPodFeedService pFs)
+        CICategoryService catService;
+        private delegate void UpdateCategoryDelegate();
+        private event UpdateCategoryDelegate updateCategoryDelegate;
+        public Form1(IService service, IPodFeedService pFs, CICategoryService catService)
         {
+            this.catService = catService;
             this.service = service;
             pfService = pFs;
             InitializeComponent();
+            DisplayCategories();
+            //updateCategoryDelegate += DisplayCategories;
+            //updateCategoryDelegate += CategoryList.Refresh;
+            //updateCategoryDelegate?.Invoke();
         }
 
 
@@ -51,12 +59,54 @@ namespace AAPresentation_Layer
 
         private void btnSave_Click(object sender, EventArgs e)//I start tab, 
         {
-            if(tbNewFeedName.Text != string.Empty)
+            if (tbNewFeedName.Text != string.Empty)
             {
                 pf.Name = tbNewFeedName.Text;
                 pfService.AddPodFeedAsync(pf);
             }
             else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
+
+        }
+
+        private void rrr(object sender, EventArgs e)
+        {
+
+        }
+        private void textBox2_TextChanged(object sender, EventArgs e)//tbcreate category
+        {
+
+        }
+        private void button4_Click(object sender, EventArgs e)//skapa categori knapp
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)//tbUpdateCategory
+        {
+
+        }
+
+        private void btnUpdateCategory_Click(object sender, EventArgs e)//uppdatera categori knapp
+        {
+
+        }
+
+        private void btnDeleteCategory_Click(object sender, EventArgs e)//ta bort categori knapp
+        {
+
+        }
+
+        private void CategoryList_SelectedIndexChanged(object sender, EventArgs e)//listbox category
+        {
+
+        }
+
+        private async void DisplayCategories()
+        {
+            List<Category> categories = await catService.GetAllCategoriesAsync();
+            CategoryList.DataSource = categories;
+            CategoryList.DisplayMember = "Name";
+            
 
         }
     }
