@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BBBusiness_Layer
+namespace CCData_Access_Layer
 {
     public interface IRepository<T>
     {
