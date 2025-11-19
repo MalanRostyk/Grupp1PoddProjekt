@@ -62,6 +62,7 @@ partial class Form1
         lblToUpdateName = new Label();
         lblToUpdate = new Label();
         tabPage4 = new TabPage();
+        label19 = new Label();
         listBox7 = new ListBox();
         btnDeletePodFeed = new Button();
         label18 = new Label();
@@ -84,7 +85,6 @@ partial class Form1
         button2 = new Button();
         label10 = new Label();
         listBox2 = new ListBox();
-        label19 = new Label();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
@@ -328,9 +328,9 @@ partial class Form1
         tabPage3.Controls.Add(lblToUpdateCategory);
         tabPage3.Controls.Add(lblToUpdateName);
         tabPage3.Controls.Add(lblToUpdate);
-        tabPage3.Location = new Point(4, 29);
+        tabPage3.Location = new Point(4, 37);
         tabPage3.Name = "tabPage3";
-        tabPage3.Size = new Size(1070, 478);
+        tabPage3.Size = new Size(1070, 470);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Update";
         tabPage3.UseVisualStyleBackColor = true;
@@ -373,7 +373,7 @@ partial class Form1
         // label14
         // 
         label14.AutoSize = true;
-        label14.Location = new Point(582, 51);
+        label14.Location = new Point(607, 60);
         label14.Name = "label14";
         label14.Size = new Size(249, 28);
         label14.TabIndex = 9;
@@ -382,9 +382,9 @@ partial class Form1
         // listBox5
         // 
         listBox5.FormattingEnabled = true;
-        listBox5.Location = new Point(582, 91);
+        listBox5.Location = new Point(607, 91);
         listBox5.Name = "listBox5";
-        listBox5.Size = new Size(432, 340);
+        listBox5.Size = new Size(428, 340);
         listBox5.TabIndex = 8;
         listBox5.SelectedIndexChanged += listBox5_SelectedIndexChanged;
         // 
@@ -453,12 +453,21 @@ partial class Form1
         tabPage4.Controls.Add(btnDeletePodFeed);
         tabPage4.Controls.Add(label18);
         tabPage4.Controls.Add(listBox6);
-        tabPage4.Location = new Point(4, 37);
+        tabPage4.Location = new Point(4, 29);
         tabPage4.Name = "tabPage4";
-        tabPage4.Size = new Size(1070, 470);
+        tabPage4.Size = new Size(1070, 478);
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Delete";
         tabPage4.UseVisualStyleBackColor = true;
+        // 
+        // label19
+        // 
+        label19.AutoSize = true;
+        label19.Location = new Point(474, 25);
+        label19.Name = "label19";
+        label19.Size = new Size(404, 28);
+        label19.TabIndex = 13;
+        label19.Text = "Preview what episodes this RSS feed contains";
         // 
         // listBox7
         // 
@@ -704,15 +713,6 @@ partial class Form1
         listBox2.Size = new Size(405, 256);
         listBox2.TabIndex = 25;
         listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged_1;
-        // 
-        // label19
-        // 
-        label19.AutoSize = true;
-        label19.Location = new Point(474, 25);
-        label19.Name = "label19";
-        label19.Size = new Size(404, 28);
-        label19.TabIndex = 13;
-        label19.Text = "Preview what episodes this RSS feed contains";
         // 
         // Form1
         // 
