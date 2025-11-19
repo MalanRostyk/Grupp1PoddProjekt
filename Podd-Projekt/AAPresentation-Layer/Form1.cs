@@ -10,8 +10,8 @@ namespace AAPresentation_Layer
 {
     public partial class Form1 : Form
     {
-        public delegate void RefreshDelegate();
-        public event RefreshDelegate refreshEvent;
+        private event Action RefreshEvent;
+
         private IService service;//Dependcy injection måste, ej gjort
         private IPodFeedService pfService;
         private ICategoryService catService;
@@ -25,18 +25,16 @@ namespace AAPresentation_Layer
             this.catService = catService;
             pfService = pFs;
 
-            refreshEvent += FillRegisterListBox;
-            refreshEvent += FillUpdateListBox;
-            refreshEvent += FillDeleteListBox;
-            refreshEvent += ClearListBox2;
-            refreshEvent += DisplayAllCategoryData;
+            RefreshEvent += ClearListBox2;
+            RefreshEvent += FillRegisterListBox;
+            RefreshEvent += FillUpdateListBox;
+            RefreshEvent += FillDeleteListBox;
+            RefreshEvent += DisplayAllCategoryData;
+            
 
             InitializeComponent();
             GetLastResult();
-            FillRegisterListBox();
-            FillUpdateListBox();
-            FillDeleteListBox();
-            DisplayAllCategoryData();
+            RefreshEvent?.Invoke();
         }
 
 
@@ -118,7 +116,9 @@ namespace AAPresentation_Layer
             }
             else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
 
-            refreshEvent?.Invoke();
+            tbLink.Clear();
+            tbNewFeedName.Clear();
+            RefreshEvent?.Invoke();
         }
 
         private async void button4_Click(object sender, EventArgs e)//Category tab, add category
@@ -126,17 +126,15 @@ namespace AAPresentation_Layer
             Category cat = new();
             cat.Name = tbCreateCategoryName.Text;
             await catService.AddCategoryAsync(cat);
-            refreshEvent?.Invoke();
+
+            tbCreateCategoryName.Clear();
+            RefreshEvent?.Invoke();
         }
-        private async void listBox2_SelectedIndexChanged_1(object sender, EventArgs e)//Category tab
+        private void listBox2_SelectedIndexChanged_1(object sender, EventArgs e)//Category tab
         {
-
-            //try
-            //{
-
-            //    //c = (Category)listBox2.SelectedItem;
-            //}
-            //catch (Exception ec) { Debug.WriteLine("Engine e kaput"); }
+            ListBox lb = (ListBox)sender;
+            if (lb.SelectedItem is Category cat)
+                tbCategoryUpdate.Text = cat.Name;
         }
 
         private async void btnUpdateCategory_Click(object sender, EventArgs e)
@@ -161,7 +159,8 @@ namespace AAPresentation_Layer
                 }
             }
             catch (Exception ec) { Debug.WriteLine("Engine e kaput"); }
-            refreshEvent?.Invoke();
+
+            RefreshEvent?.Invoke();
         }
 
         private async void button2_Click(object sender, EventArgs e)
@@ -195,7 +194,7 @@ namespace AAPresentation_Layer
 
             }
             catch (Exception ec) { Debug.WriteLine(ec.Message); }
-            refreshEvent?.Invoke();
+            RefreshEvent?.Invoke();
         }
 
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -251,7 +250,8 @@ namespace AAPresentation_Layer
                 newPf.CategoryId = cat.Name;
             }
             await pfService.UpdatePodFeedAsync(newPf);
-            refreshEvent?.Invoke();
+
+            RefreshEvent?.Invoke();
         }
 
         private async void btnDeletePodFeed_Click(object sender, EventArgs e)
@@ -265,7 +265,7 @@ namespace AAPresentation_Layer
                 if (confirm == DialogResult.Yes)
                     await pfService.DeletePodFeedAsync(pf.Id);
             }
-            refreshEvent?.Invoke();
+            RefreshEvent?.Invoke();
         }
 
         private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
