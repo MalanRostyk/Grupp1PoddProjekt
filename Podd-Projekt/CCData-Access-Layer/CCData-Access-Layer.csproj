@@ -9,12 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MongoDB.Driver" Version="3.5.0" />
+    <PackageReference Include="System.ServiceModel.Syndication" Version="10.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DDModels\DDModels.csproj" />
-    <ProjectReference Include="..\InterfacesLayer\InterfacesLayer.csproj" />
   </ItemGroup>
 
 </Project>

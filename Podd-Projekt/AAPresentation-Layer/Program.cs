@@ -1,10 +1,7 @@
 using BBBusiness_Layer;
-using InterfacesLayer;
 using CCData_Access_Layer;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace AAPresentation_Layer
-    
 {
     internal static class Program
     {
@@ -14,22 +11,17 @@ namespace AAPresentation_Layer
         [STAThread]
         static void Main()
         {
-            var services = new ServiceCollection();
-
-            services.AddScoped<IPodFeedRepository, PodFeedRepository>();
-            services.AddScoped<IPodFeedService, PodFeedService>();
-
-            var provider = services.BuildServiceProvider();
-
-            var form = ActivatorUtilities.CreateInstance< Form1 > (provider);
+            //HttpClient client = new();
+            //var rssClient = new RssPodClient(client);
+            //PodFeedRepository pfRepo = new();
 
 
+            IService service = new BService(new RssPodClient(new HttpClient()));//Dependency Injection
+            IPodFeedService pfService = new APodFeedService(new PodFeedRepository());//Dependency Injection
+            CICategoryService catService = new CategoryService(new CategoryRepository());
 
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(form);
-
-       }
+            Application.Run(new Form1(service, pfService, catService));
+        }
     }
 }

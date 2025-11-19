@@ -1,36 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using InterfacesLayer;
 using DDModels;
 using MongoDB.Driver;
 
 namespace CCData_Access_Layer
 {
-    public class PodFeedRepository : IPodFeedRepository
+    public class PodFeedRepository : IRepository<PodFeed>
     {
-        public readonly IMongoCollection<PodFeed> podCollection;
+        public IMongoClient dbClient;
+        public readonly IMongoCollection<PodFeed> pfCollection;
+
         public PodFeedRepository()
         {
-            var client = new MongoClient("mongodb+srv://OruMongoDBAdmin:qwe123@orumongodb.88ybr1l.mongodb.net/?appName=OruMongoDB");
-            var database = client.GetDatabase("PoddersDB");
-            podCollection = database.GetCollection<PodFeed>("podders");
+            dbClient = new MongoClient("mongodb+srv://OruMongoDBAdmin:qwe123@orumongodb.88ybr1l.mongodb.net/?appName=OruMongoDB");
+            var db = dbClient.GetDatabase("PodderDB");
+            pfCollection = db.GetCollection<PodFeed>("Podders");
         }
+        public async Task AddAsync(PodFeed pf)// Använder transaktion
+        {
+            using (var session = dbClient.StartSession())
+            {
+                session.StartTransaction();
+                try
+                {
+                    await pfCollection.InsertOneAsync(pf);
+                    session.CommitTransaction();
 
-        //C
-        public async Task AddAsync(PodFeed p) => 
-            await podCollection.InsertOneAsync(p);
-        //R
-        public async Task<List<PodFeed>> GetAllAsync() => 
-            await podCollection.Find(_ => true).ToListAsync();
-        //U
-        public async Task UpdateAsync(PodFeed p) =>
-            await podCollection.ReplaceOneAsync(pod => pod.Id == p.Id, p);
-
-        //D
-        public async Task DeleteAsync(string id) =>
-            await podCollection.DeleteOneAsync(p => p.Id == id);
+                }catch(Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                    session.AbortTransaction();
+                }
+            }
+        }
+        public async Task<PodFeed?> GetAsync(string id)//Dirty read?
+        {
+            var filter = Builders<PodFeed>.Filter.Eq(pf => pf.Id, id);
+            return await pfCollection.Find(filter).FirstOrDefaultAsync();
+        }
+        public async Task<List<PodFeed>> GetAllAsync() => await pfCollection.Find(FilterDefinition<PodFeed>.Empty).ToListAsync();
+        public async Task<bool> UpdateAsync(PodFeed pf)//Använder transaktion
+        {
+            bool isUpdated = false;
+            using (var session = dbClient.StartSession())
+            {
+                session.StartTransaction();
+                try
+                {
+                    var filter = Builders<PodFeed>.Filter.Eq(p => p.Id, pf.Id);
+                    var update = await pfCollection.ReplaceOneAsync(filter, pf);
+                    isUpdated = update.MatchedCount == 1 && update.ModifiedCount == 1;
+                    session.CommitTransaction();
+                }catch(NullReferenceException e)//Kan bli null? för dirty read, kom tillbaka tänk igenom.
+                {
+                    session.AbortTransaction();
+                }catch(Exception e)
+                {
+                    session.AbortTransaction();
+                }
+            }
+            return isUpdated;
+        }
+        public async Task DeleteAsync(string id)//Använder transaktion
+        {
+            using (var session = dbClient.StartSession())
+            {
+                session.StartTransaction();
+                try
+                {
+                    var filter = Builders<PodFeed>.Filter.Eq(p => p.Id, id);
+                    await pfCollection.DeleteOneAsync(filter);
+                    session.CommitTransaction();
+                }catch(Exception e)
+                {
+                    session.AbortTransaction();
+                    Debug.WriteLine(e.Message);
+                }
+            }
+        }
     }
 }
