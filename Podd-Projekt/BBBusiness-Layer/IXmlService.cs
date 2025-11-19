@@ -8,7 +8,7 @@ using DDModels;
 
 namespace BBBusiness_Layer
 {
-    internal interface IXmlService
+    public interface IXmlService
     {
         Task SavePodFeedToXml(PodFeed pf);
         Task<PodFeed> LoadPodFeedFromXml();

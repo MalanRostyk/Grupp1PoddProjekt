@@ -7,7 +7,7 @@ using DDModels;
 
 namespace CCData_Access_Layer
 {
-    internal interface IXmlRepository
+    public interface IXmlRepository
     {
         Task SerializePodFeed(PodFeed pf);
         Task<PodFeed> DeserializePodFeed();
