@@ -13,12 +13,15 @@ namespace CCData_Access_Layer
     {
         public IMongoClient dbClient;
         public readonly IMongoCollection<PodFeed> pfCollection;
+        public readonly IMongoCollection<PodFeed> tempColl;
 
         public PodFeedRepository()
         {
             dbClient = new MongoClient("mongodb+srv://OruMongoDBAdmin:qwe123@orumongodb.88ybr1l.mongodb.net/?appName=OruMongoDB");
             var db = dbClient.GetDatabase("PodderDB");
             pfCollection = db.GetCollection<PodFeed>("Podders");
+            this.tempColl = db.GetCollection<PodFeed>("temp");
+
         }
         public async Task AddAsync(PodFeed pf)// Använder transaktion
         {
@@ -84,6 +87,37 @@ namespace CCData_Access_Layer
                     Debug.WriteLine(e.Message);
                 }
             }
+        }
+
+        public async Task<PodFeed?> GetTempAsync()
+        {
+            var filter = FilterDefinition<PodFeed>.Empty;
+            return await tempColl.Find(filter).FirstOrDefaultAsync();
+        }
+
+        public async Task ChangeRecentlyAsync(PodFeed tempPf)
+        {
+            var filter = FilterDefinition<PodFeed>.Empty;
+            var result = await tempColl.Find(filter).FirstOrDefaultAsync();
+            if (result == null)
+            {
+                await tempColl.InsertOneAsync(tempPf);
+            }
+            else
+            {
+                await UpdateTempPf(tempPf);
+            }
+        }
+
+        private async Task UpdateTempPf(PodFeed pf)
+        {
+            var filter = Builders<PodFeed>.Filter.Eq(p => p.Id, pf.Id);
+            var update = Builders<PodFeed>.Update
+                .Set(p => p.Link, pf.Link)
+                .Set(p => p.podList, pf.podList)
+                .Set(p => p.Name, pf.Name)
+                .Set(p => p.CategoryId, pf.CategoryId);
+            await tempColl.UpdateOneAsync(filter, update);
         }
     }
 }

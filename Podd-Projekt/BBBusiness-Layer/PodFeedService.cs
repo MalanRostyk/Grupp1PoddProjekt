@@ -102,5 +102,9 @@ namespace BBBusiness_Layer
 
         public async Task DeletePodFeedAsync(string id) => await pfRepo.DeleteAsync(id);
 
+
+        public async Task<PodFeed?> GetTempPodFeedAsync() => await pfRepo.GetTempAsync();
+        public async Task UpdateRecentlySearchedAsync(PodFeed pf) => await pfRepo.ChangeRecentlyAsync(pf);
+
     }
 }

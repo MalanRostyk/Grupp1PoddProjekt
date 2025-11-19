@@ -70,20 +70,30 @@ namespace AAPresentation_Layer
             listBox6.DisplayMember = "Name";
         }
 
+        //private async Task GetLastResult()
+        //{
+        //    PodFeed pf = await xmlService.LoadPodFeedFromXml();
+        //    lbSearchedResults.DataSource = pf.podList;
+        //    lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
+        //    tbLink.Text = pf.Link;
+        //}
         private async Task GetLastResult()
         {
-            PodFeed pf = await xmlService.LoadPodFeedFromXml();
+            PodFeed pf = await pfService.GetTempPodFeedAsync();
             lbSearchedResults.DataSource = pf.podList;
             lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
             tbLink.Text = pf.Link;
         }
         private async void button1_Click(object sender, EventArgs e) //I Start tab, Search knapp
         {
-            pf = new(); //En feed att använda
+            pf = await pfService.GetTempPodFeedAsync(); //En feed att använda
             pf.Link = tbLink.Text; //Rss feed i form av länk användaren vill se
             pf.podList = await service.ReadAllPodAsync(pf); //Fyll listan med Pod objekt från länken
+            await pfService.UpdateRecentlySearchedAsync(pf);
+            
             lbSearchedResults.DataSource = pf.podList;
             lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
+            
             await xmlService.SavePodFeedToXml(pf);
         }
 
