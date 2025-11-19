@@ -89,6 +89,17 @@ namespace BBBusiness_Layer
             return wasUpdated;
         }
 
+        public async Task<bool> UpdatePodFeedAsync(PodFeed pf)
+        {
+            bool wasUpdated = false;
+            try
+            {
+                wasUpdated = await pfRepo.UpdateAsync(pf);
+                
+            }catch(Exception e) { Debug.WriteLine(e.Message); }
+            return wasUpdated;
+        }
+
         public async Task DeletePodFeedAsync(string id) => await pfRepo.DeleteAsync(id);
 
     }

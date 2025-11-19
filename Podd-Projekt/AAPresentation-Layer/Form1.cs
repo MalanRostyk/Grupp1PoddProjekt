@@ -20,6 +20,7 @@ namespace AAPresentation_Layer
         public Form1(IService service, IPodFeedService pFs, ICategoryService catService)
         {
             refreshEvent += FillRegisterListBox;
+            refreshEvent += FillUpdateListBox;
             refreshEvent += ClearListBox2;
             refreshEvent += DisplayAllCategoryData;
 
@@ -28,6 +29,7 @@ namespace AAPresentation_Layer
             pfService = pFs;
             InitializeComponent();
             FillRegisterListBox();
+            FillUpdateListBox();
             DisplayAllCategoryData();
         }
 
@@ -48,6 +50,13 @@ namespace AAPresentation_Layer
             listBox1.DataSource = pfList;
 
             listBox1.DisplayMember = "Name";
+        }
+        private async void FillUpdateListBox()
+        {
+            List<PodFeed> pfList = await pfService.GetAllAsync();
+            listBox5.DataSource = pfList;
+
+            listBox5.DisplayMember = "Name";
         }
 
 
@@ -185,7 +194,7 @@ namespace AAPresentation_Layer
             if (listBox3.SelectedItem is Pod selectedPod)
             {
                 List<string> aPodValues = new();
-                
+
                 aPodValues.Add($"Id: {selectedPod.Id}");
                 aPodValues.Add($"Titel: {selectedPod.Titel}");
                 aPodValues.Add($"Link: {selectedPod.Link}");
@@ -194,5 +203,37 @@ namespace AAPresentation_Layer
                 listBox4.DataSource = aPodValues;
             }
         }
+
+        private async void listBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Category> catList = await catService.GetAllCategoriesAsync();
+            if (listBox5.SelectedItem is PodFeed pf)
+            {
+                lblToUpdate.Text = pf.Id;
+                lblDisplayLink.Text = pf.Link;
+                tbUpdateName.Text = pf.Name;
+
+                comboBox2.DataSource = catList;
+
+                comboBox2.DisplayMember = "Name";
+                comboBox2.SelectedItem = catList.FirstOrDefault(c => c.Name == pf.CategoryId);
+ 
+            }
+        }
+
+        private async void button1_Click_1(object sender, EventArgs e)
+        {
+            PodFeed newPf = new();
+            newPf.Id = lblToUpdate.Text;
+            newPf.Link = lblDisplayLink.Text;
+            newPf.Name = tbUpdateName.Text;
+            if(comboBox2.SelectedItem is Category cat)
+            {
+                pf.CategoryId = cat.Name;
+            }
+            await pfService.UpdatePodFeedAsync(newPf);
+            refreshEvent?.Invoke();
+        }
+
     }
 }

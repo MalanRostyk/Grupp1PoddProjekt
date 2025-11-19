@@ -43,16 +43,21 @@ partial class Form1
         tbNewFeedName = new TextBox();
         label5 = new Label();
         tabPage2 = new TabPage();
+        listBox4 = new ListBox();
         listBox3 = new ListBox();
         label4 = new Label();
         listBox1 = new ListBox();
         tabPage3 = new TabPage();
+        lblDisplayLink = new Label();
+        label16 = new Label();
+        label15 = new Label();
+        label14 = new Label();
+        listBox5 = new ListBox();
+        button1 = new Button();
         label3 = new Label();
-        tbUpdateCategory = new TextBox();
         tbUpdateName = new TextBox();
         lblToUpdateCategory = new Label();
         lblToUpdateName = new Label();
-        lblDisplayLink = new Label();
         lblToUpdate = new Label();
         tabPage4 = new TabPage();
         tabPage5 = new TabPage();
@@ -73,7 +78,7 @@ partial class Form1
         button2 = new Button();
         label10 = new Label();
         listBox2 = new ListBox();
-        listBox4 = new ListBox();
+        comboBox2 = new ComboBox();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
@@ -250,13 +255,21 @@ partial class Form1
         tabPage2.Controls.Add(listBox3);
         tabPage2.Controls.Add(label4);
         tabPage2.Controls.Add(listBox1);
-        tabPage2.Location = new Point(4, 37);
+        tabPage2.Location = new Point(4, 29);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(1070, 470);
+        tabPage2.Size = new Size(1070, 478);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Register";
         tabPage2.UseVisualStyleBackColor = true;
+        // 
+        // listBox4
+        // 
+        listBox4.FormattingEnabled = true;
+        listBox4.Location = new Point(724, 68);
+        listBox4.Name = "listBox4";
+        listBox4.Size = new Size(326, 396);
+        listBox4.TabIndex = 3;
         // 
         // listBox3
         // 
@@ -287,19 +300,83 @@ partial class Form1
         // 
         // tabPage3
         // 
+        tabPage3.Controls.Add(comboBox2);
+        tabPage3.Controls.Add(lblDisplayLink);
+        tabPage3.Controls.Add(label16);
+        tabPage3.Controls.Add(label15);
+        tabPage3.Controls.Add(label14);
+        tabPage3.Controls.Add(listBox5);
+        tabPage3.Controls.Add(button1);
         tabPage3.Controls.Add(label3);
-        tabPage3.Controls.Add(tbUpdateCategory);
         tabPage3.Controls.Add(tbUpdateName);
         tabPage3.Controls.Add(lblToUpdateCategory);
         tabPage3.Controls.Add(lblToUpdateName);
-        tabPage3.Controls.Add(lblDisplayLink);
         tabPage3.Controls.Add(lblToUpdate);
-        tabPage3.Location = new Point(4, 29);
+        tabPage3.Location = new Point(4, 37);
         tabPage3.Name = "tabPage3";
-        tabPage3.Size = new Size(1070, 478);
+        tabPage3.Size = new Size(1070, 470);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Update";
         tabPage3.UseVisualStyleBackColor = true;
+        // 
+        // lblDisplayLink
+        // 
+        lblDisplayLink.AutoSize = true;
+        lblDisplayLink.Location = new Point(129, 144);
+        lblDisplayLink.Name = "lblDisplayLink";
+        lblDisplayLink.Size = new Size(76, 28);
+        lblDisplayLink.TabIndex = 12;
+        lblDisplayLink.Text = "label17";
+        // 
+        // label16
+        // 
+        label16.AutoSize = true;
+        label16.Location = new Point(67, 144);
+        label16.Name = "label16";
+        label16.Size = new Size(56, 28);
+        label16.TabIndex = 11;
+        label16.Text = "Link: ";
+        // 
+        // label15
+        // 
+        label15.AutoSize = true;
+        label15.Location = new Point(85, 91);
+        label15.Name = "label15";
+        label15.Size = new Size(38, 28);
+        label15.TabIndex = 10;
+        label15.Text = "Id: ";
+        // 
+        // label14
+        // 
+        label14.AutoSize = true;
+        label14.Location = new Point(582, 51);
+        label14.Name = "label14";
+        label14.Size = new Size(249, 28);
+        label14.TabIndex = 9;
+        label14.Text = "Pick an RSS feed to Update";
+        // 
+        // listBox5
+        // 
+        listBox5.FormattingEnabled = true;
+        listBox5.Location = new Point(582, 91);
+        listBox5.Name = "listBox5";
+        listBox5.Size = new Size(432, 340);
+        listBox5.TabIndex = 8;
+        listBox5.SelectedIndexChanged += listBox5_SelectedIndexChanged;
+        // 
+        // button1
+        // 
+        button1.BackColor = Color.DarkSlateGray;
+        button1.FlatStyle = FlatStyle.Popup;
+        button1.ForeColor = SystemColors.GradientActiveCaption;
+        button1.Location = new Point(129, 347);
+        button1.Margin = new Padding(4);
+        button1.Name = "button1";
+        button1.Size = new Size(129, 41);
+        button1.TabIndex = 7;
+        button1.Text = "Update";
+        button1.UseVisualStyleBackColor = false;
+        button1.Click += button1_Click_1;
         // 
         // label3
         // 
@@ -310,13 +387,6 @@ partial class Form1
         label3.Size = new Size(255, 38);
         label3.TabIndex = 6;
         label3.Text = "Update a PodFeed";
-        // 
-        // tbUpdateCategory
-        // 
-        tbUpdateCategory.Location = new Point(129, 288);
-        tbUpdateCategory.Name = "tbUpdateCategory";
-        tbUpdateCategory.Size = new Size(327, 34);
-        tbUpdateCategory.TabIndex = 5;
         // 
         // tbUpdateName
         // 
@@ -343,19 +413,10 @@ partial class Form1
         lblToUpdateName.TabIndex = 2;
         lblToUpdateName.Text = "Name:";
         // 
-        // lblDisplayLink
-        // 
-        lblDisplayLink.AutoSize = true;
-        lblDisplayLink.Location = new Point(80, 146);
-        lblDisplayLink.Name = "lblDisplayLink";
-        lblDisplayLink.Size = new Size(231, 28);
-        lblDisplayLink.TabIndex = 1;
-        lblDisplayLink.Text = "Link: (Glöm ej += länken)";
-        // 
         // lblToUpdate
         // 
         lblToUpdate.AutoSize = true;
-        lblToUpdate.Location = new Point(98, 91);
+        lblToUpdate.Location = new Point(129, 91);
         lblToUpdate.Name = "lblToUpdate";
         lblToUpdate.Size = new Size(213, 28);
         lblToUpdate.TabIndex = 0;
@@ -575,13 +636,13 @@ partial class Form1
         listBox2.TabIndex = 25;
         listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged_1;
         // 
-        // listBox4
+        // comboBox2
         // 
-        listBox4.FormattingEnabled = true;
-        listBox4.Location = new Point(724, 68);
-        listBox4.Name = "listBox4";
-        listBox4.Size = new Size(326, 396);
-        listBox4.TabIndex = 3;
+        comboBox2.FormattingEnabled = true;
+        comboBox2.Location = new Point(129, 288);
+        comboBox2.Name = "comboBox2";
+        comboBox2.Size = new Size(327, 36);
+        comboBox2.TabIndex = 13;
         // 
         // Form1
         // 
@@ -631,9 +692,7 @@ partial class Form1
     private TabPage tabPage4;
     private Label lblToUpdateCategory;
     private Label lblToUpdateName;
-    private Label lblDisplayLink;
     private Label lblToUpdate;
-    private TextBox tbUpdateCategory;
     private TextBox tbUpdateName;
     private Label label3;
     private Label label4;
@@ -664,4 +723,11 @@ partial class Form1
     private ComboBox comboBox1;
     private ListBox listBox3;
     private ListBox listBox4;
+    private Button button1;
+    private Label label14;
+    private ListBox listBox5;
+    private Label label16;
+    private Label label15;
+    private Label lblDisplayLink;
+    private ComboBox comboBox2;
 }
