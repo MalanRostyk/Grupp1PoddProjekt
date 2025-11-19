@@ -116,7 +116,7 @@ namespace AAPresentation_Layer
             }
             else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
 
-            tbLink.Clear();
+            //tbLink.Clear(); Ska vara kvar när det är färdigt
             tbNewFeedName.Clear();
             RefreshEvent?.Invoke();
         }
@@ -242,6 +242,8 @@ namespace AAPresentation_Layer
         {
             PodFeed newPf = new();
             newPf.Id = lblToUpdate.Text;
+            if (listBox5.SelectedItem is PodFeed pf)
+                newPf.podList = pf.podList;
             newPf.Link = lblDisplayLink.Text;
             newPf.Name = tbUpdateName.Text;
             //newPf.CategoryId = "";
