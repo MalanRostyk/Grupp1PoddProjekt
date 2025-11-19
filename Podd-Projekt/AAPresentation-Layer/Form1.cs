@@ -15,21 +15,27 @@ namespace AAPresentation_Layer
         private IService service;//Dependcy injection måste, ej gjort
         private IPodFeedService pfService;
         private ICategoryService catService;
+        private IXmlService xmlService;
         private PodFeed pf;
         //private Category c;
-        public Form1(IService service, IPodFeedService pFs, ICategoryService catService)
+        public Form1(IService service, IPodFeedService pFs, ICategoryService catService, IXmlService xmlService)
         {
-            refreshEvent += FillRegisterListBox;
-            refreshEvent += FillUpdateListBox;
-            refreshEvent += ClearListBox2;
-            refreshEvent += DisplayAllCategoryData;
-
+            this.xmlService = xmlService;
             this.service = service;
             this.catService = catService;
             pfService = pFs;
+
+            refreshEvent += FillRegisterListBox;
+            refreshEvent += FillUpdateListBox;
+            refreshEvent += FillDeleteListBox;
+            refreshEvent += ClearListBox2;
+            refreshEvent += DisplayAllCategoryData;
+
             InitializeComponent();
+            GetLastResult();
             FillRegisterListBox();
             FillUpdateListBox();
+            FillDeleteListBox();
             DisplayAllCategoryData();
         }
 
@@ -58,27 +64,39 @@ namespace AAPresentation_Layer
 
             listBox5.DisplayMember = "Name";
         }
+        private async void FillDeleteListBox()
+        {
+            List<PodFeed> pfList = await pfService.GetAllAsync();
+            listBox6.DataSource = pfList;
 
+            listBox6.DisplayMember = "Name";
+        }
 
+        private async Task GetLastResult()
+        {
+            PodFeed pf = await xmlService.LoadPodFeedFromXml();
+            lbSearchedResults.DataSource = pf.podList;
+            lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
+            tbLink.Text = pf.Link;
+        }
         private async void button1_Click(object sender, EventArgs e) //I Start tab, Search knapp
         {
             pf = new(); //En feed att använda
             pf.Link = tbLink.Text; //Rss feed i form av länk användaren vill se
             pf.podList = await service.ReadAllPodAsync(pf); //Fyll listan med Pod objekt från länken
-
-            foreach (Pod p in pf.podList)
-            {
-                lbSearchedResults.Items.Add(p);
-                p.LinkRef = pf.Link;
-            }
-
+            lbSearchedResults.DataSource = pf.podList;
             lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
+            await xmlService.SavePodFeedToXml(pf);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)//I Start Tabben
         {
-            Pod p = pf.podList[lbSearchedResults.SelectedIndex];//Välj motsvarande index i listBox från podList
-            rtbSearchedPodInfo.Text = $"{p.Link}"; //Det som visas i richTextBox när vi valt en pod i listBox
+            if (lbSearchedResults.SelectedItem is not Pod selectedPod)
+            {
+                return;
+            }
+            /*Pod p = pf.podList[lbSearchedResults.SelectedIndex];*///Välj motsvarande index i listBox från podList
+            rtbSearchedPodInfo.Text = $"{selectedPod.Link}"; //Det som visas i richTextBox när vi valt en pod i listBox
         }
 
         private void Form1_Load(object sender, EventArgs e)//Dont touch
@@ -217,7 +235,7 @@ namespace AAPresentation_Layer
 
                 comboBox2.DisplayMember = "Name";
                 comboBox2.SelectedItem = catList.FirstOrDefault(c => c.Name == pf.CategoryId);
- 
+
             }
         }
 
@@ -236,5 +254,27 @@ namespace AAPresentation_Layer
             refreshEvent?.Invoke();
         }
 
+        private async void btnDeletePodFeed_Click(object sender, EventArgs e)
+        {
+            if (listBox6.SelectedItem is PodFeed pf)
+            {
+                var confirm = MessageBox.Show($"Are you sure you want to delete the PodFeed {pf.Name}?",
+                    "Confirm deletion of PodFeed",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+                if (confirm == DialogResult.Yes)
+                    await pfService.DeletePodFeedAsync(pf.Id);
+            }
+            refreshEvent?.Invoke();
+        }
+
+        private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(listBox6.SelectedItem is PodFeed pf)
+            {
+                listBox7.DataSource = pf.podList;
+                listBox7.DisplayMember = "Titel";
+            }
+        }
     }
 }

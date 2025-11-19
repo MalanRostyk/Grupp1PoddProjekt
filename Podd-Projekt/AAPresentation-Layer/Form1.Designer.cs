@@ -36,6 +36,7 @@ partial class Form1
         label2 = new Label();
         tabControl1 = new TabControl();
         tabPage1 = new TabPage();
+        label17 = new Label();
         comboBox1 = new ComboBox();
         tbeEmptyName = new Label();
         btnSave = new Button();
@@ -48,6 +49,7 @@ partial class Form1
         label4 = new Label();
         listBox1 = new ListBox();
         tabPage3 = new TabPage();
+        comboBox2 = new ComboBox();
         lblDisplayLink = new Label();
         label16 = new Label();
         label15 = new Label();
@@ -60,6 +62,10 @@ partial class Form1
         lblToUpdateName = new Label();
         lblToUpdate = new Label();
         tabPage4 = new TabPage();
+        listBox7 = new ListBox();
+        btnDeletePodFeed = new Button();
+        label18 = new Label();
+        listBox6 = new ListBox();
         tabPage5 = new TabPage();
         label13 = new Label();
         label12 = new Label();
@@ -78,11 +84,12 @@ partial class Form1
         button2 = new Button();
         label10 = new Label();
         listBox2 = new ListBox();
-        comboBox2 = new ComboBox();
+        label19 = new Label();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
         tabPage3.SuspendLayout();
+        tabPage4.SuspendLayout();
         tabPage5.SuspendLayout();
         tabControl2.SuspendLayout();
         tabPage6.SuspendLayout();
@@ -122,7 +129,6 @@ partial class Form1
         tbLink.Name = "tbLink";
         tbLink.Size = new Size(395, 34);
         tbLink.TabIndex = 2;
-        tbLink.Text = "https://blog.spreaker.com/feed/";
         // 
         // rtbSearchedPodInfo
         // 
@@ -170,6 +176,7 @@ partial class Form1
         // 
         // tabPage1
         // 
+        tabPage1.Controls.Add(label17);
         tabPage1.Controls.Add(comboBox1);
         tabPage1.Controls.Add(tbeEmptyName);
         tabPage1.Controls.Add(btnSave);
@@ -189,6 +196,15 @@ partial class Form1
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Start";
         tabPage1.UseVisualStyleBackColor = true;
+        // 
+        // label17
+        // 
+        label17.AutoSize = true;
+        label17.Location = new Point(557, 330);
+        label17.Name = "label17";
+        label17.Size = new Size(258, 28);
+        label17.TabIndex = 14;
+        label17.Text = "Choos a category to save as:";
         // 
         // comboBox1
         // 
@@ -245,9 +261,9 @@ partial class Form1
         label5.Location = new Point(17, 400);
         label5.Margin = new Padding(4, 0, 4, 0);
         label5.Name = "label5";
-        label5.Size = new Size(319, 28);
+        label5.Size = new Size(290, 28);
         label5.TabIndex = 8;
-        label5.Text = "Enter category to save RSS Feed as:";
+        label5.Text = "Enter name to save RSS Feed as:";
         // 
         // tabPage2
         // 
@@ -312,12 +328,20 @@ partial class Form1
         tabPage3.Controls.Add(lblToUpdateCategory);
         tabPage3.Controls.Add(lblToUpdateName);
         tabPage3.Controls.Add(lblToUpdate);
-        tabPage3.Location = new Point(4, 37);
+        tabPage3.Location = new Point(4, 29);
         tabPage3.Name = "tabPage3";
-        tabPage3.Size = new Size(1070, 470);
+        tabPage3.Size = new Size(1070, 478);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Update";
         tabPage3.UseVisualStyleBackColor = true;
+        // 
+        // comboBox2
+        // 
+        comboBox2.FormattingEnabled = true;
+        comboBox2.Location = new Point(129, 288);
+        comboBox2.Name = "comboBox2";
+        comboBox2.Size = new Size(327, 36);
+        comboBox2.TabIndex = 13;
         // 
         // lblDisplayLink
         // 
@@ -424,12 +448,57 @@ partial class Form1
         // 
         // tabPage4
         // 
-        tabPage4.Location = new Point(4, 29);
+        tabPage4.Controls.Add(label19);
+        tabPage4.Controls.Add(listBox7);
+        tabPage4.Controls.Add(btnDeletePodFeed);
+        tabPage4.Controls.Add(label18);
+        tabPage4.Controls.Add(listBox6);
+        tabPage4.Location = new Point(4, 37);
         tabPage4.Name = "tabPage4";
-        tabPage4.Size = new Size(1070, 478);
+        tabPage4.Size = new Size(1070, 470);
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Delete";
         tabPage4.UseVisualStyleBackColor = true;
+        // 
+        // listBox7
+        // 
+        listBox7.FormattingEnabled = true;
+        listBox7.Location = new Point(474, 56);
+        listBox7.Name = "listBox7";
+        listBox7.Size = new Size(593, 396);
+        listBox7.TabIndex = 12;
+        // 
+        // btnDeletePodFeed
+        // 
+        btnDeletePodFeed.BackColor = Color.DarkSlateGray;
+        btnDeletePodFeed.FlatStyle = FlatStyle.Popup;
+        btnDeletePodFeed.ForeColor = SystemColors.GradientActiveCaption;
+        btnDeletePodFeed.Location = new Point(265, 12);
+        btnDeletePodFeed.Margin = new Padding(4);
+        btnDeletePodFeed.Name = "btnDeletePodFeed";
+        btnDeletePodFeed.Size = new Size(129, 41);
+        btnDeletePodFeed.TabIndex = 11;
+        btnDeletePodFeed.Text = "Delete";
+        btnDeletePodFeed.UseVisualStyleBackColor = false;
+        btnDeletePodFeed.Click += btnDeletePodFeed_Click;
+        // 
+        // label18
+        // 
+        label18.AutoSize = true;
+        label18.Location = new Point(18, 25);
+        label18.Name = "label18";
+        label18.Size = new Size(240, 28);
+        label18.TabIndex = 10;
+        label18.Text = "Pick an RSS feed to Delete";
+        // 
+        // listBox6
+        // 
+        listBox6.FormattingEnabled = true;
+        listBox6.Location = new Point(18, 56);
+        listBox6.Name = "listBox6";
+        listBox6.Size = new Size(376, 396);
+        listBox6.TabIndex = 9;
+        listBox6.SelectedIndexChanged += listBox6_SelectedIndexChanged;
         // 
         // tabPage5
         // 
@@ -636,13 +705,14 @@ partial class Form1
         listBox2.TabIndex = 25;
         listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged_1;
         // 
-        // comboBox2
+        // label19
         // 
-        comboBox2.FormattingEnabled = true;
-        comboBox2.Location = new Point(129, 288);
-        comboBox2.Name = "comboBox2";
-        comboBox2.Size = new Size(327, 36);
-        comboBox2.TabIndex = 13;
+        label19.AutoSize = true;
+        label19.Location = new Point(474, 25);
+        label19.Name = "label19";
+        label19.Size = new Size(404, 28);
+        label19.TabIndex = 13;
+        label19.Text = "Preview what episodes this RSS feed contains";
         // 
         // Form1
         // 
@@ -665,6 +735,8 @@ partial class Form1
         tabPage2.PerformLayout();
         tabPage3.ResumeLayout(false);
         tabPage3.PerformLayout();
+        tabPage4.ResumeLayout(false);
+        tabPage4.PerformLayout();
         tabPage5.ResumeLayout(false);
         tabPage5.PerformLayout();
         tabControl2.ResumeLayout(false);
@@ -730,4 +802,10 @@ partial class Form1
     private Label label15;
     private Label lblDisplayLink;
     private ComboBox comboBox2;
+    private Label label17;
+    private Button btnDeletePodFeed;
+    private Label label18;
+    private ListBox listBox6;
+    private ListBox listBox7;
+    private Label label19;
 }
