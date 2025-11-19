@@ -227,9 +227,10 @@ namespace AAPresentation_Layer
             newPf.Id = lblToUpdate.Text;
             newPf.Link = lblDisplayLink.Text;
             newPf.Name = tbUpdateName.Text;
-            if(comboBox2.SelectedItem is Category cat)
+            //newPf.CategoryId = "";
+            if (comboBox2.SelectedItem is Category cat)
             {
-                pf.CategoryId = cat.Name;
+                newPf.CategoryId = cat.Name;
             }
             await pfService.UpdatePodFeedAsync(newPf);
             refreshEvent?.Invoke();
