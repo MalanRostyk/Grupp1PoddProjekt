@@ -15,12 +15,13 @@ namespace AAPresentation_Layer
         private IService service;//Dependcy injection måste, ej gjort
         private IPodFeedService pfService;
         private ICategoryService catService;
-        private IXmlService xmlService;
+
+        private IJsonService jsonService;
         private PodFeed pf;
         //private Category c;
-        public Form1(IService service, IPodFeedService pFs, ICategoryService catService, IXmlService xmlService)
+        public Form1(IService service, IPodFeedService pFs, ICategoryService catService, IJsonService jsonService)
         {
-            this.xmlService = xmlService;
+            this.jsonService = jsonService;
             this.service = service;
             this.catService = catService;
             pfService = pFs;
@@ -74,7 +75,7 @@ namespace AAPresentation_Layer
 
         private async Task GetLastResult()
         {
-            PodFeed pf = await xmlService.LoadPodFeedFromXml();
+            PodFeed pf = await jsonService.LoadPodFeedFromJson();
             lbSearchedResults.DataSource = pf.podList;
             lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
             tbLink.Text = pf.Link;
@@ -86,7 +87,7 @@ namespace AAPresentation_Layer
             pf.podList = await service.ReadAllPodAsync(pf); //Fyll listan med Pod objekt från länken
             lbSearchedResults.DataSource = pf.podList;
             lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
-            await xmlService.SavePodFeedToXml(pf);
+            await jsonService.SavePodFeedToJson(pf);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)//I Start Tabben

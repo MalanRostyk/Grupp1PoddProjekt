@@ -3,30 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 using DDModels;
-using System.IO;
-using System.Xml.Serialization;
 
 namespace CCData_Access_Layer
 {
-
-    public class XmlRepository : IXmlRepository
+    public class JsonRepository : IJsonRepository
     {
         private readonly string Path = @"..\..\..\..\CCData-Access-Layer\podfeed.xml";
-        public XmlRepository() { }
-
-        public async Task SerializePodFeed(PodFeed pf)
+        public JsonRepository() { }
+        public async Task SerializePodFeedJson(PodFeed pf)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(PodFeed));
             await using FileStream fs = new FileStream(Path, FileMode.Create, FileAccess.Write);
-            serializer.Serialize(fs, pf);
+            await JsonSerializer.SerializeAsync(fs, pf);
         }
-
-        public async Task<PodFeed> DeserializePodFeed()
+        public async Task<PodFeed> DeserializePodFeedJson()
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(PodFeed));
             await using FileStream fs = new FileStream(Path, FileMode.Open, FileAccess.Read);
-            return (PodFeed)serializer.Deserialize(fs);
+            return await JsonSerializer.DeserializeAsync<PodFeed>(fs);
         }
     }
 }
