@@ -43,6 +43,7 @@ namespace CCData_Access_Layer
                     newPod.Id = sItem.Id;
                     newPod.Titel = sItem.Title.Text;
                     newPod.Link = sItem.Links.First().Uri.ToString();
+                    newPod.LinkRef = link;
                     podList.Add(newPod);
                 }
             }

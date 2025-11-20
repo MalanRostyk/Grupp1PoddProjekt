@@ -19,5 +19,6 @@ namespace DDModels
         public string CategoryId { set; get; }
 
         public PodFeed() { }
+        public PodFeed(string name, string catId) { Name = name; CategoryId = catId; }
     }
 }

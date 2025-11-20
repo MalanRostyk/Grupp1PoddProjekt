@@ -15,13 +15,13 @@ namespace AAPresentation_Layer
             //var rssClient = new RssPodClient(client);
             //PodFeedRepository pfRepo = new();
 
-
-            IService service = new BService(new RssPodClient(new HttpClient()));//Dependency Injection
-            IPodFeedService pfService = new APodFeedService(new PodFeedRepository());//Dependency Injection
-            CICategoryService catService = new CategoryService(new CategoryRepository());
+            IService service = new Service(new RssPodClient(new HttpClient()));//Dependency Injection
+            IPodFeedService pfService = new PodFeedService(new PodFeedRepository());//Dependency Injection
+            ICategoryService catService = new CategoryService(new CategoryRepository());
+            IXmlService xmlService = new XmlService(new XmlRepository());
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1(service, pfService, catService));
+            Application.Run(new Form1(service, pfService,catService, xmlService));
         }
     }
 }

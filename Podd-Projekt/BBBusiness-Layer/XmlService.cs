@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 using CCData_Access_Layer;
 using DDModels;
 
-
 namespace BBBusiness_Layer
 {
     public class XmlService : IXmlService
     {
-        XmlRepository xmlRepo;
+        private IXmlRepository xmlRepo;
 
-        public XmlService(XmlRepository xmlRepository)
+        public XmlService(IXmlRepository xmlRepository)
         {
             xmlRepo = xmlRepository;
         }

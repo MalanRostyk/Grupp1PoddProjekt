@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DDModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,11 @@ namespace CCData_Access_Layer
     {
         Task AddAsync(T obj);
         Task<T?> GetAsync(string id);
+        Task<T?> GetTempAsync();
         Task<List<T>> GetAllAsync();
         Task<bool> UpdateAsync(T obj);
+        Task ChangeRecentlyAsync(T tempPf);
         Task DeleteAsync(string id);
+
     }
 }

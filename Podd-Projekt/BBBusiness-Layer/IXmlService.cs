@@ -6,19 +6,11 @@ using System.Threading.Tasks;
 using DDModels;
 
 
-namespace DDModels
+namespace BBBusiness_Layer
 {
-<<<<<<<< HEAD:Podd-Projekt/DDModels/Category.cs
-    public class Category
-    {
-
-        public string Name { get; set; }
-
-========
     public interface IXmlService
     {
         Task SavePodFeedToXml(PodFeed pf);
         Task<PodFeed> LoadPodFeedFromXml();
->>>>>>>> R2:Podd-Projekt/BBBusiness-Layer/IXmlService.cs
     }
 }
