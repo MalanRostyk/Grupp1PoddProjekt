@@ -10,5 +10,6 @@ namespace BBBusiness_Layer
     public interface IService
     {
         Task<List<Pod>> ReadAllPodAsync(PodFeed pf);
+        Task<List<Pod>> ReadAllPodAsync(string link);
     }
 }

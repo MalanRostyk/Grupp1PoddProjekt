@@ -33,23 +33,26 @@ namespace CCData_Access_Layer
             //"Hela = SyncationFeed, dvs som en list", och varje "objekt = SyndicationItem"
             //Så sammasatt blir det som en List<SyndicationItem>
 
-            using (Stream stream = await httpClient.GetStreamAsync(link))
+            try
             {
-                XmlReader xmlReader = XmlReader.Create(stream);
-                SyndicationFeed syndFeed = SyndicationFeed.Load(xmlReader);
-                foreach (SyndicationItem sItem in syndFeed.Items)
+                using (Stream stream = await httpClient.GetStreamAsync(link))
                 {
-                    Pod newPod = new();
-                    newPod.Id = sItem.Id;
-                    newPod.Titel = sItem.Title.Text;
-                    newPod.Description = sItem.Summary.Text;
-                    newPod.PublishedDate = sItem.PublishDate;
-                    newPod.Link = sItem.Links.First().Uri.ToString();
-                    newPod.LinkRef = link;
-                    
-                    podList.Add(newPod);
+                    XmlReader xmlReader = XmlReader.Create(stream);
+                    SyndicationFeed syndFeed = SyndicationFeed.Load(xmlReader);
+                    foreach (SyndicationItem sItem in syndFeed.Items)
+                    {
+                        Pod newPod = new();
+                        newPod.Id = sItem.Id;
+                        newPod.Titel = sItem.Title.Text;
+                        newPod.Description = sItem.Summary.Text;
+                        newPod.PublishedDate = sItem.PublishDate;
+                        newPod.Link = sItem.Links.First().Uri.ToString();
+                        newPod.LinkRef = link;
+
+                        podList.Add(newPod);
+                    }
                 }
-            }
+            }catch(Exception e) { }
             return podList;
         }
     }

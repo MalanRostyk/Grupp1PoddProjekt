@@ -15,5 +15,6 @@ namespace DDModels
         public string Id { get; set; }//Detta värde hålls av en PodFeed
         public string Name { get; set; }
         public Category() { }
+        public Category(string name) { Name = name; }
     }
 }

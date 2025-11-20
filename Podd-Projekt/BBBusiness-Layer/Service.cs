@@ -30,5 +30,10 @@ namespace BBBusiness_Layer
 
             return podList;
         }
+        public async Task<List<Pod>> ReadAllPodAsync(string link) 
+        {
+            List<Pod> podList = await podClient.GetAllPodsAsync(link);
+            return podList;
+        }
     }
 }

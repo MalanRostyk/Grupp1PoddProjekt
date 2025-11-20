@@ -56,7 +56,7 @@ namespace BBBusiness_Layer
         {
             List<PodFeed> pfLista = await pfRepo.GetAllAsync();
             List<PodFeed> filteredList = new();
-            if (category.Equals("") || category == null)
+            if (category.Equals("None"))
             {
                 return pfLista;
             }
@@ -69,7 +69,7 @@ namespace BBBusiness_Layer
         private List<PodFeed> GetFilteredList(List<PodFeed> allPf, string category)
         {
             List<PodFeed> filteredList = new();
-            var query = allPf.Where(p => p.CategoryId == category);
+            var query = allPf.Where(p => p.CategoryId == category).OrderByDescending(p => p.Name);
             foreach (var pf in query)
                 filteredList.Add(pf);
             return filteredList;

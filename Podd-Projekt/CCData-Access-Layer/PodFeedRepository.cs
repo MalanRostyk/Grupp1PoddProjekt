@@ -46,7 +46,6 @@ namespace CCData_Access_Layer
             return await pfCollection.Find(filter).FirstOrDefaultAsync();
         }
         public async Task<List<PodFeed>> GetAllAsync() => await pfCollection.Find(FilterDefinition<PodFeed>.Empty).ToListAsync();
-       
         
         public async Task<bool> UpdateAsync(PodFeed pf)//Använder transaktion
         {
