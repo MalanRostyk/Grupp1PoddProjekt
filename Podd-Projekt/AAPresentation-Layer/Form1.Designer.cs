@@ -44,7 +44,9 @@ partial class Form1
         tbNewFeedName = new TextBox();
         label5 = new Label();
         tabPage2 = new TabPage();
-        listBox4 = new ListBox();
+        comboBox3 = new ComboBox();
+        label20 = new Label();
+        richTextBox1 = new RichTextBox();
         listBox3 = new ListBox();
         label4 = new Label();
         listBox1 = new ListBox();
@@ -267,32 +269,52 @@ partial class Form1
         // 
         // tabPage2
         // 
-        tabPage2.Controls.Add(listBox4);
+        tabPage2.Controls.Add(comboBox3);
+        tabPage2.Controls.Add(label20);
+        tabPage2.Controls.Add(richTextBox1);
         tabPage2.Controls.Add(listBox3);
         tabPage2.Controls.Add(label4);
         tabPage2.Controls.Add(listBox1);
-        tabPage2.Location = new Point(4, 29);
+        tabPage2.Location = new Point(4, 37);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(1070, 478);
+        tabPage2.Size = new Size(1070, 470);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Register";
         tabPage2.UseVisualStyleBackColor = true;
         // 
-        // listBox4
+        // comboBox3
         // 
-        listBox4.FormattingEnabled = true;
-        listBox4.Location = new Point(724, 68);
-        listBox4.Name = "listBox4";
-        listBox4.Size = new Size(326, 396);
-        listBox4.TabIndex = 3;
+        comboBox3.FormattingEnabled = true;
+        comboBox3.Location = new Point(442, 27);
+        comboBox3.Name = "comboBox3";
+        comboBox3.Size = new Size(151, 36);
+        comboBox3.TabIndex = 6;
+        comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
+        // 
+        // label20
+        // 
+        label20.AutoSize = true;
+        label20.Location = new Point(347, 27);
+        label20.Name = "label20";
+        label20.Size = new Size(101, 28);
+        label20.TabIndex = 5;
+        label20.Text = "Category: ";
+        // 
+        // richTextBox1
+        // 
+        richTextBox1.Location = new Point(347, 68);
+        richTextBox1.Name = "richTextBox1";
+        richTextBox1.Size = new Size(702, 378);
+        richTextBox1.TabIndex = 4;
+        richTextBox1.Text = "";
         // 
         // listBox3
         // 
         listBox3.FormattingEnabled = true;
-        listBox3.Location = new Point(369, 68);
+        listBox3.Location = new Point(6, 274);
         listBox3.Name = "listBox3";
-        listBox3.Size = new Size(326, 396);
+        listBox3.Size = new Size(321, 172);
         listBox3.TabIndex = 2;
         listBox3.SelectedIndexChanged += listBox3_SelectedIndexChanged;
         // 
@@ -310,7 +332,7 @@ partial class Form1
         listBox1.FormattingEnabled = true;
         listBox1.Location = new Point(6, 68);
         listBox1.Name = "listBox1";
-        listBox1.Size = new Size(321, 396);
+        listBox1.Size = new Size(321, 200);
         listBox1.TabIndex = 0;
         listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged_1;
         // 
@@ -328,9 +350,9 @@ partial class Form1
         tabPage3.Controls.Add(lblToUpdateCategory);
         tabPage3.Controls.Add(lblToUpdateName);
         tabPage3.Controls.Add(lblToUpdate);
-        tabPage3.Location = new Point(4, 37);
+        tabPage3.Location = new Point(4, 29);
         tabPage3.Name = "tabPage3";
-        tabPage3.Size = new Size(1070, 470);
+        tabPage3.Size = new Size(1070, 478);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Update";
         tabPage3.UseVisualStyleBackColor = true;
@@ -794,7 +816,6 @@ partial class Form1
     private Label label13;
     private ComboBox comboBox1;
     private ListBox listBox3;
-    private ListBox listBox4;
     private Button button1;
     private Label label14;
     private ListBox listBox5;
@@ -808,4 +829,7 @@ partial class Form1
     private ListBox listBox6;
     private ListBox listBox7;
     private Label label19;
+    private RichTextBox richTextBox1;
+    private ComboBox comboBox3;
+    private Label label20;
 }

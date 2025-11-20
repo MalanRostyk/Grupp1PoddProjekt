@@ -1,170 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PodFeed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>691e3e201b2306f9aaefad9f</Id>
-  <Link>https://workingbluepodcast.podbean.com/feed.xml</Link>
+  <Link>https://anchor.fm/s/103c7ff0c/podcast/rss</Link>
   <podList>
     <Pod>
-      <Id>http://workingbluepodcast.podbean.com/e/episode-11-1500176077/ tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>Episode 11</Titel>
-      <Link>https://workingbluepodcast.podbean.com/e/episode-11-1500176077/</Link>
+      <Id>e5d7374e-c374-411e-8a18-69aa60c8f87d tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>10. Oogje In Het Zeil</Titel>
+      <Description>&lt;p&gt;De laatste aflevering 10! De laatste ! Wij waren voor 1 dag de hulpjes van de huismeester. En we spraken met Francien en zij houdt een oogje in het zeil...&lt;/p&gt;
+</Description>
+      <PublishedDate>2025-04-16T18:23:26Z</PublishedDate>
+      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/10--Oogje-In-Het-Zeil-e31ke1q</Link>
       <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
     </Pod>
     <Pod>
-      <Id>http://workingbluepodcast.podbean.com/e/episode-10/ tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>Episode 10</Titel>
-      <Link>https://workingbluepodcast.podbean.com/e/episode-10/</Link>
+      <Id>d2e7e975-0e69-449f-ac7a-14d843cb9646 tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>9. Liefhebberij</Titel>
+      <Description>&lt;p&gt;In deze aflevering gaat Karlijn tuinieren! En komen we achter de liefhebberij van Ingrid. Ook zijn de jongens weer van de partij voor de theezakjes vragen!&lt;/p&gt;
+</Description>
+      <PublishedDate>2025-04-16T17:57:19Z</PublishedDate>
+      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/9--Liefhebberij-e31kdtq</Link>
       <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
     </Pod>
     <Pod>
-      <Id>http://workingbluepodcast.podbean.com/e/episode-9/ tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>Episode 9</Titel>
-      <Link>https://workingbluepodcast.podbean.com/e/episode-9/</Link>
+      <Id>b998e623-4091-40de-871d-584cec7d937b tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>8. Hier voel ik mij thuis</Titel>
+      <Description>&lt;p&gt;Aflevering 8! Een speciale aflevering. Er worden nieuwe woningen geboud in de wijk en voor de start van de bouw maakte Karlijn een audio wandeling over thuis.&lt;/p&gt;
+</Description>
+      <PublishedDate>2025-04-16T17:51:45Z</PublishedDate>
+      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/8--Hier-voel-ik-mij-thuis-e31kdnk</Link>
+      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
+    </Pod>
+    <Pod>
+      <Id>d7d8ff3e-295c-40f6-9a57-27bc5fdda97a tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>7. Huid Honger</Titel>
+      <Description>&lt;p&gt;Er wordt gekookt! Restaurant de Wagenaar opent voor èèn dag zijn deuren. Waarin de jonge fijnproevers hun mening geven. Sebas gaat op bezoek bij een buurtgenoot die hunkert naar contact. En Karlijn en Sebas geven weer een prijs door. &lt;/p&gt;
+</Description>
+      <PublishedDate>2025-04-16T17:50:44Z</PublishedDate>
+      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/7--Huid-Honger-e31kdml</Link>
+      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
+    </Pod>
+    <Pod>
+      <Id>79a81885-0248-447a-b601-018323a9f9a5 tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>6. Liefs Loes</Titel>
+      <Description>&lt;p&gt;Een aflevering die in het teken staat van Loes. Onze Loes, Loes van het laatste woord, Loes van de schaterlach en scootmobiel. Een eerbetoon aan een welbekende bewoonster van de flat.&lt;/p&gt;
+</Description>
+      <PublishedDate>2025-04-16T17:49:40Z</PublishedDate>
+      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/6--Liefs-Loes-e31kdl6</Link>
+      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
+    </Pod>
+    <Pod>
+      <Id>591ea880-97b3-44e6-9df5-88b0a2e0260c tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>5. Gevonden Voorwerpen</Titel>
+      <Description>&lt;p&gt;Er vliegen vuilniszakken naar beneden! Sebas, Karlijn en de hulptroepen gaan vuilnisprikken. Karlijn kletst met Nadia over het vinden van je stem. En ook de jongens vragen weer een theezakjes vraag...&lt;/p&gt;
+</Description>
+      <PublishedDate>2025-04-16T17:48:18Z</PublishedDate>
+      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/5--Gevonden-Voorwerpen-e31kdji</Link>
+      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
+    </Pod>
+    <Pod>
+      <Id>a7e2d101-71ee-48cf-9e87-2f2399a13e1b tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>4. Op De Vlucht</Titel>
+      <Description>&lt;p&gt;In de vierde aflevering komt Sebas een jonge kat tegen die op de vlucht is. Karlijn is ondertussen ongerust waarom Sebas er nog steeds niet is. Ook gaan Sebas en Karlijn op de thee bij Loes die niet alleen het laatste woord heeft maar ook een openhartig verhaal. Én wordt er weer een prijs uitgedeeld. &lt;/p&gt;
+</Description>
+      <PublishedDate>2025-04-16T17:43:30Z</PublishedDate>
+      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/4--Op-De-Vlucht-e31kdbi</Link>
+      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
+    </Pod>
+    <Pod>
+      <Id>35a9e1eb-e8e8-4fe0-bf8e-91efaab039c9 tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>3. Nieuw Begin</Titel>
+      <Description>&lt;p&gt;In de derde aflevering van Hier brandt altijd licht organiseren Karlijn en Sebas een housewarming met champagne, huisjes van koek én een officiële opening van het appartement. Sebas gaat opzoek bij Randy en ook Loes is weer van de partij met laatste woord! &lt;/p&gt;
+</Description>
+      <PublishedDate>2025-04-16T17:16:55Z</PublishedDate>
+      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/3--Nieuw-Begin-e31kc3i</Link>
+      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
+    </Pod>
+    <Pod>
+      <Id>ef40253d-63f3-40fb-9ed5-c0de879b5c5e tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>2. Verhuis</Titel>
+      <Description>&lt;p&gt;Welkom in onze flat, Een flat van 12 hoog en 13 huiskamers breed midden in Geleen-Zuid. In de podcast (radioshow) ‘Hier brandt altijd licht’ nemen Karlijn en Sebas je mee in de wijk Geleen- Zuid. Vanuit de Wagenaarflat 62 ontmoeten Karlijn en Sebas hun buurtgenoten. Van theezakjes vragen, tot levensverhalen, Van verwelkoming tot afscheid. Met de microfoon in de hand gaan ze de straat op om de buurt beter te leren kennen. Want een goede buur is beter dan een verre vriend. In de tweede aflevering van Hier brandt altijd licht verzamelen Sebas en Karlijn meubels voor het appartement, de muur krijgt een likje verf en het wordt er gezellig gemaakt dankzij vele hulptroepen.Karlijn ontmoet Hend in de Galerij en gaat bij haar op bezoek.Ook wordt er een prijs uitgereikt!&lt;/p&gt;
+</Description>
+      <PublishedDate>2025-04-16T17:08:33Z</PublishedDate>
+      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/2--Verhuis-e31kblg</Link>
+      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
+    </Pod>
+    <Pod>
+      <Id>124860fa-6068-4937-a933-de4a92c76c1c tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>1. Het Begin</Titel>
+      <Description>&lt;p&gt;Welkom in onze flat, Een flat van 12 hoog en 13 huiskamers breed midden in Geleen-Zuid. In de podcast (radioshow) ‘Hier brandt altijd licht’ nemen Karlijn en Sebas je mee in de wijk Geleen- Zuid. Vanuit de Wagenaarflat 62 ontmoeten Karlijn en Sebas hun buurtgenoten. Van theezakjes vragen, tot levensverhalen, Van verwelkoming tot afscheid. Met de microfoon in de hand gaan ze de straat op om de buurt beter te leren kennen. Want een goede buur is beter dan een verre vriend. In de eerste aflevering begint het avontuur voor Karlijn en Sebas in de flat. Ze bellen aan bij de buren met de vraag, wat is een goede titel voor de podcast? Karlijn gaat op bezoek bij de bewoner die het langst in de flat woont.Ook krijgen ze bezoek van de kinderen uit de flat en Loes, die wil graag het laatste woord! &lt;/p&gt;
+</Description>
+      <PublishedDate>2025-04-16T17:05:15Z</PublishedDate>
+      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/1--Het-Begin-e31kbft</Link>
+      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
+    </Pod>
+    <Pod>
+      <Id>052b9937-9a17-4534-9bc2-315a6846c84a tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>Teaser: Hier brandt altijd licht</Titel>
+      <Description>&lt;p&gt;Welkom in onze flat, Een flat van 12 hoog en 13 huiskamers breed midden in Geleen-Zuid. In de podcast (radioshow) ‘Hier brandt altijd licht’ nemen Karlijn en Sebas je mee in de wijk Geleen- Zuid. Vanuit de Wagenaarflat 62 ontmoeten Karlijn en Sebas hun buurtgenoten. Van theezakjes vragen, tot levensverhalen, Van verwelkoming tot afscheid. Met de microfoon in de hand gaan ze de straat op om de buurt beter te leren kennen. Want een goede buur is beter dan een verre vriend. &lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Deze podcast is in 2021 opgenomen en gemaakt door Karlijn van Kruchten en Sebas van der Donk, onder de vleugels van Het Laagland &amp;amp; ZuidZone. &lt;/p&gt;
+</Description>
+      <PublishedDate>2025-04-16T16:57:36Z</PublishedDate>
+      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/Teaser-Hier-brandt-altijd-licht-e31ka5h</Link>
       <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
     </Pod>
   </podList>
-</PodFeed>     <Id>aebd1072-8015-4f04-9d86-42f0f0a8d9ee tillhör </Id>
-      <Titel>S2. Ep. 8 A Look at Tier I vs Tier II Hockey (w/Coach Craig)</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/S2--Ep--8-A-Look-at-Tier-I-vs-Tier-II-Hockey-wCoach-Craig-e2h6kel</Link>
-    </Pod>
-    <Pod>
-      <Id>20848e07-dad4-41ea-a7f7-26d1eb368b78 tillhör </Id>
-      <Titel>S2. Ep. 7 "Get to Da Choppa!"</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/S2--Ep--7-Get-to-Da-Choppa-e2fobm5</Link>
-    </Pod>
-    <Pod>
-      <Id>5a79c425-b8d6-4a11-af86-ed2f959111ab tillhör </Id>
-      <Titel>S2. Ep. 6 My Hockey Rankings - Epilogue</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/S2--Ep--6-My-Hockey-Rankings---Epilogue-e2epo6t</Link>
-    </Pod>
-    <Pod>
-      <Id>2481d9eb-5503-482e-b955-ad0c5173fa22 tillhör </Id>
-      <Titel>S2. Ep. 5 Rank and File - Part 1: A Discussion with the MYHockeyRankings Founders!</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/S2--Ep--5-Rank-and-File---Part-1-A-Discussion-with-the-MYHockeyRankings-Founders-e2d5mda</Link>
-    </Pod>
-    <Pod>
-      <Id>ab2f5f98-2dda-4e2d-8ba0-9483194d2a5e tillhör </Id>
-      <Titel>S2. Ep. 4 Headspace w/ Coach Chad </Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/S2--Ep--4-Headspace-w-Coach-Chad-e2cipm7</Link>
-    </Pod>
-    <Pod>
-      <Id>e577c2f5-1444-4df2-99e7-dcb4147309f2 tillhör </Id>
-      <Titel>S2. Ep. 3 Socially Unacceptable</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/S2--Ep--3-Socially-Unacceptable-e29f6k4</Link>
-    </Pod>
-    <Pod>
-      <Id>ebc07c62-3177-4fab-88d2-92a5ad82f904 tillhör </Id>
-      <Titel>S2. Ep. 2 In the Eyes of the Beholder: Officiating in Hockey</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/S2--Ep--2-In-the-Eyes-of-the-Beholder-Officiating-in-Hockey-e29663c</Link>
-    </Pod>
-    <Pod>
-      <Id>4819f8fd-3b63-452d-864d-50a0cd9e5c15 tillhör </Id>
-      <Titel>S2. Ep. 1 “The Hockey Path" with Coach Craig</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/S2--Ep--1-The-Hockey-Path-with-Coach-Craig-e289hh0</Link>
-    </Pod>
-    <Pod>
-      <Id>b4fad501-2174-40d9-a9af-0cea1ee7a208 tillhör </Id>
-      <Titel>Ep. 13 "75 Stitches"</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--13-75-Stitches-e26f8vm</Link>
-    </Pod>
-    <Pod>
-      <Id>e11aeb01-f75c-4bf7-921e-a5f0bb2bc139 tillhör </Id>
-      <Titel>Ep. 12 The Donks Tourney Team Update</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--12-The-Donks-Tourney-Team-Update-e2629m9</Link>
-    </Pod>
-    <Pod>
-      <Id>a67cc5c1-7e89-4a86-b536-62bcf5ee8ba4 tillhör </Id>
-      <Titel>"SPECIAL EPISODE: The Donks and Fire In the Hole Fathers Day Podcast".</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/SPECIAL-EPISODE-The-Donks-and-Fire-In-the-Hole-Fathers-Day-Podcast-e25vci9</Link>
-    </Pod>
-    <Pod>
-      <Id>a521be1a-e54e-4185-9bd4-1bcd84cd5087 tillhör </Id>
-      <Titel>Ep. 11 Community Driven, Culturally Sound with Coach Nick </Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--11-Community-Driven--Culturally-Sound-with-Coach-Nick-e25du4t</Link>
-    </Pod>
-    <Pod>
-      <Id>501f2dea-20a0-4b40-879a-0ea3f0194d9b tillhör </Id>
-      <Titel>Ep. 10 In the Crease </Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--10-In-the-Crease-e24t0gg</Link>
-    </Pod>
-    <Pod>
-      <Id>1126044d-ff31-41fa-a563-5efd140ed310 tillhör </Id>
-      <Titel>Ep. 9 Hockey Life, Hockey Wife </Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--9-Hockey-Life--Hockey-Wife-e24dnkn</Link>
-    </Pod>
-    <Pod>
-      <Id>0b461967-c42e-4328-ab61-4fe028520e3b tillhör </Id>
-      <Titel>Ep. 8 Conversations with Coach Craig </Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--8-Conversations-with-Coach-Craig-e23ns8p</Link>
-    </Pod>
-    <Pod>
-      <Id>7515b651-71cd-4cb3-9e7d-81b9a5eab583 tillhör </Id>
-      <Titel>Ep. 7 Tryout Fallout </Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--7-Tryout-Fallout-e23ddef</Link>
-    </Pod>
-    <Pod>
-      <Id>fc2250fb-20ea-4449-8f72-c98bb5986c9c tillhör </Id>
-      <Titel>Ep. 6 Running a Program is EASY </Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--6-Running-a-Program-is-EASY-e22uae8</Link>
-    </Pod>
-    <Pod>
-      <Id>3cfa343f-ff4a-48f5-b246-b4d265e1998f tillhör </Id>
-      <Titel>Ep 5 April Anarchy</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep-5-April-Anarchy-e21js1b</Link>
-    </Pod>
-    <Pod>
-      <Id>2594c8e2-a074-4a34-938e-98457cfd14da tillhör </Id>
-      <Titel>Ep. 4 Mindset Ft Coach K </Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--4-Mindset-Ft-Coach-K-e20judo</Link>
-    </Pod>
-    <Pod>
-      <Id>685710a4-c4ba-4c22-b0fc-19c5350dced8 tillhör </Id>
-      <Titel>Ep. 3 Transitions </Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--3-Transitions-e204bdi</Link>
-    </Pod>
-    <Pod>
-      <Id>7e70c8a8-fdec-495b-9a67-4bfc58d791cc tillhör </Id>
-      <Titel>Ep. 2 Cuffing Season</Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--2-Cuffing-Season-e1ve9lc</Link>
-    </Pod>
-    <Pod>
-      <Id>fd96415c-4e7a-4701-a756-b3b3f7ca64f5 tillhör </Id>
-      <Titel>Ep. 1 The Donks House Rules of Hockey </Titel>
-      <Link>https://podcasters.spotify.com/pod/show/thedonkshockeypod/episodes/Ep--1-The-Donks-House-Rules-of-Hockey-e1vd55u</Link>
-    </Pod>
-  </podList>
-</PodFeed>
-      <Id>https://api.spreaker.com/episode/67914523 tillhör </Id>
-      <Titel>FUN FRIDAY: The Upside-down World 🧙‍♂️🏰</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-the-upside-down-world--67914523</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67863247 tillhör </Id>
-      <Titel>Alien Chess Championship ♞🏁♛👾</Titel>
-      <Link>https://www.spreaker.com/episode/alien-chess-championship--67863247</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67850540 tillhör </Id>
-      <Titel>⭐ PREMIUM EPISODE PREVIEW ⭐ Grandma’s Invisible Cat 👵🐱✨</Titel>
-      <Link>https://www.spreaker.com/episode/premium-episode-preview-grandma-s-invisible-cat--67850540</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67820437 tillhör </Id>
-      <Titel>FUN FRIDAY: Wave Buddies 🐬🏖️🌊</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-wave-buddies--67820437</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67795511 tillhör </Id>
-      <Titel>REWIND WEDNESDAY: Sparkle the Unicorn and Friends find Treasure! 🧜‍♀️🌳🦄</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-wednesday-sparkle-the-unicorn-and-friends-find-treasure--67795511</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67780602 tillhör </Id>
-      <Titel>Beware Of The Cobra 🐍</Titel>
-      <Link>https://www.spreaker.com/episode/beware-of-the-cobra--67780602</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67765796 tillhör </Id>
-      <Titel>⭐ PREMIUM EPISODE PREVIEW ⭐The Ghost Who Was Allergic to Booing 👻🌬️🤧</Titel>
+</PodFeed>tel>⭐ PREMIUM EPISODE PREVIEW ⭐The Ghost Who Was Allergic to Booing 👻🌬️🤧</Titel>
       <Link>https://www.spreaker.com/episode/premium-episode-preview-the-ghost-who-was-allergic-to-booing--67765796</Link>
     </Pod>
     <Pod>

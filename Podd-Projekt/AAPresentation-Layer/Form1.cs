@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AAPresentation_Layer
 {
@@ -30,7 +31,7 @@ namespace AAPresentation_Layer
             RefreshEvent += FillUpdateListBox;
             RefreshEvent += FillDeleteListBox;
             RefreshEvent += DisplayAllCategoryData;
-            
+
 
             InitializeComponent();
             GetLastResult();
@@ -47,14 +48,33 @@ namespace AAPresentation_Layer
             listBox2.DisplayMember = "Name";
             comboBox1.DataSource = catList;
             comboBox1.DisplayMember = "Name";
+            comboBox3.DataSource = catList;
+            comboBox3.DisplayMember = "Name";
+        }
+
+        private async Task<List<PodFeed>> GetFilteredPodFeedList()
+        {
+            List<PodFeed> filteredList = new();
+            if (comboBox3.SelectedItem is Category selectedCat)
+            {
+                filteredList = await pfService.GetAllFilteredAsync(selectedCat.Name);
+            }
+            return filteredList;
         }
         private async void FillRegisterListBox()
         {
-            List<PodFeed> pfList = await pfService.GetAllAsync();
+            List<PodFeed> pfList = await GetFilteredPodFeedList();
             listBox1.DataSource = pfList;
 
             listBox1.DisplayMember = "Name";
         }
+        //private async void FillRegisterListBox()
+        //{
+        //    List<PodFeed> pfList = await pfService.GetAllAsync();
+        //    listBox1.DataSource = pfList;
+
+        //    listBox1.DisplayMember = "Name";
+        //}
         private async void FillUpdateListBox()
         {
             List<PodFeed> pfList = await pfService.GetAllAsync();
@@ -90,10 +110,10 @@ namespace AAPresentation_Layer
             pf.Link = tbLink.Text; //Rss feed i form av länk användaren vill se
             pf.podList = await service.ReadAllPodAsync(pf); //Fyll listan med Pod objekt från länken
             await pfService.UpdateRecentlySearchedAsync(pf);
-            
+
             lbSearchedResults.DataSource = pf.podList;
             lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
-            
+
             await xmlService.SavePodFeedToXml(pf);
         }
 
@@ -218,16 +238,22 @@ namespace AAPresentation_Layer
 
         private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            richTextBox1.Clear();
             if (listBox3.SelectedItem is Pod selectedPod)
             {
                 List<string> aPodValues = new();
 
-                aPodValues.Add($"Id: {selectedPod.Id}");
-                aPodValues.Add($"Titel: {selectedPod.Titel}");
-                aPodValues.Add($"Link: {selectedPod.Link}");
+                aPodValues.Add($"Id: {selectedPod.Id}\n");
+                aPodValues.Add($"Titel: {selectedPod.Titel}\n");
+                aPodValues.Add($"Description: {selectedPod.Description}\n");
+                aPodValues.Add($"Published Date: {selectedPod.PublishedDate}\n");
+                aPodValues.Add($"Link: {selectedPod.Link}\n");
                 aPodValues.Add($"LinkRef: {selectedPod.LinkRef}");
 
-                listBox4.DataSource = aPodValues;
+                foreach (string value in aPodValues)
+                {
+                    richTextBox1.Text += value;
+                }
             }
         }
 
@@ -256,7 +282,6 @@ namespace AAPresentation_Layer
                 newPf.podList = pf.podList;
             newPf.Link = lblDisplayLink.Text;
             newPf.Name = tbUpdateName.Text;
-            //newPf.CategoryId = "";
             if (comboBox2.SelectedItem is Category cat)
             {
                 newPf.CategoryId = cat.Name;
@@ -282,11 +307,16 @@ namespace AAPresentation_Layer
 
         private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listBox6.SelectedItem is PodFeed pf)
+            if (listBox6.SelectedItem is PodFeed pf)
             {
                 listBox7.DataSource = pf.podList;
                 listBox7.DisplayMember = "Titel";
             }
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillRegisterListBox();
         }
     }
 }

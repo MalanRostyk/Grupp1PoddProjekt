@@ -52,6 +52,42 @@ namespace BBBusiness_Layer
         //    return wasUpdated;
         //}
 
+        public async Task<List<PodFeed>> GetAllFilteredAsync(string category)
+        {
+            List<PodFeed> pfLista = await pfRepo.GetAllAsync();
+            List<PodFeed> filteredList = new();
+            if (category.Equals("") || category == null)
+            {
+                return pfLista;
+            }
+            if (!category.Equals(""))
+            {
+                filteredList = GetFilteredList(pfLista, category);
+            }
+            return filteredList;
+        }
+        private List<PodFeed> GetFilteredList(List<PodFeed> allPf, string category)
+        {
+            List<PodFeed> filteredList = new();
+            var query = allPf.Where(p => p.CategoryId == category);
+            foreach (var pf in query)
+                filteredList.Add(pf);
+            return filteredList;
+        }
+
+        //public async Task<List<PodFeed>> GetAllFilteredAsync(string category)
+        //{
+        //    List<PodFeed> pfList = await pfRepo.GetAllAsync();
+        //    List<PodFeed> filteredList = new();
+
+        //    var query = pfList.Where(p => p.CategoryId == category);
+        //    foreach(var pf in query)
+        //    {
+        //        filteredList.Add(pf);
+        //    }
+        //    return filteredList;
+        //}
+
         public async Task<bool> UpdatePodFeedAsync(PodFeed pf, string newName, string newCategory)
         {
             bool wasUpdated = false;
@@ -101,6 +137,7 @@ namespace BBBusiness_Layer
         }
 
         public async Task DeletePodFeedAsync(string id) => await pfRepo.DeleteAsync(id);
+
 
 
         public async Task<PodFeed?> GetTempPodFeedAsync() => await pfRepo.GetTempAsync();

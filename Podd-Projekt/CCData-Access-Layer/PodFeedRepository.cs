@@ -105,6 +105,7 @@ namespace CCData_Access_Layer
             }
             else
             {
+                //await UpdateTempPf(tempPf);
                 await UpdateTempPf(tempPf);
             }
         }
