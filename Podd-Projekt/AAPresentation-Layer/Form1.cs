@@ -108,7 +108,7 @@ namespace AAPresentation_Layer
         {
             PodFeed instanceForNewId = new();
             pf = await pfService.GetTempPodFeedAsync(); //En feed att använda
-            pf.Id = instanceForNewIdn.Id;
+            pf.Id = instanceForNewId.Id;
             pf.Link = tbLink.Text; //Rss feed i form av länk användaren vill se
             pf.podList = await service.ReadAllPodAsync(pf); //Fyll listan med Pod objekt från länken
             await pfService.UpdateRecentlySearchedAsync(pf);
