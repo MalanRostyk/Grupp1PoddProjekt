@@ -1,353 +1,328 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PodFeed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>691e3e201b2306f9aaefad9f</Id>
-  <Link>https://anchor.fm/s/103c7ff0c/podcast/rss</Link>
+  <Link>https://seewhathappens.libsyn.com/rss</Link>
   <podList>
     <Pod>
-      <Id>e5d7374e-c374-411e-8a18-69aa60c8f87d tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>10. Oogje In Het Zeil</Titel>
-      <Description>&lt;p&gt;De laatste aflevering 10! De laatste ! Wij waren voor 1 dag de hulpjes van de huismeester. En we spraken met Francien en zij houdt een oogje in het zeil...&lt;/p&gt;
-</Description>
-      <PublishedDate>2025-04-16T18:23:26Z</PublishedDate>
-      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/10--Oogje-In-Het-Zeil-e31ke1q</Link>
+      <Id>f15b9191-c103-471e-ac8d-b56f317ff1fc tillhör </Id>
+      <Titel>Kidding On The Square</Titel>
+      <Description>&lt;p&gt;Forever coming to you quarantined from their home bunker in California, Rob &amp; Patricia are back to discuss aliens, lizard people, and Jesus Christ.&lt;/p&gt;</Description>
+      <PublishedDate>2020-05-02T22:53:19Z</PublishedDate>
+      <Link>https://www.robschneider.com/podcast</Link>
+    </Pod>
+    <Pod>
+      <Id>92632599-e2c0-45e9-b589-a8b15ea94e53 tillhör </Id>
+      <Titel>Cliff &amp; Tracy</Titel>
+      <Description>&lt;p&gt;Still coming to you quarantined from their home bunker in California, Rob &amp; Patricia are back to discuss game shows, pulling teeth, and Lysistrata.&lt;/p&gt;</Description>
+      <PublishedDate>2020-04-23T19:58:38Z</PublishedDate>
+      <Link>https://www.robschneider.com/podcast</Link>
+    </Pod>
+    <Pod>
+      <Id>af81f191-3c28-4760-a5bf-70d0896bba56 tillhör </Id>
+      <Titel>COVID-19 Pounds Later</Titel>
+      <Description>&lt;p&gt;Still coming to you quarantined from their home bunker in California, Rob &amp; Patricia call their dearest friend, Jamie Lissow, who provides an update on quarantined life in Alaska. The trio also discuss productivity, amplification, and Cardi B. &lt;/p&gt;</Description>
+      <PublishedDate>2020-04-11T20:12:51Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>8563f23d-7ee2-49c4-a6a0-d4d3354ab59a tillhör </Id>
+      <Titel>Five Minutes (Underwater)</Titel>
+      <Description>&lt;p&gt;Once again coming to you quarantined from their home bunker, Rob &amp; Patricia touch on everything from natural disasters and giant bats to Rob's mom the teacher.&lt;/p&gt;</Description>
+      <PublishedDate>2020-03-27T23:35:30Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>f22d7363-883b-458e-b33c-d752bbb6edd9 tillhör </Id>
+      <Titel>I Don't Think You're Going To Learn Anything</Titel>
+      <Description>&lt;p&gt;Reporting to you from their home bunker, Rob &amp; Patricia provide an update on their dwindling emergency supplies and their first go at teaching via home schooling. Paty also ruins the idea of bidets for anyone running low on toilet paper. This episode was not sponsored by Marlboro.&lt;/p&gt;</Description>
+      <PublishedDate>2020-03-20T18:29:34Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>12876abd-8cac-421b-bff0-1e54c67d9b46 tillhör </Id>
+      <Titel>The Crown Virus</Titel>
+      <Description>&lt;p&gt;Rob &amp; Patricia are back to talk International Woman's Day, the all encompassing coronavirus, and why you should consume more vitamin C than fear propaganda, despite Facebook's wishes.&lt;/p&gt;</Description>
+      <PublishedDate>2020-03-12T21:43:08Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>3c6c7a3f-7989-48d2-97de-50e119509dc4 tillhör </Id>
+      <Titel>I'd Rather Be</Titel>
+      <Description>&lt;p&gt;Rob &amp; Patricia discuss Rob's new ADD diagnosis, kamikaze pilots turned Zen Buddhists, and Rob's new best friend, Dr. Gabor Maté.&lt;/p&gt;</Description>
+      <PublishedDate>2020-02-21T21:37:17Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>7acaa86d-cd7f-4b56-a5dc-165f2d5cb720 tillhör </Id>
+      <Titel>Rodney</Titel>
+      <Description>&lt;div style= "font-family: Calibri,Helvetica,sans-serif; font-size: 12pt; color: #000000;"&gt; &lt;span style="font-size: 10pt; font-family: Arial;"&gt;Real Rob's Jamie Lissow returns to the podcast, joining Rob to discuss comedy pseudonyms, Rodney Dangerfield, and the secret to shaking 1,500 hands without breaking your own.&lt;/span&gt;&lt;/div&gt; &lt;div style= "font-family: Calibri,Helvetica,sans-serif; font-size: 12pt; color: #000000;"&gt;  &lt;/div&gt;</Description>
+      <PublishedDate>2020-02-12T08:33:11Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>30652bf7-6de6-41f1-84dd-6aa0273f87c7 tillhör </Id>
+      <Titel>Woke: A Guide To Social Justice with Titania McGrath: Part II</Titel>
+      <Description>&lt;p&gt;Rob is once again joined by Jamie Lissow and English writer/comedian Andrew Doyle (@AndrewDoyle_com), the mastermind behind Twitter's infamous, fictional, woke social justice activist, Titania McGrath (@TitaniaMcGrath). The trio dive into part II of Titania's origins and future, free speech, and cancel culture.&lt;/p&gt;</Description>
+      <PublishedDate>2020-02-05T05:05:30Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>39d5ad8e-08ad-45c0-8547-c9e700f98df5 tillhör </Id>
+      <Titel>Woke: A Guide To Social Justice with Titania McGrath: Part I</Titel>
+      <Description>&lt;p&gt;Rob is joined by Jamie Lissow and English writer/comedian Andrew Doyle (@AndrewDoyle_com), the mastermind behind Twitter's infamous, fictional, woke social justice activist, Titania McGrath (@TitaniaMcGrath). The trio dive into Titania's origins and future, free speech, cancel culture, and Rob's international incident with the country of Spain.&lt;/p&gt;</Description>
+      <PublishedDate>2020-01-28T07:22:07Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>e3ddc251-3654-496b-b422-15ec13602891 tillhör </Id>
+      <Titel>"Daddy, Can I Have My Probiotic?"</Titel>
+      <Description>&lt;p&gt;Real Rob's Jamie Lissow returns to the podcast, joining Rob and Patricia to discuss instant gratification, ayahuasca, and why you should never accept free laser eye surgery.&lt;/p&gt;</Description>
+      <PublishedDate>2020-01-15T20:58:10Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>aaa55159-48c5-4803-9f32-f505b4af0c51 tillhör </Id>
+      <Titel>Holiday Fails</Titel>
+      <Description>&lt;p&gt;Real Rob's Jamie Lissow returns to the podcast, joining Rob to discuss holiday fails, the time Rob roasted Quentin Tarantino, and how one can use religion to discipline their children.&lt;/p&gt;</Description>
+      <PublishedDate>2020-01-10T17:53:20Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>45f366f2-b6c7-4c3c-8dc4-2ac946def994 tillhör </Id>
+      <Titel>Never Be Sick Again: An Interview with Raymond Francis, D.Sc., M.Sc., RNC: Part II</Titel>
+      <Description>&lt;p&gt;Rob's dear friend, the brilliant author and biochemist Raymond Francis, D.Sc., M.Sc., RNC, joins Rob for the second of two episodes to conclude their discussion on the single root cause of all disease, the importance of supplementing with high quality vitamins, nutrition, and much more.&lt;/p&gt;</Description>
+      <PublishedDate>2019-12-17T20:51:22Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>0dcbc5f6-e3a6-472a-b5b3-67114b93ca7a tillhör </Id>
+      <Titel>Never Be Sick Again: An Interview with Raymond Francis, D.Sc., M.Sc., RNC: Part I</Titel>
+      <Description>&lt;p&gt;Rob's dear friend, the brilliant author and biochemist Raymond Francis, D.Sc., M.Sc., RNC, joins Rob for the first of two episodes to discuss the single root cause of all disease, the importance of supplementing with high quality vitamins, nutrition, and much more.&lt;/p&gt;</Description>
+      <PublishedDate>2019-12-11T23:53:14Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>c6d43344-85b2-43a1-a5eb-12a78de615f3 tillhör </Id>
+      <Titel>The Blamemeister</Titel>
+      <Description>&lt;p&gt;Rob &amp; Patricia discuss Rob's tendency to prematurely blame others, including their own children.&lt;/p&gt;</Description>
+      <PublishedDate>2019-12-05T17:59:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>56842905-4e28-4bcb-97da-47c25606ac54 tillhör </Id>
+      <Titel>Ow-Chi</Titel>
+      <Description>&lt;p&gt;Rob &amp; Patricia ring in the holiday season, talking pilgrims, facials, vasectomies, and bacalao.&lt;/p&gt;</Description>
+      <PublishedDate>2019-11-29T23:18:07Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>ede57b10-7496-4ac2-85c6-8c8f8bb39c42 tillhör </Id>
+      <Titel>Technologically Challenged</Titel>
+      <Description>&lt;p&gt;Rob &amp; Patricia discuss the social implications of Patricia's obsession with online shopping in stark contrast to Rob's shortcomings as a technologically challenged man.&lt;/p&gt;</Description>
+      <PublishedDate>2019-11-20T01:45:18Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>2f4901f865c541b7a4a6818436317db7 tillhör </Id>
+      <Titel>Friends</Titel>
+      <Description>&lt;p&gt;Real Rob's Jamie Lissow returns to the podcast, joining Rob and Patricia to talk friends, secrets, and intuition.&lt;/p&gt;</Description>
+      <PublishedDate>2019-11-12T08:45:25Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>1bdf5108c9544efb91246f8a14a3e155 tillhör </Id>
+      <Titel>The Green Thief</Titel>
+      <Description>&lt;p&gt;The fires are out, and Rob &amp; Patricia are back to talk thievery, collectables, and their love/hate relationship with California.&lt;/p&gt;</Description>
+      <PublishedDate>2019-11-08T05:46:06Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>e88e4a297b264303afef266b3aa9a038 tillhör </Id>
+      <Titel>Binge Watch Date Night</Titel>
+      <Description>&lt;p&gt;Rob &amp; Patricia describe their typical date night, which tends to revolve around murder, suffering, and television.&lt;/p&gt;</Description>
+      <PublishedDate>2019-10-23T04:50:30Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>f6ebf3b12d0d4ba9a9c4f3d917a0d6f1 tillhör </Id>
+      <Titel>Should We Move?</Titel>
+      <Description>&lt;p&gt;Rob &amp; Patricia debate whether or not they should leave California. Their conversation naturally touches on hoarders, altitude sickness, and bath salts.&lt;/p&gt;</Description>
+      <PublishedDate>2019-10-16T07:07:43Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>8bbaa741a6674b7ebaea4bd651eeb838 tillhör </Id>
+      <Titel>Veins In The Sky</Titel>
+      <Description>&lt;p&gt;Rob &amp; Patricia break down subatomic particles, poisonous frogs, and whether or not they still believe in ghosts.&lt;/p&gt;</Description>
+      <PublishedDate>2019-10-08T05:34:02Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>21901beddbfc43e986910d96bcec3ad1 tillhör </Id>
+      <Titel>Two Steps From Madness: Part II</Titel>
+      <Description>&lt;p&gt;Renowned sexologist, psychologist, and criminologist Dr. Silvia Olmedo returns for part II of her conversation with Rob and Patricia to talk andropause and threesomes, and to offer some tricks on how to become a better lover.&lt;/p&gt;</Description>
+      <PublishedDate>2019-10-01T06:54:23Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>c7f1bd92508b4e529e58a12a40a95267 tillhör </Id>
+      <Titel>Two Steps From Madness: Part I</Titel>
+      <Description>&lt;p&gt;Renowned sexologist, psychologist, and criminologist Dr. Silvia Olmedo joins Rob and Patricia for the first of two podcasts to discuss masturbation, depression, and her new book, "A Dos Pasos De La Locura".&lt;/p&gt;</Description>
+      <PublishedDate>2019-09-24T07:41:04Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>c4bf197897aa4b3ebce054ca0eda88a3 tillhör </Id>
+      <Titel>Green Horses</Titel>
+      <Description>&lt;p&gt;Real Rob's Jamie Lissow returns to the podcast, joining Rob and Patricia to tell some jokes and Jay Leno stories.&lt;/p&gt;</Description>
+      <PublishedDate>2019-09-17T07:14:15Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>5f9967145fff40239a10a41af4ae4f7f tillhör </Id>
+      <Titel>"Robert, When Do You Turn Off?"</Titel>
+      <Description>&lt;p&gt;Rob and Patricia dive into Carlos Huamaní Cueva's "Diccionario de las Enfermedades Emocionales", which breaks down the emotional origins behind illnesses. They also reflect on some mean nicknames.&lt;/p&gt;</Description>
+      <PublishedDate>2019-09-10T20:24:55Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>0730d87a4c7248c9a7d50bbac53ce42a tillhör </Id>
+      <Titel>Martial Arts In Movies: How I learned to hurt people, mostly myself, from masters Nino Pilla and Guru Dan Inosanto</Titel>
+      <Description>&lt;p&gt;Rob's dear friend, the world renowned martial artist, Nino Pilla, joins the podcast to talk about his homeland Australia, his connection to Bruce Lee, and his days training with Rob on Big Stan.&lt;/p&gt;</Description>
+      <PublishedDate>2019-09-03T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>cdba9df410604e508bf495afeb035383 tillhör </Id>
+      <Titel>Dining In Hamsterdam</Titel>
+      <Description>&lt;p&gt;Rob and Patricia relive their days of traveling the world in search of the perfect meal, recounting Rob's introduction to fernet, how to (or not to) eat percebes, and their philosophy on hunting.&lt;/p&gt;</Description>
+      <PublishedDate>2019-08-27T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>e4daf4c56158476b9cc187f997044b82 tillhör </Id>
+      <Titel>What Do You Want, A Cookie?</Titel>
+      <Description>&lt;p&gt;Rob, Patricia, and Jamie touch on renting puppies, how school fights should be handled, and Rob's mother's unbelievable family history.&lt;/p&gt;</Description>
+      <PublishedDate>2019-08-20T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>f4e4b700991741fb84ac7865126a6546 tillhör </Id>
+      <Titel>Big Brother</Titel>
+      <Description>&lt;p&gt;Rob, Patricia, and Jamie break down social media, (not so) private information, and happy endings.&lt;/p&gt;</Description>
+      <PublishedDate>2019-08-13T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>eafe40f3bfeb41d1b8b1e37c53852abd tillhör </Id>
+      <Titel>Peking Duck</Titel>
+      <Description>&lt;p&gt;Rob, Patricia, and Jamie talk sunscreen, life coaches, and what each of them would do if they could no longer work in comedy.&lt;/p&gt;</Description>
+      <PublishedDate>2019-08-06T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>f1209fb2f64b43fa8e6b26803b0d4018 tillhör </Id>
+      <Titel>VIP Treatment</Titel>
+      <Description>&lt;p&gt;Real Rob's Jamie Lissow joins Rob and Patricia to discuss reincarnation, what it's like to go to the DMV when you're famous, and what it's like to eat it on stage.&lt;/p&gt;</Description>
+      <PublishedDate>2019-07-30T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>91548e969b3545c5a0f5467db16a4e0e tillhör </Id>
+      <Titel>Fire and Milk</Titel>
+      <Description>&lt;p&gt;Rob and Patricia discuss how much parents should really be doing for their kids as well as what not to bring with you during a mandatory fire evacuation. Patricia also gives Rob a Spanish lesson.&lt;/p&gt;</Description>
+      <PublishedDate>2019-07-23T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>b39372cb98224a48bd36c66dd9130e82 tillhör </Id>
+      <Titel>Zen What Happens?</Titel>
+      <Description>&lt;p&gt;&lt;em&gt;Real Rob&lt;/em&gt;'s Jamie Lissow joins Rob and Patricia as they muse about Zen philosophy, meditation, and some near death experiences.&lt;/p&gt;</Description>
+      <PublishedDate>2019-07-16T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>5f14ad10992046da8b50f45d2f68e893 tillhör </Id>
+      <Titel>What Does It Mean?</Titel>
+      <Description>&lt;p&gt;&lt;em&gt;Real Rob's&lt;/em&gt; Jamie Lissow joins Rob and Patricia to discuss the keto diet, steroids, and Rob's standup comedy origins. The trio also tell some jokes.&lt;/p&gt;</Description>
+      <PublishedDate>2019-07-09T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>f98cfa7631b6472ebfe06366db7f6481 tillhör </Id>
+      <Titel>Barbie Butts</Titel>
+      <Description>&lt;p&gt;Rob and Patricia discuss their weekend at The Magic Castle, how they each went about handling their daughter's bad dreams, and why Mexico has the meanest sense of humor.&lt;/p&gt;</Description>
+      <PublishedDate>2019-07-02T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>bb564264a1d94b8a80b3766a7cc0733d tillhör </Id>
+      <Titel>The Frozen Armadillo</Titel>
+      <Description>&lt;p&gt;&lt;em&gt;Real Rob's&lt;/em&gt; Jamie Lissow joins Rob and Patricia as they dissect prostitution, why popsicle sticks aren't adequate when it comes to parasailing equipment, and how Rob once had to find a frozen armadillo for a group of Colombian shamans. &lt;/p&gt;</Description>
+      <PublishedDate>2019-06-25T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>31cb0d874d8843d2a5086491458a0055 tillhör </Id>
+      <Titel>The Next Thing</Titel>
+      <Description>&lt;p&gt;Rob and Patricia discuss illegal coca leaves, the emotional origins behind illnesses, how their daughter might be a little too excited for "the next thing", and God. Their daughter Miranda also makes a special appearance. &lt;/p&gt;</Description>
+      <PublishedDate>2019-06-18T04:00:00Z</PublishedDate>
+      <Link>http://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>830512cd2bb64954be1bc748f84f5d47 tillhör </Id>
+      <Titel>Numero Uno</Titel>
+      <Description>&lt;p&gt;See What Happens when Real Rob's Jamie Lissow joins Rob and Patricia as the trio delve into their Real Rob horror stories, lobotomies, and good food. &lt;/p&gt;</Description>
+      <PublishedDate>2019-06-13T16:16:39Z</PublishedDate>
+      <Link>http://robschneider.com/seewhathappens</Link>
+    </Pod>
+    <Pod>
+      <Id>43578e46cc4640f3ab1916fda7f982ce tillhör </Id>
+      <Titel>Rob Schneider's got a pulse... and a new podcast!</Titel>
+      <Description>&lt;table summary=""&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;See What Happens is a weekly podcast from husband and wife, Rob Schneider and Patricia Maya. Along with the occasional guest (everyone from the duo's Hollywood friends to their gardener), the Schneiders dissect show business, their contrasting parenting methods, jokes, good food, philosophy, and then some. Be sure to tune in each week to see what happens!&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt;</Description>
+      <PublishedDate>2019-06-01T01:48:32Z</PublishedDate>
+      <Link>http://robschneider.com/seewhathappens</Link>
+    </Pod>
+  </podList>
+</PodFeed>l>Barbie Butts</Titel>
+      <Description>&lt;p&gt;Rob and Patricia discuss their weekend at The Magic Castle, how they each went about handling their daughter's bad dreams, and why Mexico has the meanest sense of humor.&lt;/p&gt;</Description>
+      <PublishedDate>2019-07-02T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
       <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
     </Pod>
     <Pod>
-      <Id>d2e7e975-0e69-449f-ac7a-14d843cb9646 tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>9. Liefhebberij</Titel>
-      <Description>&lt;p&gt;In deze aflevering gaat Karlijn tuinieren! En komen we achter de liefhebberij van Ingrid. Ook zijn de jongens weer van de partij voor de theezakjes vragen!&lt;/p&gt;
-</Description>
-      <PublishedDate>2025-04-16T17:57:19Z</PublishedDate>
-      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/9--Liefhebberij-e31kdtq</Link>
+      <Id>bb564264a1d94b8a80b3766a7cc0733d tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>The Frozen Armadillo</Titel>
+      <Description>&lt;p&gt;&lt;em&gt;Real Rob's&lt;/em&gt; Jamie Lissow joins Rob and Patricia as they dissect prostitution, why popsicle sticks aren't adequate when it comes to parasailing equipment, and how Rob once had to find a frozen armadillo for a group of Colombian shamans. &lt;/p&gt;</Description>
+      <PublishedDate>2019-06-25T04:00:00Z</PublishedDate>
+      <Link>https://robschneider.com/seewhathappens</Link>
       <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
     </Pod>
     <Pod>
-      <Id>b998e623-4091-40de-871d-584cec7d937b tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>8. Hier voel ik mij thuis</Titel>
-      <Description>&lt;p&gt;Aflevering 8! Een speciale aflevering. Er worden nieuwe woningen geboud in de wijk en voor de start van de bouw maakte Karlijn een audio wandeling over thuis.&lt;/p&gt;
-</Description>
-      <PublishedDate>2025-04-16T17:51:45Z</PublishedDate>
-      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/8--Hier-voel-ik-mij-thuis-e31kdnk</Link>
+      <Id>31cb0d874d8843d2a5086491458a0055 tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>The Next Thing</Titel>
+      <Description>&lt;p&gt;Rob and Patricia discuss illegal coca leaves, the emotional origins behind illnesses, how their daughter might be a little too excited for "the next thing", and God. Their daughter Miranda also makes a special appearance. &lt;/p&gt;</Description>
+      <PublishedDate>2019-06-18T04:00:00Z</PublishedDate>
+      <Link>http://robschneider.com/seewhathappens</Link>
       <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
     </Pod>
     <Pod>
-      <Id>d7d8ff3e-295c-40f6-9a57-27bc5fdda97a tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>7. Huid Honger</Titel>
-      <Description>&lt;p&gt;Er wordt gekookt! Restaurant de Wagenaar opent voor èèn dag zijn deuren. Waarin de jonge fijnproevers hun mening geven. Sebas gaat op bezoek bij een buurtgenoot die hunkert naar contact. En Karlijn en Sebas geven weer een prijs door. &lt;/p&gt;
-</Description>
-      <PublishedDate>2025-04-16T17:50:44Z</PublishedDate>
-      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/7--Huid-Honger-e31kdml</Link>
+      <Id>830512cd2bb64954be1bc748f84f5d47 tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>Numero Uno</Titel>
+      <Description>&lt;p&gt;See What Happens when Real Rob's Jamie Lissow joins Rob and Patricia as the trio delve into their Real Rob horror stories, lobotomies, and good food. &lt;/p&gt;</Description>
+      <PublishedDate>2019-06-13T16:16:39Z</PublishedDate>
+      <Link>http://robschneider.com/seewhathappens</Link>
       <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
     </Pod>
     <Pod>
-      <Id>79a81885-0248-447a-b601-018323a9f9a5 tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>6. Liefs Loes</Titel>
-      <Description>&lt;p&gt;Een aflevering die in het teken staat van Loes. Onze Loes, Loes van het laatste woord, Loes van de schaterlach en scootmobiel. Een eerbetoon aan een welbekende bewoonster van de flat.&lt;/p&gt;
-</Description>
-      <PublishedDate>2025-04-16T17:49:40Z</PublishedDate>
-      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/6--Liefs-Loes-e31kdl6</Link>
-      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
-    </Pod>
-    <Pod>
-      <Id>591ea880-97b3-44e6-9df5-88b0a2e0260c tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>5. Gevonden Voorwerpen</Titel>
-      <Description>&lt;p&gt;Er vliegen vuilniszakken naar beneden! Sebas, Karlijn en de hulptroepen gaan vuilnisprikken. Karlijn kletst met Nadia over het vinden van je stem. En ook de jongens vragen weer een theezakjes vraag...&lt;/p&gt;
-</Description>
-      <PublishedDate>2025-04-16T17:48:18Z</PublishedDate>
-      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/5--Gevonden-Voorwerpen-e31kdji</Link>
-      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
-    </Pod>
-    <Pod>
-      <Id>a7e2d101-71ee-48cf-9e87-2f2399a13e1b tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>4. Op De Vlucht</Titel>
-      <Description>&lt;p&gt;In de vierde aflevering komt Sebas een jonge kat tegen die op de vlucht is. Karlijn is ondertussen ongerust waarom Sebas er nog steeds niet is. Ook gaan Sebas en Karlijn op de thee bij Loes die niet alleen het laatste woord heeft maar ook een openhartig verhaal. Én wordt er weer een prijs uitgedeeld. &lt;/p&gt;
-</Description>
-      <PublishedDate>2025-04-16T17:43:30Z</PublishedDate>
-      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/4--Op-De-Vlucht-e31kdbi</Link>
-      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
-    </Pod>
-    <Pod>
-      <Id>35a9e1eb-e8e8-4fe0-bf8e-91efaab039c9 tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>3. Nieuw Begin</Titel>
-      <Description>&lt;p&gt;In de derde aflevering van Hier brandt altijd licht organiseren Karlijn en Sebas een housewarming met champagne, huisjes van koek én een officiële opening van het appartement. Sebas gaat opzoek bij Randy en ook Loes is weer van de partij met laatste woord! &lt;/p&gt;
-</Description>
-      <PublishedDate>2025-04-16T17:16:55Z</PublishedDate>
-      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/3--Nieuw-Begin-e31kc3i</Link>
-      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
-    </Pod>
-    <Pod>
-      <Id>ef40253d-63f3-40fb-9ed5-c0de879b5c5e tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>2. Verhuis</Titel>
-      <Description>&lt;p&gt;Welkom in onze flat, Een flat van 12 hoog en 13 huiskamers breed midden in Geleen-Zuid. In de podcast (radioshow) ‘Hier brandt altijd licht’ nemen Karlijn en Sebas je mee in de wijk Geleen- Zuid. Vanuit de Wagenaarflat 62 ontmoeten Karlijn en Sebas hun buurtgenoten. Van theezakjes vragen, tot levensverhalen, Van verwelkoming tot afscheid. Met de microfoon in de hand gaan ze de straat op om de buurt beter te leren kennen. Want een goede buur is beter dan een verre vriend. In de tweede aflevering van Hier brandt altijd licht verzamelen Sebas en Karlijn meubels voor het appartement, de muur krijgt een likje verf en het wordt er gezellig gemaakt dankzij vele hulptroepen.Karlijn ontmoet Hend in de Galerij en gaat bij haar op bezoek.Ook wordt er een prijs uitgereikt!&lt;/p&gt;
-</Description>
-      <PublishedDate>2025-04-16T17:08:33Z</PublishedDate>
-      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/2--Verhuis-e31kblg</Link>
-      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
-    </Pod>
-    <Pod>
-      <Id>124860fa-6068-4937-a933-de4a92c76c1c tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>1. Het Begin</Titel>
-      <Description>&lt;p&gt;Welkom in onze flat, Een flat van 12 hoog en 13 huiskamers breed midden in Geleen-Zuid. In de podcast (radioshow) ‘Hier brandt altijd licht’ nemen Karlijn en Sebas je mee in de wijk Geleen- Zuid. Vanuit de Wagenaarflat 62 ontmoeten Karlijn en Sebas hun buurtgenoten. Van theezakjes vragen, tot levensverhalen, Van verwelkoming tot afscheid. Met de microfoon in de hand gaan ze de straat op om de buurt beter te leren kennen. Want een goede buur is beter dan een verre vriend. In de eerste aflevering begint het avontuur voor Karlijn en Sebas in de flat. Ze bellen aan bij de buren met de vraag, wat is een goede titel voor de podcast? Karlijn gaat op bezoek bij de bewoner die het langst in de flat woont.Ook krijgen ze bezoek van de kinderen uit de flat en Loes, die wil graag het laatste woord! &lt;/p&gt;
-</Description>
-      <PublishedDate>2025-04-16T17:05:15Z</PublishedDate>
-      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/1--Het-Begin-e31kbft</Link>
-      <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
-    </Pod>
-    <Pod>
-      <Id>052b9937-9a17-4534-9bc2-315a6846c84a tillhör 691e3e201b2306f9aaefad9f</Id>
-      <Titel>Teaser: Hier brandt altijd licht</Titel>
-      <Description>&lt;p&gt;Welkom in onze flat, Een flat van 12 hoog en 13 huiskamers breed midden in Geleen-Zuid. In de podcast (radioshow) ‘Hier brandt altijd licht’ nemen Karlijn en Sebas je mee in de wijk Geleen- Zuid. Vanuit de Wagenaarflat 62 ontmoeten Karlijn en Sebas hun buurtgenoten. Van theezakjes vragen, tot levensverhalen, Van verwelkoming tot afscheid. Met de microfoon in de hand gaan ze de straat op om de buurt beter te leren kennen. Want een goede buur is beter dan een verre vriend. &lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Deze podcast is in 2021 opgenomen en gemaakt door Karlijn van Kruchten en Sebas van der Donk, onder de vleugels van Het Laagland &amp;amp; ZuidZone. &lt;/p&gt;
-</Description>
-      <PublishedDate>2025-04-16T16:57:36Z</PublishedDate>
-      <Link>https://podcasters.spotify.com/pod/show/karlijn-van-kruchten2/episodes/Teaser-Hier-brandt-altijd-licht-e31ka5h</Link>
+      <Id>43578e46cc4640f3ab1916fda7f982ce tillhör 691e3e201b2306f9aaefad9f</Id>
+      <Titel>Rob Schneider's got a pulse... and a new podcast!</Titel>
+      <Description>&lt;table summary=""&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td&gt;See What Happens is a weekly podcast from husband and wife, Rob Schneider and Patricia Maya. Along with the occasional guest (everyone from the duo's Hollywood friends to their gardener), the Schneiders dissect show business, their contrasting parenting methods, jokes, good food, philosophy, and then some. Be sure to tune in each week to see what happens!&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt;</Description>
+      <PublishedDate>2019-06-01T01:48:32Z</PublishedDate>
+      <Link>http://robschneider.com/seewhathappens</Link>
       <LinkRef>691e3e201b2306f9aaefad9f</LinkRef>
     </Pod>
   </podList>
-</PodFeed>tel>⭐ PREMIUM EPISODE PREVIEW ⭐The Ghost Who Was Allergic to Booing 👻🌬️🤧</Titel>
-      <Link>https://www.spreaker.com/episode/premium-episode-preview-the-ghost-who-was-allergic-to-booing--67765796</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67754125 tillhör </Id>
-      <Titel>⭐Super Silly Stories for Kids Exclusive! !⭐“Feed Me!” 🚽🍕 👹 Kevin’s sister puts snacks down the toilet and now it’s come to life!</Titel>
-      <Link>https://www.spreaker.com/episode/super-silly-stories-for-kids-exclusive-feed-me-kevin-s-sister-puts-snacks-down-the-toilet-and-now-it-s-come-to-life--67754125</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67739235 tillhör </Id>
-      <Titel>FUN FRIDAY! Can Nicco the Dragon stop Jacob the Tornado?🐲🌪️</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-can-nicco-the-dragon-stop-jacob-the-tornado--67739235</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67705402 tillhör </Id>
-      <Titel>REWIND WEDNESDAY: Ice Creams vs Popsicles 🍦🍧</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-wednesday-ice-creams-vs-popsicles--67705402</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67687782 tillhör </Id>
-      <Titel>The Upside-down World 🧙‍♂️🏰</Titel>
-      <Link>https://www.spreaker.com/episode/the-upside-down-world--67687782</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67677877 tillhör </Id>
-      <Titel>⭐ PREMIUM EPISODE PREVIEW ⭐Goldendoodle Doo 🐶</Titel>
-      <Link>https://www.spreaker.com/episode/premium-episode-preview-goldendoodle-doo--67677877</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67655021 tillhör </Id>
-      <Titel>FUN SATURDAY: Troll Soup 🍲🦄</Titel>
-      <Link>https://www.spreaker.com/episode/fun-saturday-troll-soup--67655021</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67634166 tillhör </Id>
-      <Titel>REWIND THURSDAY: Elsie The Witch and her Rose Garden 🧙‍♀️🌹</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-thursday-elsie-the-witch-and-her-rose-garden--67634166</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67593275 tillhör </Id>
-      <Titel>Mark helps Pet Detective Jones to catch the dog Thief's 🕵️‍♂️🐕👦</Titel>
-      <Link>https://www.spreaker.com/episode/mark-helps-pet-detective-jones-to-catch-the-dog-thief-s--67593275</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67582425 tillhör </Id>
-      <Titel>⭐ PREMIUM EPISODE PREVIEW ⭐The Vacuum Cleaner That Sucked Up a Ghost 👻</Titel>
-      <Link>https://www.spreaker.com/episode/premium-episode-preview-the-vacuum-cleaner-that-sucked-up-a-ghost--67582425</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67551911 tillhör </Id>
-      <Titel>FUN FRIDAY! The Girl that lived in the Wild 🌷🦌👧🏽</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-the-girl-that-lived-in-the-wild--67551911</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67530268 tillhör </Id>
-      <Titel>REWIND WEDNESDAY: A Water Unicorn and a Submarine 🦀🦈🧜‍♀️🧜🏻‍♀️</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-wednesday-a-water-unicorn-and-a-submarine--67530268</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67516895 tillhör </Id>
-      <Titel>Trio of Princesses 👸🏻👸🏻👸🏻</Titel>
-      <Link>https://www.spreaker.com/episode/trio-of-princesses--67516895</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67509202 tillhör </Id>
-      <Titel>⭐ PREMIUM EPISODE PREVIEW ⭐ Charlie And The Bee People Mystery 🐝🧑‍🤝‍🧑🕵️‍♂️❓</Titel>
-      <Link>https://www.spreaker.com/episode/premium-episode-preview-charlie-and-the-bee-people-mystery--67509202</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67480890 tillhör </Id>
-      <Titel>FUN FRIDAY! Shyla and The Magical Funfair 🦄🎡</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-shyla-and-the-magical-funfair--67480890</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67455155 tillhör </Id>
-      <Titel>REWIND WEDNESDAY: Ollie the Otter's Ocean Adventure 🌊🐟🐠</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-wednesday-ollie-the-otter-s-ocean-adventure--67455155</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67434305 tillhör </Id>
-      <Titel>Grizzly Glen And Moosie Lucy 🐻🌲💫🐭</Titel>
-      <Link>https://www.spreaker.com/episode/grizzly-glen-and-moosie-lucy--67434305</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67414348 tillhör </Id>
-      <Titel>⭐Super Silly Stories for Kids Exclusive! !⭐ A Husky in Mexico 🍦🐺❤️</Titel>
-      <Link>https://www.spreaker.com/episode/super-silly-stories-for-kids-exclusive-a-husky-in-mexico--67414348</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67368607 tillhör </Id>
-      <Titel>REWIND WEDNESDAY: Magical Fireworks on the 4th July 🎆🎉🧚</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-wednesday-magical-fireworks-on-the-4th-july--67368607</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67345370 tillhör </Id>
-      <Titel>Turtles Don't Hurtle 🐢 🐢</Titel>
-      <Link>https://www.spreaker.com/episode/turtles-don-t-hurtle--67345370</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67330785 tillhör </Id>
-      <Titel>⭐ PREMIUM EPISODE PREVIEW ⭐ Granny Horse 👵🐎</Titel>
-      <Link>https://www.spreaker.com/episode/premium-episode-preview-granny-horse--67330785</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67305145 tillhör </Id>
-      <Titel>⭐Super Silly Stories for Kids Exclusive! !⭐A Marshmallow turns into a Mutant Monster on a Camping Trip! 🔥🖱️🔥☁️🏕️🏕️😱</Titel>
-      <Link>https://www.spreaker.com/episode/super-silly-stories-for-kids-exclusive-a-marshmallow-turns-into-a-mutant-monster-on-a-camping-trip--67305145</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67275653 tillhör </Id>
-      <Titel>REWIND WEDNESDAY: Leo and the Magic Chess Set ♞🏁♛</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-wednesday-leo-and-the-magic-chess-set--67275653</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67261732 tillhör </Id>
-      <Titel>Claire and the Chocolate Milk Midas Touch 🍫🥛✨</Titel>
-      <Link>https://www.spreaker.com/episode/claire-and-the-chocolate-milk-midas-touch--67261732</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67200382 tillhör </Id>
-      <Titel>FUN FRIDAY! Dylan's Cross - Time Crew 🥷🏼⌚</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-dylan-s-cross-time-crew--67200382</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67199768 tillhör </Id>
-      <Titel>REWIND THURSDAY: Alaina, the Cruise and The Magic Wishing Book 🚢📖</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-thursday-alaina-the-cruise-and-the-magic-wishing-book--67199768</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67176885 tillhör </Id>
-      <Titel>The Cloud That Follows Me Everywhere ☁️ ☁️ ☁️</Titel>
-      <Link>https://www.spreaker.com/episode/the-cloud-that-follows-me-everywhere--67176885</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67152773 tillhör </Id>
-      <Titel>⭐Super Silly Stories for Kids Exclusive! !⭐The Book of Magic Short Stories for Kids! 📖'📕🔮🪄</Titel>
-      <Link>https://www.spreaker.com/episode/super-silly-stories-for-kids-exclusive-the-book-of-magic-short-stories-for-kids--67152773</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67152344 tillhör </Id>
-      <Titel>⭐ PREMIUM EPISODE PREVIEW ⭐ Flamingo Portal ✨🦩</Titel>
-      <Link>https://www.spreaker.com/episode/premium-episode-preview-flamingo-portal--67152344</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67109657 tillhör </Id>
-      <Titel>FUN FRIDAY! Rae and his new frog friends 🐸👹</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-rae-and-his-new-frog-friends--67109657</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67085253 tillhör </Id>
-      <Titel>REWIND WEDNESDAY: Miles takes a ride on the Magic Flying Train 🚂🌳📱</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-wednesday-miles-takes-a-ride-on-the-magic-flying-train--67085253</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67077355 tillhör </Id>
-      <Titel>The Cat and The Cake 😼 🧁</Titel>
-      <Link>https://www.spreaker.com/episode/the-cat-and-the-cake--67077355</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67057871 tillhör </Id>
-      <Titel>⭐ PREMIUM EPISODE PREVIEW ⭐ Doggy Salesman 🐶🚪</Titel>
-      <Link>https://www.spreaker.com/episode/premium-episode-preview-doggy-salesman--67057871</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67027525 tillhör </Id>
-      <Titel>FUN FRIDAY! Turner and Archer find a special key that goes to the dinosaur land! 🦕🦖🌋🌴</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-turner-and-archer-find-a-special-key-that-goes-to-the-dinosaur-land--67027525</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/67001729 tillhör </Id>
-      <Titel>REWIND WEDNESDAY! A Sneeze of Magic 🗽🦄🪿</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-wednesday-a-sneeze-of-magic--67001729</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66984992 tillhör </Id>
-      <Titel>Sebastian meets a gang of Pirates 🏴‍☠️⚓🌊🦜</Titel>
-      <Link>https://www.spreaker.com/episode/sebastian-meets-a-gang-of-pirates--66984992</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66971740 tillhör </Id>
-      <Titel>⭐ PREMIUM EPISODE PREVIEW ⭐ The Night The Playground Came Alive 🌙 👦</Titel>
-      <Link>https://www.spreaker.com/episode/premium-episode-preview-the-night-the-playground-came-alive--66971740</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66944310 tillhör </Id>
-      <Titel>FUN FRIDAY!  The Queen Mermaids unite to take on the Evil Octopus 🧜🏻‍♀️🧜‍♀️🐙</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-the-queen-mermaids-unite-to-take-on-the-evil-octopus--66944310</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66914309 tillhör </Id>
-      <Titel>REWIND WEDNESDAY: Ada the Ninja and Felix the Warrior team up for a cat Rescue! 🥷🏼🐉</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-wednesday-ada-the-ninja-and-felix-the-warrior-team-up-for-a-cat-rescue--66914309</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66903030 tillhör </Id>
-      <Titel>James and the Magical Town 🐅🦔🦍</Titel>
-      <Link>https://www.spreaker.com/episode/james-and-the-magical-town--66903030</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66888241 tillhör </Id>
-      <Titel>⭐PREMIUM EPISODE PREVIEW ⭐ Alien Wedding 👽👽</Titel>
-      <Link>https://www.spreaker.com/episode/premium-episode-preview-alien-wedding--66888241</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66859333 tillhör </Id>
-      <Titel>FUN FRIDAY! ⭐King Dragon and The Hero Wagon 🐕🐱</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-king-dragon-and-the-hero-wagon--66859333</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66841426 tillhör </Id>
-      <Titel>REWIND WEDNESDAY: Mean Mr Sugar Tooth and his Sweet Shop in Candy Land 🍫🍬🍭</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-wednesday-mean-mr-sugar-tooth-and-his-sweet-shop-in-candy-land--66841426</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66802669 tillhör </Id>
-      <Titel>⭐PREMIUM EPISODE PREVIEW ⭐ Three Witches and a Unicorn 🧙‍♀️🪄🦄</Titel>
-      <Link>https://www.spreaker.com/episode/premium-episode-preview-three-witches-and-a-unicorn--66802669</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66769155 tillhör </Id>
-      <Titel>FUN FRIDAY! The Magical Rainbow Fair comes to Town 🌈🥥🎡</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-the-magical-rainbow-fair-comes-to-town--66769155</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66736536 tillhör </Id>
-      <Titel>Samantha and the Ice Cream Avalanche 🍦🍧🍦🍧</Titel>
-      <Link>https://www.spreaker.com/episode/samantha-and-the-ice-cream-avalanche--66736536</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66659503 tillhör </Id>
-      <Titel>FUN FRIDAY! The Mermaids have a race with the Humans 🦀🦈🧜‍♀️🧜🏻‍♀️</Titel>
-      <Link>https://www.spreaker.com/episode/fun-friday-the-mermaids-have-a-race-with-the-humans--66659503</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66600271 tillhör </Id>
-      <Titel>REWIND WEDNESDAY: The Alien Shoe Robbers 👟🥿👞</Titel>
-      <Link>https://www.spreaker.com/episode/rewind-wednesday-the-alien-shoe-robbers--66600271</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66594188 tillhör </Id>
-      <Titel>The Mischievous Mermaids Secret Ocean Quest 🧜🏻‍♀️🌊</Titel>
-      <Link>https://www.spreaker.com/episode/the-mischievous-mermaids-secret-ocean-quest--66594188</Link>
-    </Pod>
-    <Pod>
-      <Id>https://api.spreaker.com/episode/66527711 tillhör </Id>
+</PodFeed>er.com/episode/66527711 tillhör </Id>
       <Titel>FUN FRIDAY! Miya discovers the Magical Animal World 🦄🐈🐯🦛</Titel>
       <Link>https://www.spreaker.com/episode/fun-friday-miya-discovers-the-magical-animal-world--66527711</Link>
     </Pod>
