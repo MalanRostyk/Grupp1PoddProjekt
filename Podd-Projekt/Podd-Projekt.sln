@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBBusiness-Layer", "BBBusin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AAPresentation-Layer", "AAPresentation-Layer\AAPresentation-Layer.csproj", "{0A930927-F6E7-4957-B2F1-A9B3B63F62C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfacesLayer", "InterfacesLayer\InterfacesLayer.csproj", "{97E1FA49-5E15-419C-BDCC-7DCBD991B6CF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{0A930927-F6E7-4957-B2F1-A9B3B63F62C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A930927-F6E7-4957-B2F1-A9B3B63F62C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A930927-F6E7-4957-B2F1-A9B3B63F62C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97E1FA49-5E15-419C-BDCC-7DCBD991B6CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97E1FA49-5E15-419C-BDCC-7DCBD991B6CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97E1FA49-5E15-419C-BDCC-7DCBD991B6CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97E1FA49-5E15-419C-BDCC-7DCBD991B6CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
