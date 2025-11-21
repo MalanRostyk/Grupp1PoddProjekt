@@ -235,7 +235,7 @@ partial class Form1
         btnSave.Name = "btnSave";
         btnSave.Size = new Size(129, 41);
         btnSave.TabIndex = 11;
-        btnSave.Text = "åååå";
+        btnSave.Text = "Save";
         btnSave.UseVisualStyleBackColor = false;
         btnSave.Click += btnSave_Click;
         // 
