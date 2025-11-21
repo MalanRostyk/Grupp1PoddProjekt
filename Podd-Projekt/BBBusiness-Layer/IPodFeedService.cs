@@ -19,5 +19,7 @@ namespace BBBusiness_Layer
         Task<bool> UpdatePodFeedAsync(PodFeed pf);
         Task UpdateRecentlySearchedAsync(PodFeed tempPf);
         Task DeletePodFeedAsync(string id);
+
+        string ValidateList(List<Pod> enlist);
     }
 }

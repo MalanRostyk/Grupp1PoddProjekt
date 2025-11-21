@@ -1,12 +1,13 @@
-﻿using CCData_Access_Layer;
+﻿using BBBusiness_Layer.Validation;
+using CCData_Access_Layer;
+using DDModels;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DDModels;
-using MongoDB.Driver;
-using System.Diagnostics;
 
 namespace BBBusiness_Layer
 {
@@ -113,6 +114,15 @@ namespace BBBusiness_Layer
 
         public async Task<PodFeed?> GetTempPodFeedAsync() => await pfRepo.GetTempAsync();
         public async Task UpdateRecentlySearchedAsync(PodFeed pf) => await pfRepo.ChangeRecentlyAsync(pf);
-
+        public string ValidateList(List<Pod> enlist)
+        {
+            string emptyList = "";
+            var validationResult = FeedValidator.ValidateList(enlist);
+            if (!validationResult.IsValid)
+            {
+                emptyList = validationResult.GetErrorString();
+            }
+            return emptyList;
+        }
     }
 }

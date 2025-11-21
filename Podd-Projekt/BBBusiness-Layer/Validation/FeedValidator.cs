@@ -40,5 +40,18 @@ namespace BBBusiness_Layer.Validation
             return result;
         }
 
+        public static ValidationResult ValidateDuplicateNames(List<PodFeed> pfLista, string name)
+        {
+            var result = new ValidationResult();
+            var query = from pf in pfLista
+                        where pf.Name == name
+                        select pf;
+            if (query.Any())
+            {
+                result.Errors.Add($"There is already a document with the property Name = {name}");
+            }
+            return result;
+
+        }
     }
 }

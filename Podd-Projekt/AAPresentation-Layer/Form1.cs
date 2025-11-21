@@ -11,7 +11,7 @@ namespace AAPresentation_Layer
     public partial class Form1 : Form
     {
         private event Action RefreshEvent;
-
+        private bool linkValid;
         private IService service;//Dependcy injection m?ste, ej gjort
         private IPodFeedService pfService;
         private ICategoryService catService;
@@ -102,16 +102,18 @@ namespace AAPresentation_Layer
             pf.Link = tbLink.Text; //Rss feed i form av länk användaren vill se
 
             List<Pod> pList = await service.ReadAllPodAsync(pf.Link);
-            var validationResult = FeedValidator.ValidateList(pList);
+            string listResult = pfService.ValidateList(pList);
             var inputResult = FeedValidator.ValidateTextBox(tbLink.Text);
             if (!inputResult.IsValid)
             {
                 MessageBox.Show(inputResult.Errors[0]);
+                linkValid = false;
                 return;
             }
-            if (!validationResult.IsValid)
+            if (!string.IsNullOrWhiteSpace(listResult))
             {
-                MessageBox.Show(validationResult.GetErrorString());
+                MessageBox.Show(listResult);
+                linkValid = false;
                 return;
             }
             pf.podList = pList; //Fyll listan med Pod objekt från länken
@@ -119,7 +121,10 @@ namespace AAPresentation_Layer
 
             lbSearchedResults.DataSource = pf.podList;
             lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
-
+            linkValid = true;
+            //tbLink.Clear(); Ska vara kvar när det är färdigt
+            //tbNewFeedName.Clear();
+            //RefreshEvent?.Invoke();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)//I Start Tabben
@@ -138,11 +143,24 @@ namespace AAPresentation_Layer
 
         private async void btnSave_Click(object sender, EventArgs e)//I start tab, 
         {
+            if (!linkValid)
+            {
+                MessageBox.Show("Warning: You must first search for a valid feed link before saving.");
+                return;
+            }
             string nameToCheck = tbNewFeedName.Text;
             var validation = FeedValidator.ValidateTextBox(nameToCheck);
+            var duplicateValidation = FeedValidator.ValidateDuplicateNames(
+                await pfService.GetAllAsync(), tbNewFeedName.Text);
+
             if (!validation.IsValid)
             {
-                MessageBox.Show($"Warning: {validation.Errors[0]}");
+                MessageBox.Show($"Warning: {validation.GetErrorString()}");
+                return;
+            }
+            if (!duplicateValidation.IsValid)
+            {
+                MessageBox.Show($"Warning: {duplicateValidation.GetErrorString()}");
                 return;
             }
             pf.Name = tbNewFeedName.Text;
@@ -153,7 +171,7 @@ namespace AAPresentation_Layer
             }
             await pfService.AddPodFeedAsync(pf);
 
-
+            linkValid = false;
             //tbLink.Clear(); Ska vara kvar när det är färdigt
             tbNewFeedName.Clear();
             RefreshEvent?.Invoke();
