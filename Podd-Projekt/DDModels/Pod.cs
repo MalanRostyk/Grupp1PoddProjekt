@@ -10,7 +10,7 @@ namespace DDModels
     {
         public string Id { set; get; }
         public string Titel{ set; get; }
-        public string Description{ set; get; }
+        public string? Description{ set; get; }
         public DateTimeOffset PublishedDate{ set; get; }
         public string Link { set; get; }
         public string? LinkRef { set; get; }//Det som säger att den tillhör en viss feed, typ FeedId

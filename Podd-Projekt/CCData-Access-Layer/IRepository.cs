@@ -11,10 +11,10 @@ namespace CCData_Access_Layer
     {
         Task AddAsync(T obj);
         Task<T?> GetAsync(string id);
-        Task<T?> GetTempAsync();
+        Task<T?> GetTempAsync(); //temp
         Task<List<T>> GetAllAsync();
         Task<bool> UpdateAsync(T obj);
-        Task ChangeRecentlyAsync(T tempPf);
+        Task ChangeRecentlyAsync(T tempPf);//temp
         Task DeleteAsync(string id);
 
     }

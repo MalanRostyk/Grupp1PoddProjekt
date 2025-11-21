@@ -35,22 +35,6 @@ namespace BBBusiness_Layer
             return p;
         }
         public async Task<List<PodFeed>> GetAllAsync() => await pfRepo.GetAllAsync();
-        //public async Task<bool> UpdateNameAsync(PodFeed pf, string newName)
-        //{
-        //    bool wasUpdated = false;
-        //    PodFeed p = await pfRepo.GetAsync(pf.Id); //Hämta dok som PodFeed
-        //    p.Name = newName;//Ändra det som ska ändras
-        //    wasUpdated = await pfRepo.UpdateAsync(p);//Skicka tillbaks PodFeed och gör uppdatering
-        //    return wasUpdated;
-        //}
-        //public async Task<bool> UpdateCategoryAsync(PodFeed pf, string newCategory)
-        //{
-        //    bool wasUpdated = false;
-        //    PodFeed p = await pfRepo.GetAsync(pf.Id); //Hämta dok som PodFeed
-        //    p.Name = newCategory;//Ändra det som ska ändras
-        //    wasUpdated = await pfRepo.UpdateAsync(p);//Skicka tillbaks PodFeed och gör uppdatering
-        //    return wasUpdated;
-        //}
 
         public async Task<List<PodFeed>> GetAllFilteredAsync(string category)
         {
@@ -74,19 +58,6 @@ namespace BBBusiness_Layer
                 filteredList.Add(pf);
             return filteredList;
         }
-
-        //public async Task<List<PodFeed>> GetAllFilteredAsync(string category)
-        //{
-        //    List<PodFeed> pfList = await pfRepo.GetAllAsync();
-        //    List<PodFeed> filteredList = new();
-
-        //    var query = pfList.Where(p => p.CategoryId == category);
-        //    foreach(var pf in query)
-        //    {
-        //        filteredList.Add(pf);
-        //    }
-        //    return filteredList;
-        //}
 
         public async Task<bool> UpdatePodFeedAsync(PodFeed pf, string newName, string newCategory)
         {

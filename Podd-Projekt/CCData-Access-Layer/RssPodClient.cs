@@ -44,7 +44,7 @@ namespace CCData_Access_Layer
                         Pod newPod = new();
                         newPod.Id = sItem.Id;
                         newPod.Titel = sItem.Title.Text;
-                        newPod.Description = sItem.Summary.Text;
+                        newPod.Description = sItem.Summary?.Text ?? "No info...";
                         newPod.PublishedDate = sItem.PublishDate;
                         newPod.Link = sItem.Links.First().Uri.ToString();
                         newPod.LinkRef = link;
