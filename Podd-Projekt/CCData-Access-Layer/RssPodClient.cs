@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.ServiceModel.Syndication;
@@ -52,7 +53,7 @@ namespace CCData_Access_Layer
                         podList.Add(newPod);
                     }
                 }
-            }catch(Exception e) { }
+            }catch(Exception e) { Debug.WriteLine(e.Message + "ENGINE E KAPUT!!!!"); }
             return podList;
         }
     }

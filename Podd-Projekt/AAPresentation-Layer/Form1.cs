@@ -15,12 +15,10 @@ namespace AAPresentation_Layer
         private IService service;//Dependcy injection m?ste, ej gjort
         private IPodFeedService pfService;
         private ICategoryService catService;
-        private IXmlService xmlService;
         private PodFeed pf;
         //private Category c;
-        public Form1(IService service, IPodFeedService pFs, ICategoryService catService, IXmlService xmlService)
+        public Form1(IService service, IPodFeedService pFs, ICategoryService catService)
         {
-            this.xmlService = xmlService;
             this.service = service;
             this.catService = catService;
             pfService = pFs;
@@ -73,13 +71,7 @@ namespace AAPresentation_Layer
 
             listBox1.DisplayMember = "Name";
         }
-        //private async void FillRegisterListBox()
-        //{
-        //    List<PodFeed> pfList = await pfService.GetAllAsync();
-        //    listBox1.DataSource = pfList;
 
-        //    listBox1.DisplayMember = "Name";
-        //}
         private async void FillUpdateListBox()
         {
             List<PodFeed> pfList = await pfService.GetAllAsync();
@@ -95,13 +87,6 @@ namespace AAPresentation_Layer
             listBox6.DisplayMember = "Name";
         }
 
-        //private async Task GetLastResult()
-        //{
-        //    PodFeed pf = await xmlService.LoadPodFeedFromXml();
-        //    lbSearchedResults.DataSource = pf.podList;
-        //    lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
-        //    tbLink.Text = pf.Link;
-        //}
         private async Task GetLastResult()
         {
             PodFeed pf = await pfService.GetTempPodFeedAsync();
@@ -135,7 +120,6 @@ namespace AAPresentation_Layer
             lbSearchedResults.DataSource = pf.podList;
             lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
 
-            await xmlService.SavePodFeedToXml(pf);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)//I Start Tabben
@@ -144,7 +128,6 @@ namespace AAPresentation_Layer
             {
                 return;
             }
-            /*Pod p = pf.podList[lbSearchedResults.SelectedIndex];*///Välj motsvarande index i listBox från podList
             rtbSearchedPodInfo.Text = $"{selectedPod.Link}"; //Det som visas i richTextBox när vi valt en pod i listBox
         }
 
@@ -155,21 +138,6 @@ namespace AAPresentation_Layer
 
         private async void btnSave_Click(object sender, EventArgs e)//I start tab, 
         {
-            //if (tbNewFeedName.Text != string.Empty)
-            //{
-            //    pf.Name = tbNewFeedName.Text;
-            //    if (comboBox1.SelectedItem is Category selectedCat)
-            //    {
-
-            //        pf.CategoryId = selectedCat.Name;
-            //    }
-            //    await pfService.AddPodFeedAsync(pf);
-            //}
-            //else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
-
-            ////tbLink.Clear(); Ska vara kvar när det är färdigt
-            //tbNewFeedName.Clear();
-            //RefreshEvent?.Invoke();
             string nameToCheck = tbNewFeedName.Text;
             var validation = FeedValidator.ValidateTextBox(nameToCheck);
             if (!validation.IsValid)

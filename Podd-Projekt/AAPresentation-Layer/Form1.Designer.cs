@@ -210,6 +210,7 @@ partial class Form1
         // 
         // comboBox1
         // 
+        comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         comboBox1.FormattingEnabled = true;
         comboBox1.Location = new Point(557, 362);
         comboBox1.Name = "comboBox1";
@@ -234,7 +235,7 @@ partial class Form1
         btnSave.Name = "btnSave";
         btnSave.Size = new Size(129, 41);
         btnSave.TabIndex = 11;
-        btnSave.Text = "Save";
+        btnSave.Text = "åååå";
         btnSave.UseVisualStyleBackColor = false;
         btnSave.Click += btnSave_Click;
         // 
@@ -275,17 +276,19 @@ partial class Form1
         tabPage2.Controls.Add(listBox3);
         tabPage2.Controls.Add(label4);
         tabPage2.Controls.Add(listBox1);
-        tabPage2.Location = new Point(4, 37);
+        tabPage2.Location = new Point(4, 29);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(1070, 470);
+        tabPage2.Size = new Size(1070, 478);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Register";
         tabPage2.UseVisualStyleBackColor = true;
         // 
         // comboBox3
         // 
+        comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
         comboBox3.FormattingEnabled = true;
+        comboBox3.IntegralHeight = false;
         comboBox3.Location = new Point(442, 27);
         comboBox3.Name = "comboBox3";
         comboBox3.Size = new Size(151, 36);
@@ -305,6 +308,7 @@ partial class Form1
         // 
         richTextBox1.Location = new Point(347, 68);
         richTextBox1.Name = "richTextBox1";
+        richTextBox1.ReadOnly = true;
         richTextBox1.Size = new Size(702, 378);
         richTextBox1.TabIndex = 4;
         richTextBox1.Text = "";
@@ -350,15 +354,16 @@ partial class Form1
         tabPage3.Controls.Add(lblToUpdateCategory);
         tabPage3.Controls.Add(lblToUpdateName);
         tabPage3.Controls.Add(lblToUpdate);
-        tabPage3.Location = new Point(4, 29);
+        tabPage3.Location = new Point(4, 37);
         tabPage3.Name = "tabPage3";
-        tabPage3.Size = new Size(1070, 478);
+        tabPage3.Size = new Size(1070, 470);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Update";
         tabPage3.UseVisualStyleBackColor = true;
         // 
         // comboBox2
         // 
+        comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
         comboBox2.FormattingEnabled = true;
         comboBox2.Location = new Point(129, 288);
         comboBox2.Name = "comboBox2";
