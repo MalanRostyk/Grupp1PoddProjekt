@@ -119,28 +119,11 @@ namespace AAPresentation_Layer
                 pf.CategoryId = selectedCat.Name;
             }
             await pfService.AddPodFeedAsync(pf);
-            
+
 
             //tbLink.Clear(); Ska vara kvar när det är färdigt
             tbNewFeedName.Clear();
             RefreshEvent?.Invoke();
-
-
-            //if (tbNewFeedName.Text != string.Empty)
-            //{
-            //    pf.Name = tbNewFeedName.Text;
-            //    if (comboBox1.SelectedItem is Category selectedCat)
-            //    {
-
-            //        pf.CategoryId = selectedCat.Name;
-            //    }
-            //    await pfService.AddPodFeedAsync(pf);
-            //}
-            //else { tbeEmptyName.Text = "Fyll Namn för RSS Feed"; }
-
-            ////tbLink.Clear(); Ska vara kvar när det är färdigt
-            //tbNewFeedName.Clear();
-            //RefreshEvent?.Invoke();
         }
 
         private async void button4_Click(object sender, EventArgs e)//Category tab, add category

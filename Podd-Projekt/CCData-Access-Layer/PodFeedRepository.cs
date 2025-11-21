@@ -45,7 +45,8 @@ namespace CCData_Access_Layer
             var filter = Builders<PodFeed>.Filter.Eq(pf => pf.Id, id);
             return await pfCollection.Find(filter).FirstOrDefaultAsync();
         }
-        public async Task<List<PodFeed>> GetAllAsync() => await pfCollection.Find(FilterDefinition<PodFeed>.Empty).ToListAsync();
+        public async Task<List<PodFeed>> GetAllAsync() => 
+            await pfCollection.Find(FilterDefinition<PodFeed>.Empty).ToListAsync();
        
         
         public async Task<bool> UpdateAsync(PodFeed pf)//Använder transaktion
