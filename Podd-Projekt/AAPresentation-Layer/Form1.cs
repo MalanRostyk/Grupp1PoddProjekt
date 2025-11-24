@@ -11,6 +11,7 @@ namespace AAPresentation_Layer
     public partial class Form1 : Form
     {
         private event Action RefreshEvent;
+        private event Action<List<PodFeed>, ListBox> FillListBoxEvent;
         private bool linkValid;
         private IService service;//Dependcy injection m?ste, ej gjort
         private IPodFeedService pfService;
@@ -24,11 +25,12 @@ namespace AAPresentation_Layer
             pfService = pFs;
 
             RefreshEvent += ClearListBox2;
-            RefreshEvent += FillRegisterListBox;
+            //RefreshEvent += FillRegisterListBox;
             RefreshEvent += FillUpdateListBox;
             RefreshEvent += FillDeleteListBox;
             RefreshEvent += DisplayAllCategoryData;
 
+            FillListBoxEvent += FillListBox;
 
             InitializeComponent();
             GetLastResult();
@@ -67,6 +69,13 @@ namespace AAPresentation_Layer
                 filteredList = await pfService.GetAllFilteredAsync(selectedCat.Name);
             }
             return filteredList;
+        }
+
+        private async void FillListBox(List<PodFeed> list, ListBox lb)
+        {
+            List<PodFeed> pfLista = list;
+            lb.DataSource = list;
+            lb.DisplayMember = "Name"; 
         }
         private async void FillRegisterListBox()
         {
@@ -179,6 +188,7 @@ namespace AAPresentation_Layer
             //tbLink.Clear(); Ska vara kvar när det är färdigt
             tbNewFeedName.Clear();
             RefreshEvent?.Invoke();
+            FillListBox?.Invoke()
         }
 
         private async void button4_Click(object sender, EventArgs e)//Category tab, add category
