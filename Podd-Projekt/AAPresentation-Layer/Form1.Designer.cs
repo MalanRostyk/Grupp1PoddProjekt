@@ -216,6 +216,7 @@ partial class Form1
         comboBox1.Name = "comboBox1";
         comboBox1.Size = new Size(354, 36);
         comboBox1.TabIndex = 13;
+        comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
         // 
         // tbeEmptyName
         // 
@@ -276,10 +277,10 @@ partial class Form1
         tabPage2.Controls.Add(listBox3);
         tabPage2.Controls.Add(label4);
         tabPage2.Controls.Add(listBox1);
-        tabPage2.Location = new Point(4, 29);
+        tabPage2.Location = new Point(4, 37);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(1070, 478);
+        tabPage2.Size = new Size(1070, 470);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Register";
         tabPage2.UseVisualStyleBackColor = true;
@@ -354,9 +355,9 @@ partial class Form1
         tabPage3.Controls.Add(lblToUpdateCategory);
         tabPage3.Controls.Add(lblToUpdateName);
         tabPage3.Controls.Add(lblToUpdate);
-        tabPage3.Location = new Point(4, 37);
+        tabPage3.Location = new Point(4, 29);
         tabPage3.Name = "tabPage3";
-        tabPage3.Size = new Size(1070, 470);
+        tabPage3.Size = new Size(1070, 478);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Update";
         tabPage3.UseVisualStyleBackColor = true;
@@ -542,9 +543,9 @@ partial class Form1
         tabPage5.Controls.Add(label12);
         tabPage5.Controls.Add(tabControl2);
         tabPage5.Controls.Add(listBox2);
-        tabPage5.Location = new Point(4, 29);
+        tabPage5.Location = new Point(4, 37);
         tabPage5.Name = "tabPage5";
-        tabPage5.Size = new Size(1070, 478);
+        tabPage5.Size = new Size(1070, 470);
         tabPage5.TabIndex = 4;
         tabPage5.Text = "Category";
         tabPage5.UseVisualStyleBackColor = true;
@@ -700,9 +701,9 @@ partial class Form1
         // 
         tabPage8.Controls.Add(button2);
         tabPage8.Controls.Add(label10);
-        tabPage8.Location = new Point(4, 29);
+        tabPage8.Location = new Point(4, 37);
         tabPage8.Name = "tabPage8";
-        tabPage8.Size = new Size(389, 371);
+        tabPage8.Size = new Size(389, 363);
         tabPage8.TabIndex = 2;
         tabPage8.Text = "Delete";
         tabPage8.UseVisualStyleBackColor = true;

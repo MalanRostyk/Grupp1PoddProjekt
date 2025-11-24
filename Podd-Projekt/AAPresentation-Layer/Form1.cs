@@ -41,9 +41,12 @@ namespace AAPresentation_Layer
         {
             List<Category> catList = await catService.GetAllCategoriesAsync();
             catList = catList.OrderBy(c => c.Name).ToList();
-               
+
             listBox2.DataSource = catList;
             listBox2.DisplayMember = "Name";
+
+            catList.Add(new Category("General"));
+
             comboBox1.DataSource = catList;
             comboBox1.DisplayMember = "Name";
             FillComboBox(catList);
@@ -93,7 +96,7 @@ namespace AAPresentation_Layer
         private async Task GetLastResult()
         {
             PodFeed pf = await pfService.GetTempPodFeedAsync();
-            if(pf != null)
+            if (pf != null)
             {
                 lbSearchedResults.DataSource = pf.podList;
                 lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
@@ -135,39 +138,11 @@ namespace AAPresentation_Layer
                 lbSearchedResults.DataSource = pfNew.podList;
                 lbSearchedResults.DisplayMember = "Name";
                 linkValid = true;
-            }catch(NullReferenceException ex)
+            }
+            catch (NullReferenceException ex)
             {
                 Debug.WriteLine(ex.Message);
             }
-
-
-            //PodFeed instanceForNewId = new();
-            //pf = await pfService.GetTempPodFeedAsync(); //En feed att använda
-            //pf.Id = instanceForNewId.Id;
-            //pf.Link = tbLink.Text; //Rss feed i form av länk användaren vill se
-
-            //List<Pod> pList = await service.ReadAllPodAsync(pf.Link);
-            //string listResult = pfService.ValidateList(pList);
-            //var inputResult = FeedValidator.ValidateTextBox(tbLink.Text);
-            //if (!inputResult.IsValid)
-            //{
-            //    MessageBox.Show(inputResult.Errors[0]);
-            //    linkValid = false;
-            //    return;
-            //}
-            //if (!string.IsNullOrWhiteSpace(listResult))
-            //{
-            //    MessageBox.Show(listResult);
-            //    linkValid = false;
-            //    return;
-            //}
-            //pf.podList = pList; //Fyll listan med Pod objekt från länken
-            //await pfService.UpdateRecentlySearchedAsync(pf);
-
-            //lbSearchedResults.DataSource = pf.podList;
-            //lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
-            //linkValid = true;
-            ////tbLink.Clear(); Ska vara kvar när det är färdigt
             tbNewFeedName.Clear();
             RefreshEvent?.Invoke();
         }
@@ -215,7 +190,11 @@ namespace AAPresentation_Layer
 
                 toSave.CategoryId = selectedCat.Name;
             }
-            await pfService.AddPodFeedAsync(toSave);
+            else
+            {
+                toSave.CategoryId = "General";
+            }
+                await pfService.AddPodFeedAsync(toSave);
 
             linkValid = false;
             //tbLink.Clear(); Ska vara kvar när det är färdigt
@@ -315,7 +294,7 @@ namespace AAPresentation_Layer
 
                             foreach (var pf in query)
                             {
-                                await pfService.UpdatePodFeedAsync(pf, "Uncategorized");
+                                await pfService.UpdatePodFeedAsync(pf, "General");
                             }
 
                             await catService.DeleteCategoryAsync(selectedCat.Id);
@@ -376,7 +355,7 @@ namespace AAPresentation_Layer
 
         private async void button1_Click_1(object sender, EventArgs e)
         {
-            
+
             var validationResult = FeedValidator.ValidateTextBox(tbUpdateName.Text);
             if (validationResult.IsValid)
             {
@@ -392,8 +371,8 @@ namespace AAPresentation_Layer
                 }
                 await pfService.UpdatePodFeedAsync(newPf);
             }
-            else 
-            { 
+            else
+            {
                 MessageBox.Show(validationResult.GetErrorString());
                 return;
             }
@@ -422,7 +401,7 @@ namespace AAPresentation_Layer
                         await pfService.DeletePodFeedAsync(pf.Id);
                 }
             }
-            
+
             RefreshEvent?.Invoke();
         }
 
@@ -437,7 +416,13 @@ namespace AAPresentation_Layer
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listBox3.DataSource = null;
             FillRegisterListBox();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
