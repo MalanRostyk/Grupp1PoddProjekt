@@ -289,30 +289,39 @@ namespace AAPresentation_Layer
 
             try
             {
-                if (listBox2.SelectedItem is Category selectedCat)
+                if (listBox2.SelectedItems.Count == 0)
                 {
-                    var confirm = MessageBox.Show(
-                        $"Are you sure you want to delete this category called {selectedCat.Name}?",
-                        "Confirm Deletion of Category",
+                    MessageBox.Show(
+                        $"Are you sure you want to delete nothing, what did nothing do to you?",
+                        "Confirm Deletion of nothing",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Warning);
-
-                    if (confirm == DialogResult.Yes)
-                    {
-                        List<PodFeed> pfLista = await pfService.GetAllAsync();
-
-                        var query = pfLista.Where(p => p.CategoryId == selectedCat.Name);
-
-                        foreach (var pf in query)
-                        {
-                            await pfService.UpdatePodFeedAsync(pf, "Uncategorized");
-                        }
-
-                        await catService.DeleteCategoryAsync(selectedCat.Id);
-                    }
-
                 }
+                else
+                {
+                    if (listBox2.SelectedItem is Category selectedCat)
+                    {
+                        var confirm = MessageBox.Show(
+                            $"Are you sure you want to delete this category called {selectedCat.Name}?",
+                            "Confirm Deletion of Category",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
 
+                        if (confirm == DialogResult.Yes)
+                        {
+                            List<PodFeed> pfLista = await pfService.GetAllAsync();
+
+                            var query = pfLista.Where(p => p.CategoryId == selectedCat.Name);
+
+                            foreach (var pf in query)
+                            {
+                                await pfService.UpdatePodFeedAsync(pf, "Uncategorized");
+                            }
+
+                            await catService.DeleteCategoryAsync(selectedCat.Id);
+                        }
+                    }
+                }
             }
             catch (Exception ec) { Debug.WriteLine(ec.Message); }
             RefreshEvent?.Invoke();
@@ -393,15 +402,27 @@ namespace AAPresentation_Layer
 
         private async void btnDeletePodFeed_Click(object sender, EventArgs e)
         {
-            if (listBox6.SelectedItem is PodFeed pf)
+            if (listBox2.SelectedItems.Count == 0)
             {
-                var confirm = MessageBox.Show($"Are you sure you want to delete the PodFeed {pf.Name}?",
-                    "Confirm deletion of PodFeed",
+                MessageBox.Show(
+                    $"Are you sure you want to delete nothing, what did nothing do to you?",
+                    "Confirm Deletion of nothing",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning);
-                if (confirm == DialogResult.Yes)
-                    await pfService.DeletePodFeedAsync(pf.Id);
             }
+            else
+            {
+                if (listBox6.SelectedItem is PodFeed pf)
+                {
+                    var confirm = MessageBox.Show($"Are you sure you want to delete the PodFeed {pf.Name}?",
+                        "Confirm deletion of PodFeed",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+                    if (confirm == DialogResult.Yes)
+                        await pfService.DeletePodFeedAsync(pf.Id);
+                }
+            }
+            
             RefreshEvent?.Invoke();
         }
 
