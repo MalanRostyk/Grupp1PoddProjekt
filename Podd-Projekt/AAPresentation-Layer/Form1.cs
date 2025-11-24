@@ -41,6 +41,8 @@ namespace AAPresentation_Layer
         private async void DisplayAllCategoryData()
         {
             List<Category> catList = await catService.GetAllCategoriesAsync();
+            catList = catList.OrderBy(c => c.Name).ToList();
+               
             listBox2.DataSource = catList;
             listBox2.DisplayMember = "Name";
             comboBox1.DataSource = catList;
@@ -50,7 +52,9 @@ namespace AAPresentation_Layer
 
         private void FillComboBox(List<Category> catList)
         {
+            catList.Reverse();
             catList.Add(new Category("None"));
+            catList.Reverse();
             comboBox3.DataSource = catList;
             comboBox3.DisplayMember = "Name";
         }
