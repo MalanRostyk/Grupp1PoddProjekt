@@ -15,7 +15,6 @@ namespace CCData_Access_Layer
         Task<T?> GetTempAsync(); //temp
         Task<List<T>> GetAllAsync();
         Task<bool> UpdateAsync(T obj);
-        Task ChangeRecentlyAsync(T tempPf);//temp
         Task DeleteAsync(string id);
         Task DeleteTempAsync(string id);
         Task TempInsertOneDeleteOtherAsync(PodFeed pfNew, PodFeed pfOld);

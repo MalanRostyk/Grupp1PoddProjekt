@@ -345,6 +345,7 @@ namespace AAPresentation_Layer
                 lblDisplayLink.Text = pf.Link;
                 tbUpdateName.Text = pf.Name;
 
+                catList.Add(new Category("General"));
                 comboBox2.DataSource = catList;
 
                 comboBox2.DisplayMember = "Name";
@@ -381,6 +382,7 @@ namespace AAPresentation_Layer
 
         private async void btnDeletePodFeed_Click(object sender, EventArgs e)
         {
+            
             if (listBox2.SelectedItems.Count == 0)
             {
                 MessageBox.Show(
@@ -398,7 +400,11 @@ namespace AAPresentation_Layer
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Warning);
                     if (confirm == DialogResult.Yes)
+                    {
                         await pfService.DeletePodFeedAsync(pf.Id);
+                        listBox7.DataSource = null;
+                    }
+                        
                 }
             }
 

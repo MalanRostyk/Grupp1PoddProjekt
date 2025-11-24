@@ -18,7 +18,6 @@ namespace BBBusiness_Layer
         Task<List<PodFeed>> GetAllFilteredAsync(string category);
         Task<bool> UpdatePodFeedAsync(PodFeed pf, string newCategory);
         Task<bool> UpdatePodFeedAsync(PodFeed pf);
-        Task UpdateRecentlySearchedAsync(PodFeed tempPf);
         Task DeletePodFeedAsync(string id);
         Task DeleteTempPodFeedAsync(string id);
         Task InsertDeleteTempAsync(PodFeed pfNew, PodFeed pfOld);

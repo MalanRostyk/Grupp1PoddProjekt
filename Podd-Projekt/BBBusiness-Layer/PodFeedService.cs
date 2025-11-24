@@ -113,7 +113,6 @@ namespace BBBusiness_Layer
 
         public async Task AddTempPodFeedAsync(PodFeed dummyPf) => await pfRepo.AddTempAsync(dummyPf);
         public async Task<PodFeed?> GetTempPodFeedAsync() => await pfRepo.GetTempAsync();
-        public async Task UpdateRecentlySearchedAsync(PodFeed pf) => await pfRepo.ChangeRecentlyAsync(pf);
         public string ValidateList(List<Pod> enlist)
         {
             string emptyList = "";

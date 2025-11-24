@@ -113,43 +113,6 @@ namespace CCData_Access_Layer
             return await tempColl.Find(filter).FirstOrDefaultAsync();
         }
 
-        public async Task ChangeRecentlyAsync(PodFeed tempPf)
-        {
-            var filter = FilterDefinition<PodFeed>.Empty;
-            var result = await tempColl.Find(filter).FirstOrDefaultAsync();
-            if (result == null)
-            {
-                await tempColl.InsertOneAsync(tempPf);
-            }
-            else
-            {
-                await UpdateTempPf(tempPf);
-            }
-        }
-
-        private async Task UpdateTempPf(PodFeed pf)
-        {
-            using (var session = dbClient.StartSession())
-            {
-                session.StartTransaction();
-                try
-                {
-                    var filter = Builders<PodFeed>.Filter.Eq(p => p.Id, pf.Id);
-                    var update = Builders<PodFeed>.Update
-                        .Set(p => p.Link, pf.Link)
-                        .Set(p => p.podList, pf.podList)
-                        .Set(p => p.Name, pf.Name)
-                        .Set(p => p.CategoryId, pf.CategoryId);
-                    await tempColl.UpdateOneAsync(filter, update);
-
-                    session.CommitTransaction();
-                }catch(Exception e)
-                {
-                    session.AbortTransaction();
-                }
-            }
-        }
-
         public async Task DeleteTempAsync(string id)
         {
             using (var session = dbClient.StartSession())
