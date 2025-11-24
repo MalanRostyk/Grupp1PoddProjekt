@@ -111,13 +111,25 @@ namespace CCData_Access_Layer
 
         private async Task UpdateTempPf(PodFeed pf)
         {
-            var filter = Builders<PodFeed>.Filter.Eq(p => p.Id, pf.Id);
-            var update = Builders<PodFeed>.Update
-                .Set(p => p.Link, pf.Link)
-                .Set(p => p.podList, pf.podList)
-                .Set(p => p.Name, pf.Name)
-                .Set(p => p.CategoryId, pf.CategoryId);
-            await tempColl.UpdateOneAsync(filter, update);
+            using (var session = dbClient.StartSession())
+            {
+                session.StartTransaction();
+                try
+                {
+                    var filter = Builders<PodFeed>.Filter.Eq(p => p.Id, pf.Id);
+                    var update = Builders<PodFeed>.Update
+                        .Set(p => p.Link, pf.Link)
+                        .Set(p => p.podList, pf.podList)
+                        .Set(p => p.Name, pf.Name)
+                        .Set(p => p.CategoryId, pf.CategoryId);
+                    await tempColl.UpdateOneAsync(filter, update);
+
+                    session.CommitTransaction();
+                }catch(Exception e)
+                {
+                    session.AbortTransaction();
+                }
+            }
         }
     }
 }
