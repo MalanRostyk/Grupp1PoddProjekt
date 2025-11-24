@@ -15,7 +15,6 @@ namespace AAPresentation_Layer
         private IService service;//Dependcy injection m?ste, ej gjort
         private IPodFeedService pfService;
         private ICategoryService catService;
-        private PodFeed pf;
         //private Category c;
         public Form1(IService service, IPodFeedService pFs, ICategoryService catService)
         {
@@ -94,41 +93,83 @@ namespace AAPresentation_Layer
         private async Task GetLastResult()
         {
             PodFeed pf = await pfService.GetTempPodFeedAsync();
-            lbSearchedResults.DataSource = pf.podList;
-            lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
-            tbLink.Text = pf.Link;
+            if(pf != null)
+            {
+                lbSearchedResults.DataSource = pf.podList;
+                lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
+                tbLink.Text = pf.Link;
+            }
+            else
+            {
+                PodFeed dummyPf = new();
+                dummyPf.podList = new();
+                await pfService.AddTempPodFeedAsync(dummyPf);
+                lbSearchedResults.DataSource = dummyPf.podList;
+                lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
+                tbLink.Text = dummyPf.Link;
+            }
         }
         private async void button1_Click(object sender, EventArgs e) //I Start tab, Search knapp
         {
-            PodFeed instanceForNewId = new();
-            pf = await pfService.GetTempPodFeedAsync(); //En feed att använda
-            pf.Id = instanceForNewId.Id;
-            pf.Link = tbLink.Text; //Rss feed i form av länk användaren vill se
-
-            List<Pod> pList = await service.ReadAllPodAsync(pf.Link);
-            string listResult = pfService.ValidateList(pList);
-            var inputResult = FeedValidator.ValidateTextBox(tbLink.Text);
-            if (!inputResult.IsValid)
+            try
             {
-                MessageBox.Show(inputResult.Errors[0]);
-                linkValid = false;
-                return;
-            }
-            if (!string.IsNullOrWhiteSpace(listResult))
+                PodFeed pfOld = await pfService.GetTempPodFeedAsync();
+                PodFeed pfNew = new();
+                pfNew.Link = tbLink.Text;
+                pfNew.podList = await service.ReadAllPodAsync(pfNew.Link);
+                string listResult = pfService.ValidateList(pfNew.podList);
+                var inputResult = FeedValidator.ValidateTextBox(tbLink.Text);
+                if (!inputResult.IsValid)
+                {
+                    MessageBox.Show(inputResult.Errors[0]);
+                    linkValid = false;
+                    return;
+                }
+                if (!string.IsNullOrWhiteSpace(listResult))
+                {
+                    MessageBox.Show(listResult);
+                    linkValid = false;
+                    return;
+                }
+                await pfService.InsertDeleteTempAsync(pfNew, pfOld);
+                lbSearchedResults.DataSource = pfNew.podList;
+                lbSearchedResults.DisplayMember = "Name";
+                linkValid = true;
+            }catch(NullReferenceException ex)
             {
-                MessageBox.Show(listResult);
-                linkValid = false;
-                return;
+                Debug.WriteLine(ex.Message);
             }
-            pf.podList = pList; //Fyll listan med Pod objekt från länken
-            await pfService.UpdateRecentlySearchedAsync(pf);
 
-            lbSearchedResults.DataSource = pf.podList;
-            lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
-            linkValid = true;
-            //tbLink.Clear(); Ska vara kvar när det är färdigt
-            //tbNewFeedName.Clear();
-            //RefreshEvent?.Invoke();
+
+            //PodFeed instanceForNewId = new();
+            //pf = await pfService.GetTempPodFeedAsync(); //En feed att använda
+            //pf.Id = instanceForNewId.Id;
+            //pf.Link = tbLink.Text; //Rss feed i form av länk användaren vill se
+
+            //List<Pod> pList = await service.ReadAllPodAsync(pf.Link);
+            //string listResult = pfService.ValidateList(pList);
+            //var inputResult = FeedValidator.ValidateTextBox(tbLink.Text);
+            //if (!inputResult.IsValid)
+            //{
+            //    MessageBox.Show(inputResult.Errors[0]);
+            //    linkValid = false;
+            //    return;
+            //}
+            //if (!string.IsNullOrWhiteSpace(listResult))
+            //{
+            //    MessageBox.Show(listResult);
+            //    linkValid = false;
+            //    return;
+            //}
+            //pf.podList = pList; //Fyll listan med Pod objekt från länken
+            //await pfService.UpdateRecentlySearchedAsync(pf);
+
+            //lbSearchedResults.DataSource = pf.podList;
+            //lbSearchedResults.DisplayMember = "Titel"; //Det som visas i listBox samma som p.Titel i loopen
+            //linkValid = true;
+            ////tbLink.Clear(); Ska vara kvar när det är färdigt
+            tbNewFeedName.Clear();
+            RefreshEvent?.Invoke();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)//I Start Tabben
@@ -167,13 +208,14 @@ namespace AAPresentation_Layer
                 MessageBox.Show($"Warning: {duplicateValidation.GetErrorString()}");
                 return;
             }
-            pf.Name = tbNewFeedName.Text;
+            PodFeed toSave = await pfService.GetTempPodFeedAsync();
+            toSave.Name = tbNewFeedName.Text;
             if (comboBox1.SelectedItem is Category selectedCat)
             {
 
-                pf.CategoryId = selectedCat.Name;
+                toSave.CategoryId = selectedCat.Name;
             }
-            await pfService.AddPodFeedAsync(pf);
+            await pfService.AddPodFeedAsync(toSave);
 
             linkValid = false;
             //tbLink.Clear(); Ska vara kvar när det är färdigt

@@ -11,6 +11,7 @@ namespace BBBusiness_Layer
     public interface IPodFeedService
     {
         Task AddPodFeedAsync(PodFeed pf);
+        Task AddTempPodFeedAsync(PodFeed pf);
         Task<PodFeed?> GetPodFeedAsync(string id);
         Task<PodFeed?> GetTempPodFeedAsync();
         Task<List<PodFeed>> GetAllAsync();
@@ -19,7 +20,8 @@ namespace BBBusiness_Layer
         Task<bool> UpdatePodFeedAsync(PodFeed pf);
         Task UpdateRecentlySearchedAsync(PodFeed tempPf);
         Task DeletePodFeedAsync(string id);
-
+        Task DeleteTempPodFeedAsync(string id);
+        Task InsertDeleteTempAsync(PodFeed pfNew, PodFeed pfOld);
         string ValidateList(List<Pod> enlist);
     }
 }

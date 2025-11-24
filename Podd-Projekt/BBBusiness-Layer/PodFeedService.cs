@@ -111,7 +111,7 @@ namespace BBBusiness_Layer
         public async Task DeletePodFeedAsync(string id) => await pfRepo.DeleteAsync(id);
 
 
-
+        public async Task AddTempPodFeedAsync(PodFeed dummyPf) => await pfRepo.AddTempAsync(dummyPf);
         public async Task<PodFeed?> GetTempPodFeedAsync() => await pfRepo.GetTempAsync();
         public async Task UpdateRecentlySearchedAsync(PodFeed pf) => await pfRepo.ChangeRecentlyAsync(pf);
         public string ValidateList(List<Pod> enlist)
@@ -124,5 +124,8 @@ namespace BBBusiness_Layer
             }
             return emptyList;
         }
+
+        public async Task DeleteTempPodFeedAsync(string id) => await pfRepo.DeleteTempAsync(id);
+        public async Task InsertDeleteTempAsync(PodFeed pfNew, PodFeed pfOld) => await pfRepo.TempInsertOneDeleteOtherAsync(pfNew, pfOld);
     }
 }

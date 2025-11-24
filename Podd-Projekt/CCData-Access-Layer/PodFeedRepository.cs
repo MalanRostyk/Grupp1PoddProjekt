@@ -89,6 +89,24 @@ namespace CCData_Access_Layer
             }
         }
 
+        public async Task AddTempAsync(PodFeed dummyPf)
+        {
+            using (var session = dbClient.StartSession())
+            {
+                session.StartTransaction();
+                try
+                {
+                    await tempColl.InsertOneAsync(dummyPf);
+                    session.CommitTransaction();
+                }
+                catch (Exception e)
+                {
+                    session.AbortTransaction();
+                    Debug.WriteLine(e.Message);
+                }
+            }
+        }
+
         public async Task<PodFeed?> GetTempAsync()
         {
             var filter = FilterDefinition<PodFeed>.Empty;
@@ -128,6 +146,47 @@ namespace CCData_Access_Layer
                 }catch(Exception e)
                 {
                     session.AbortTransaction();
+                }
+            }
+        }
+
+        public async Task DeleteTempAsync(string id)
+        {
+            using (var session = dbClient.StartSession())
+            {
+                session.StartTransaction();
+                try
+                {
+                    await tempColl.DeleteOneAsync(Builders<PodFeed>.Filter.Eq(p => p.Id, id));
+                    session.CommitTransaction();
+                }catch(Exception e)
+                {
+                    session.AbortTransaction();
+                    Debug.WriteLine(e.Message);
+                }
+            }
+        }
+
+        public async Task TempInsertOneDeleteOtherAsync(PodFeed pfNew, PodFeed pfOld)
+        {
+            using (var session = dbClient.StartSession())
+            {
+                session.StartTransaction();
+                try
+                {
+                    //Ta bort gamla
+                    await tempColl.DeleteOneAsync(
+                        Builders<PodFeed>.Filter.Eq(p => p.Id, pfOld.Id));
+
+                    //Lägg till nya
+                    await tempColl.InsertOneAsync(pfNew);
+
+                    session.CommitTransaction();
+                }
+                catch (Exception e)
+                {
+                    session.AbortTransaction();
+                    Debug.WriteLine(e.Message);
                 }
             }
         }
