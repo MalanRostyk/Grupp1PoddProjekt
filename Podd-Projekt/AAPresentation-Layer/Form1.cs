@@ -15,19 +15,18 @@ namespace AAPresentation_Layer
         private IService service;//Dependcy injection m?ste, ej gjort
         private IPodFeedService pfService;
         private ICategoryService catService;
-        //private Category c;
         public Form1(IService service, IPodFeedService pFs, ICategoryService catService)
         {
             this.service = service;
             this.catService = catService;
             pfService = pFs;
 
+            RefreshEvent += ClearTextBoxes;
             RefreshEvent += ClearListBox2;
             RefreshEvent += FillRegisterListBox;
             RefreshEvent += FillUpdateListBox;
             RefreshEvent += FillDeleteListBox;
             RefreshEvent += DisplayAllCategoryData;
-
 
             InitializeComponent();
             GetLastResult();
@@ -37,6 +36,14 @@ namespace AAPresentation_Layer
 
 
         private void ClearListBox2() => listBox2.DataSource = null;
+        private void ClearTextBoxes()
+        {
+
+            tbNewFeedName.Clear();
+            tbUpdateName.Clear();
+            tbCreateCategoryName.Clear();
+            tbCategoryUpdate.Clear();
+        }
         private async void DisplayAllCategoryData()
         {
             List<Category> catList = await catService.GetAllCategoriesAsync();
@@ -120,6 +127,7 @@ namespace AAPresentation_Layer
                 PodFeed pfNew = new();
                 pfNew.Link = tbLink.Text;
                 pfNew.podList = await service.ReadAllPodAsync(pfNew.Link);
+
                 string listResult = pfService.ValidateList(pfNew.podList);
                 var inputResult = FeedValidator.ValidateTextBox(tbLink.Text);
                 if (!inputResult.IsValid)
@@ -134,16 +142,16 @@ namespace AAPresentation_Layer
                     linkValid = false;
                     return;
                 }
+
                 await pfService.InsertDeleteTempAsync(pfNew, pfOld);
                 lbSearchedResults.DataSource = pfNew.podList;
                 lbSearchedResults.DisplayMember = "Name";
                 linkValid = true;
             }
-            catch (NullReferenceException ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
-            tbNewFeedName.Clear();
             RefreshEvent?.Invoke();
         }
 
@@ -183,22 +191,38 @@ namespace AAPresentation_Layer
                 MessageBox.Show($"Warning: {duplicateValidation.GetErrorString()}");
                 return;
             }
-            PodFeed toSave = await pfService.GetTempPodFeedAsync();
-            toSave.Name = tbNewFeedName.Text;
-            if (comboBox1.SelectedItem is Category selectedCat)
+            try
             {
+                PodFeed toSave = await pfService.GetTempPodFeedAsync();
+                if (toSave != null)
+                {
+                    toSave.Name = tbNewFeedName.Text;
 
-                toSave.CategoryId = selectedCat.Name;
+
+                    if (comboBox1.SelectedItem is Category selectedCat)
+                    {
+
+                        toSave.CategoryId = selectedCat.Name;
+                    }
+                    else
+                    {
+                        toSave.CategoryId = "General";
+                    }
+                    await pfService.AddPodFeedAsync(toSave);
+                }
             }
-            else
+            catch (NullReferenceException nfEx)
             {
-                toSave.CategoryId = "General";
+                Debug.WriteLine(nfEx.Message);
             }
-                await pfService.AddPodFeedAsync(toSave);
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
 
             linkValid = false;
             //tbLink.Clear(); Ska vara kvar när det är färdigt
-            tbNewFeedName.Clear();
+
             RefreshEvent?.Invoke();
         }
 
@@ -207,9 +231,20 @@ namespace AAPresentation_Layer
             var validationResult = FeedValidator.ValidateTextBox(tbCreateCategoryName.Text);
             if (validationResult.IsValid)
             {
-                Category cat = new();
-                cat.Name = tbCreateCategoryName.Text;
-                await catService.AddCategoryAsync(cat);
+                try
+                {
+                    Category cat = new();
+                    cat.Name = tbCreateCategoryName.Text;
+                    await catService.AddCategoryAsync(cat);
+                }
+                catch (FormatException fEx)
+                {
+                    Debug.WriteLine(fEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
             else
             {
@@ -217,7 +252,7 @@ namespace AAPresentation_Layer
                 return;
             }
 
-            tbCreateCategoryName.Clear();
+
             RefreshEvent?.Invoke();
         }
         private void listBox2_SelectedIndexChanged_1(object sender, EventArgs e)//Category tab
@@ -356,33 +391,46 @@ namespace AAPresentation_Layer
 
         private async void button1_Click_1(object sender, EventArgs e)
         {
-
-            var validationResult = FeedValidator.ValidateTextBox(tbUpdateName.Text);
-            if (validationResult.IsValid)
+            try
             {
-                PodFeed newPf = new();
-                newPf.Id = lblToUpdate.Text;
-                if (listBox5.SelectedItem is PodFeed pf)
-                    newPf.podList = pf.podList;
-                newPf.Link = lblDisplayLink.Text;
-                newPf.Name = tbUpdateName.Text;
-                if (comboBox2.SelectedItem is Category cat)
+                var validationResult = FeedValidator.ValidateTextBox(tbUpdateName.Text);
+                if (validationResult.IsValid)
                 {
-                    newPf.CategoryId = cat.Name;
+                    PodFeed newPf = new();
+                    newPf.Id = lblToUpdate.Text;
+                    if (listBox5.SelectedItem is PodFeed pf)
+                        newPf.podList = pf.podList;
+                    newPf.Link = lblDisplayLink.Text;
+                    newPf.Name = tbUpdateName.Text;
+                    if (comboBox2.SelectedItem is Category cat)
+                    {
+                        newPf.CategoryId = cat.Name;
+                    }
+                    await pfService.UpdatePodFeedAsync(newPf);
                 }
-                await pfService.UpdatePodFeedAsync(newPf);
+                else
+                {
+                    MessageBox.Show(validationResult.GetErrorString());
+                    return;
+                }
             }
-            else
+            catch (NullReferenceException nullRefEx)
             {
-                MessageBox.Show(validationResult.GetErrorString());
-                return;
+                MessageBox.Show("Could not find the selected feed.");
+                Debug.WriteLine(nullRefEx.Message);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error updating.");
+                Debug.WriteLine(ex.Message);
+            }
+
             RefreshEvent?.Invoke();
         }
 
         private async void btnDeletePodFeed_Click(object sender, EventArgs e)
         {
-            
+
             if (listBox2.SelectedItems.Count == 0)
             {
                 MessageBox.Show(
@@ -404,7 +452,7 @@ namespace AAPresentation_Layer
                         await pfService.DeletePodFeedAsync(pf.Id);
                         listBox7.DataSource = null;
                     }
-                        
+
                 }
             }
 
@@ -429,6 +477,14 @@ namespace AAPresentation_Layer
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private async void b_Click(object sender, EventArgs e)
+        {
+            List<Pod> podList = await service.ReadAllPodAsync(tbLink.Text);
+            var validate = FeedValidator.ValidateLink(tbLink.Text);
+            if (!validate.IsValid)
+                MessageBox.Show("Neh");
         }
     }
 }

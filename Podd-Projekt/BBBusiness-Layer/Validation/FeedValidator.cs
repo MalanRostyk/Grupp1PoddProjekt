@@ -1,10 +1,12 @@
-﻿using System;
+﻿using CCData_Access_Layer;
+using DDModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using DDModels;
-using CCData_Access_Layer;
+using System.Xml.Linq;
 
 namespace BBBusiness_Layer.Validation
 {
@@ -33,7 +35,7 @@ namespace BBBusiness_Layer.Validation
         public static ValidationResult ValidateList(List<Pod> rssFeed)
         {
             var result = new ValidationResult();
-            if(rssFeed.Count == 0)
+            if(rssFeed.Count == 0 || rssFeed == null)
             {
                 result.Errors.Add("This link returned no results");
             }
@@ -52,6 +54,20 @@ namespace BBBusiness_Layer.Validation
             }
             return result;
 
+        }
+
+        public static ValidationResult ValidateLink(string link)
+        {
+            
+            var result = new ValidationResult();
+            string reg = @"^https?:\/\/[A-ZÅÄÖa-zåäö0-9.-]+\.[A-ZÅÄÖa-zåäö]{2,}.*$";
+            Regex regex = new Regex(reg);
+            //Regex regex = new Regex("^https?:\\/\\/[A-ZÅÄÖa-zåäö0-9\\-]+\\.[A-ZÅÄÖa-zåäö]{2,}(\\/\\S*)?$");
+            if (!regex.IsMatch(link)) 
+            {
+                result.Errors.Add($"This link is not a valid RSS link");
+            }
+            return result;
         }
     }
 }

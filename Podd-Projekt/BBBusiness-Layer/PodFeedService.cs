@@ -15,25 +15,19 @@ namespace BBBusiness_Layer
     {
         private readonly IRepository<PodFeed> pfRepo;
 
-        public PodFeedService(IRepository<PodFeed> pfRepository)
-        {
-            pfRepo = pfRepository;
-        }
+        public PodFeedService(IRepository<PodFeed> pfRepository)=> pfRepo = pfRepository;
 
-        public async Task AddPodFeedAsync(PodFeed pf) => await pfRepo.AddAsync(pf);
+        public async Task AddPodFeedAsync(PodFeed pf)
+        {
+            if (pf == null)
+                throw new NullReferenceException("The feed being added does not exist");
+
+            await pfRepo.AddAsync(pf);
+                
+        }
         public async Task<PodFeed?> GetPodFeedAsync(string id)
         {
-            PodFeed? p = null;
-            try
-            {
-                p = await pfRepo.GetAsync(id);
-            }
-            catch (NullReferenceException e)
-            {
-                Debug.WriteLine(e.Message);
-            }
-
-            return p;
+            return await pfRepo.GetAsync(id);
         }
         public async Task<List<PodFeed>> GetAllAsync() => await pfRepo.GetAllAsync();
 
@@ -60,63 +54,38 @@ namespace BBBusiness_Layer
             return filteredList;
         }
 
-        public async Task<bool> UpdatePodFeedAsync(PodFeed pf, string newName, string newCategory)
-        {
-            bool wasUpdated = false;
-            try
-            {
-                PodFeed p = await pfRepo.GetAsync(pf.Id);
-                p.Name = newName;
-                p.CategoryId = newCategory;
-
-                wasUpdated = await pfRepo.UpdateAsync(p);
-            }catch(NullReferenceException e)
-            {
-                Debug.WriteLine(e.Message);
-            }
-            return wasUpdated;
-        }
         public async Task<bool> UpdatePodFeedAsync(PodFeed pf, string newCategory)
         {
-            bool wasUpdated = false;
-            try
-            {
-                PodFeed newPf = new();
-                newPf.Id = pf.Id;
-                newPf.Link = pf.Link;
-                newPf.podList = pf.podList;
-                newPf.Name = pf.Name;
-                newPf.CategoryId = newCategory;
+            if (string.IsNullOrWhiteSpace(pf.Name) && string.IsNullOrWhiteSpace(pf.CategoryId))
+                throw new FormatException("The selected RSS feed does not coontain valid values");
+            PodFeed newPf = new();
+            newPf.Id = pf.Id;
+            newPf.Link = pf.Link;
+            newPf.podList = pf.podList;
+            newPf.Name = pf.Name;
+            newPf.CategoryId = newCategory;
 
-                wasUpdated = await pfRepo.UpdateAsync(newPf);
-            }catch(NullReferenceException e)
-            {
-                Debug.WriteLine(e.Message);
-
-            }
-            return wasUpdated;
+            return await pfRepo.UpdateAsync(newPf);
         }
 
         public async Task<bool> UpdatePodFeedAsync(PodFeed pf)
         {
-            bool wasUpdated = false;
-            try
-            {
-                wasUpdated = await pfRepo.UpdateAsync(pf);
-                
-            }catch(Exception e) { Debug.WriteLine(e.Message); }
-            return wasUpdated;
+            if (string.IsNullOrWhiteSpace(pf.Name) && string.IsNullOrWhiteSpace(pf.CategoryId))
+                throw new FormatException("The selected RSS feed does not coontain valid values");
+            return await pfRepo.UpdateAsync(pf);
         }
 
-        public async Task DeletePodFeedAsync(string id) => await pfRepo.DeleteAsync(id);
-
+        public async Task DeletePodFeedAsync(string id)
+        {
+            await pfRepo.DeleteAsync(id);
+        }
 
         public async Task AddTempPodFeedAsync(PodFeed dummyPf) => await pfRepo.AddTempAsync(dummyPf);
         public async Task<PodFeed?> GetTempPodFeedAsync() => await pfRepo.GetTempAsync();
-        public string ValidateList(List<Pod> enlist)
+        public string ValidateList(List<Pod> enList)
         {
             string emptyList = "";
-            var validationResult = FeedValidator.ValidateList(enlist);
+            var validationResult = FeedValidator.ValidateList(enList);
             if (!validationResult.IsValid)
             {
                 emptyList = validationResult.GetErrorString();

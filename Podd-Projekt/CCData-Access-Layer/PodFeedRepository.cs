@@ -41,7 +41,7 @@ namespace CCData_Access_Layer
                 }
             }
         }
-        public async Task<PodFeed?> GetAsync(string id)//Dirty read?
+        public async Task<PodFeed?> GetAsync(string id)
         {
             var filter = Builders<PodFeed>.Filter.Eq(pf => pf.Id, id);
             return await pfCollection.Find(filter).FirstOrDefaultAsync();
@@ -137,6 +137,9 @@ namespace CCData_Access_Layer
                 session.StartTransaction();
                 try
                 {
+                    if (pfOld == null)
+                        return;
+
                     //Ta bort gamla
                     await tempColl.DeleteOneAsync(
                         Builders<PodFeed>.Filter.Eq(p => p.Id, pfOld.Id));

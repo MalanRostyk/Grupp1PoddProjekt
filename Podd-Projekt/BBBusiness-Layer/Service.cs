@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BBBusiness_Layer.Validation;
 using CCData_Access_Layer;
 using DDModels;
 
@@ -16,23 +17,14 @@ namespace BBBusiness_Layer
         {
             podClient = client;
         }
-
-
-        public async Task<List<Pod>> ReadAllPodAsync(PodFeed pf) 
-        {
-            List<Pod> podList = await podClient.GetAllPodsAsync(pf.Link);
-            foreach(var pod in podList)
-            {
-                pod.LinkRef = pf.Id;
-                pod.Id = $"{pod.Id} tillhör {pf.Id}";//"Serien" som "episoden" tillhör, metaforsikt
-                //Så vi vet vilkent feed podden tillhör
-            }
-
-            return podList;
-        }
         public async Task<List<Pod>> ReadAllPodAsync(string link) 
         {
-            List<Pod> podList = await podClient.GetAllPodsAsync(link);
+            var validateLink = FeedValidator.ValidateLink(link);
+            List<Pod> podList = new();
+            if(validateLink.IsValid)
+            {
+                podList = await podClient.GetAllPodsAsync(link);
+            }
             return podList;
         }
     }

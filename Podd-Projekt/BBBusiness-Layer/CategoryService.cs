@@ -13,41 +13,27 @@ namespace BBBusiness_Layer
     {
         private readonly CategoryRepository categoryRepo;
 
-        public CategoryService(CategoryRepository categoryRepository)
-        {
-            categoryRepo = categoryRepository;
-        }
+        public CategoryService(CategoryRepository categoryRepository) => categoryRepo = categoryRepository;
 
-        public async Task AddCategoryAsync(Category category) => await categoryRepo.AddAsync(category);
+        public async Task AddCategoryAsync(Category category)
+        {
+            if (string.IsNullOrWhiteSpace(category.Name))
+                throw new FormatException("Category name is not valid.");
+            await categoryRepo.AddAsync(category);
+        }
 
         public async Task<Category?> GetCategoryAsync(string id)
         {
-            Category? c = null;
-            try
-            {
-                c = await categoryRepo.GetAsync(id);
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-            }
-            return c;
+            return await categoryRepo.GetAsync(id);
         }
 
         public async Task<List<Category>> GetAllCategoriesAsync() => await categoryRepo.GetAllAsync();
 
         public async Task<bool> UpdateCategoryAsync(Category category)
         {
-            bool isUpdated = false;
-            try
-            {
-                isUpdated = await categoryRepo.UpdateAsync(category);
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-            }
-            return isUpdated;
+            if (string.IsNullOrWhiteSpace(category.Name))
+                throw new FormatException("Category name is not valid.");
+            return await categoryRepo.UpdateAsync(category);
         }
 
         public async Task DeleteCategoryAsync(string id) => await categoryRepo.DeleteAsync(id);
