@@ -87,7 +87,6 @@ partial class Form1
         button2 = new Button();
         label10 = new Label();
         listBox2 = new ListBox();
-        b = new Button();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         tabPage2.SuspendLayout();
@@ -179,7 +178,6 @@ partial class Form1
         // 
         // tabPage1
         // 
-        tabPage1.Controls.Add(b);
         tabPage1.Controls.Add(label17);
         tabPage1.Controls.Add(comboBox1);
         tabPage1.Controls.Add(tbeEmptyName);
@@ -744,20 +742,6 @@ partial class Form1
         listBox2.TabIndex = 25;
         listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged_1;
         // 
-        // b
-        // 
-        b.BackColor = Color.DarkSlateGray;
-        b.FlatStyle = FlatStyle.Popup;
-        b.ForeColor = SystemColors.GradientActiveCaption;
-        b.Location = new Point(603, 422);
-        b.Margin = new Padding(4);
-        b.Name = "b";
-        b.Size = new Size(129, 41);
-        b.TabIndex = 15;
-        b.Text = "Savc";
-        b.UseVisualStyleBackColor = false;
-        b.Click += b_Click;
-        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(11F, 28F);
@@ -854,5 +838,4 @@ partial class Form1
     private RichTextBox richTextBox1;
     private ComboBox comboBox3;
     private Label label20;
-    private Button b;
 }

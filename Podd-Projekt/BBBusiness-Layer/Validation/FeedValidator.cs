@@ -21,15 +21,6 @@ namespace BBBusiness_Layer.Validation
             }
             return result;
         }
-        public static ValidationResult ValidateRssLink(string rssLink)
-        {
-            var result = new ValidationResult();
-            if (string.IsNullOrWhiteSpace(rssLink))
-            {
-                result.Errors.Add("Link cannot be empty.");
-            }
-            return result;
-        }
 
 
         public static ValidationResult ValidateList(List<Pod> rssFeed)
@@ -56,18 +47,6 @@ namespace BBBusiness_Layer.Validation
 
         }
 
-        public static ValidationResult ValidateLink(string link)
-        {
-            
-            var result = new ValidationResult();
-            string reg = @"^https?:\/\/[A-ZÅÄÖa-zåäö0-9.-]+\.[A-ZÅÄÖa-zåäö]{2,}.*$";
-            Regex regex = new Regex(reg);
-            //Regex regex = new Regex("^https?:\\/\\/[A-ZÅÄÖa-zåäö0-9\\-]+\\.[A-ZÅÄÖa-zåäö]{2,}(\\/\\S*)?$");
-            if (!regex.IsMatch(link)) 
-            {
-                result.Errors.Add($"This link is not a valid RSS link");
-            }
-            return result;
-        }
+
     }
 }

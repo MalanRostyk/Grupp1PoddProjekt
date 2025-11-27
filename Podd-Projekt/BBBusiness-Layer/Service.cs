@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,17 @@ namespace BBBusiness_Layer
         }
         public async Task<List<Pod>> ReadAllPodAsync(string link) 
         {
-            var validateLink = FeedValidator.ValidateLink(link);
-            List<Pod> podList = new();
-            if(validateLink.IsValid)
+            List<Pod> podList = await podClient.GetAllPodsAsync(link);
+            var valLink = FeedValidator.ValidateTextBox(link);
+            var validator = FeedValidator.ValidateList(podList);
+            if (!valLink.IsValid)
             {
-                podList = await podClient.GetAllPodsAsync(link);
+                if (!validator.IsValid)
+                {
+                    
+                    Debug.WriteLine("This is not an RSS link");
+                }
+                Debug.WriteLine("Must enter a RSS link first.");
             }
             return podList;
         }

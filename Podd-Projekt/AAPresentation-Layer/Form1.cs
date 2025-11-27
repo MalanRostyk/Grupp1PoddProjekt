@@ -479,12 +479,5 @@ namespace AAPresentation_Layer
 
         }
 
-        private async void b_Click(object sender, EventArgs e)
-        {
-            List<Pod> podList = await service.ReadAllPodAsync(tbLink.Text);
-            var validate = FeedValidator.ValidateLink(tbLink.Text);
-            if (!validate.IsValid)
-                MessageBox.Show("Neh");
-        }
     }
 }
