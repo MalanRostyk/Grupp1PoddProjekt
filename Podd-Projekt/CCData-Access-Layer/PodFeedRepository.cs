@@ -19,9 +19,9 @@ namespace CCData_Access_Layer
         public PodFeedRepository()
         {
             dbClient = new MongoClient("mongodb+srv://OruMongoDBAdmin:qwe123@orumongodb.88ybr1l.mongodb.net/?appName=OruMongoDB");
-            var db = dbClient.GetDatabase("PodderDB");
-            pfCollection = db.GetCollection<PodFeed>("Podders");
-            this.tempColl = db.GetCollection<PodFeed>("temp");
+            var db = dbClient.GetDatabase("Opponering");
+            pfCollection = db.GetCollection<PodFeed>("PodFeed");
+            this.tempColl = db.GetCollection<PodFeed>("Temp");
 
         }
         public async Task AddAsync(PodFeed pf)// Använder transaktion

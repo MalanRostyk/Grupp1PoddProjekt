@@ -17,7 +17,7 @@ namespace CCData_Access_Layer
         public CategoryRepository()
         {
             dbClient = new MongoClient("mongodb+srv://OruMongoDBAdmin:qwe123@orumongodb.88ybr1l.mongodb.net/?appName=OruMongoDB");
-            var db = dbClient.GetDatabase("PodderDB");
+            var db = dbClient.GetDatabase("Opponering");
             categoryCollection = db.GetCollection<Category>("Categories");
         }
 

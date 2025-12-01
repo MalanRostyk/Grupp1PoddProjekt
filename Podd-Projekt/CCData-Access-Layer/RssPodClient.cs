@@ -26,14 +26,6 @@ namespace CCData_Access_Layer
         {
             List<Pod> podList = new();
 
-            //Stream stream = await httpClient.GetStreamAsync(link) = Hämtar stream från webben
-
-            //XmlReader.Create(stream) = Formatera stremens data från Xml "språk" till något C# kan tolka
-
-            //SyndicationFeed.Load(xmlReader) = Representerar tillfälligt data i minnet som
-            //"Hela = SyncationFeed, dvs som en list", och varje "objekt = SyndicationItem"
-            //Så sammasatt blir det som en List<SyndicationItem>
-
             try
             {
                 using (Stream stream = await httpClient.GetStreamAsync(link))
