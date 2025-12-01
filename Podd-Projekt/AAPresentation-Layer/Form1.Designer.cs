@@ -70,7 +70,6 @@ partial class Form1
         label18 = new Label();
         listBox6 = new ListBox();
         tabPage5 = new TabPage();
-        label13 = new Label();
         label12 = new Label();
         tabControl2 = new TabControl();
         tabPage6 = new TabPage();
@@ -204,9 +203,9 @@ partial class Form1
         label17.AutoSize = true;
         label17.Location = new Point(557, 330);
         label17.Name = "label17";
-        label17.Size = new Size(258, 28);
+        label17.Size = new Size(268, 28);
         label17.TabIndex = 14;
-        label17.Text = "Choos a category to save as:";
+        label17.Text = "Choose a category to save as:";
         // 
         // comboBox1
         // 
@@ -277,10 +276,10 @@ partial class Form1
         tabPage2.Controls.Add(listBox3);
         tabPage2.Controls.Add(label4);
         tabPage2.Controls.Add(listBox1);
-        tabPage2.Location = new Point(4, 29);
+        tabPage2.Location = new Point(4, 37);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(1070, 478);
+        tabPage2.Size = new Size(1070, 470);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "Register";
         tabPage2.UseVisualStyleBackColor = true;
@@ -355,9 +354,9 @@ partial class Form1
         tabPage3.Controls.Add(lblToUpdateCategory);
         tabPage3.Controls.Add(lblToUpdateName);
         tabPage3.Controls.Add(lblToUpdate);
-        tabPage3.Location = new Point(4, 29);
+        tabPage3.Location = new Point(4, 37);
         tabPage3.Name = "tabPage3";
-        tabPage3.Size = new Size(1070, 478);
+        tabPage3.Size = new Size(1070, 470);
         tabPage3.TabIndex = 2;
         tabPage3.Text = "Update";
         tabPage3.UseVisualStyleBackColor = true;
@@ -376,9 +375,9 @@ partial class Form1
         lblDisplayLink.AutoSize = true;
         lblDisplayLink.Location = new Point(129, 144);
         lblDisplayLink.Name = "lblDisplayLink";
-        lblDisplayLink.Size = new Size(76, 28);
+        lblDisplayLink.Size = new Size(0, 28);
         lblDisplayLink.TabIndex = 12;
-        lblDisplayLink.Text = "label17";
+        lblDisplayLink.Click += lblDisplayLink_Click;
         // 
         // label16
         // 
@@ -470,9 +469,8 @@ partial class Form1
         lblToUpdate.AutoSize = true;
         lblToUpdate.Location = new Point(129, 91);
         lblToUpdate.Name = "lblToUpdate";
-        lblToUpdate.Size = new Size(213, 28);
+        lblToUpdate.Size = new Size(0, 28);
         lblToUpdate.TabIndex = 0;
-        lblToUpdate.Text = "Id: (Glöm ej += länken)";
         // 
         // tabPage4
         // 
@@ -481,9 +479,9 @@ partial class Form1
         tabPage4.Controls.Add(btnDeletePodFeed);
         tabPage4.Controls.Add(label18);
         tabPage4.Controls.Add(listBox6);
-        tabPage4.Location = new Point(4, 29);
+        tabPage4.Location = new Point(4, 37);
         tabPage4.Name = "tabPage4";
-        tabPage4.Size = new Size(1070, 478);
+        tabPage4.Size = new Size(1070, 470);
         tabPage4.TabIndex = 3;
         tabPage4.Text = "Delete";
         tabPage4.UseVisualStyleBackColor = true;
@@ -539,25 +537,15 @@ partial class Form1
         // 
         // tabPage5
         // 
-        tabPage5.Controls.Add(label13);
         tabPage5.Controls.Add(label12);
         tabPage5.Controls.Add(tabControl2);
         tabPage5.Controls.Add(listBox2);
-        tabPage5.Location = new Point(4, 29);
+        tabPage5.Location = new Point(4, 37);
         tabPage5.Name = "tabPage5";
-        tabPage5.Size = new Size(1070, 478);
+        tabPage5.Size = new Size(1070, 470);
         tabPage5.TabIndex = 4;
         tabPage5.Text = "Category";
         tabPage5.UseVisualStyleBackColor = true;
-        // 
-        // label13
-        // 
-        label13.AutoSize = true;
-        label13.Location = new Point(576, 334);
-        label13.Name = "label13";
-        label13.Size = new Size(344, 28);
-        label13.TabIndex = 35;
-        label13.Text = "När man klickar på ett index i list bosh";
         // 
         // label12
         // 
@@ -645,10 +633,10 @@ partial class Form1
         tabPage7.Controls.Add(tbCategoryUpdate);
         tabPage7.Controls.Add(label9);
         tabPage7.Controls.Add(label8);
-        tabPage7.Location = new Point(4, 29);
+        tabPage7.Location = new Point(4, 37);
         tabPage7.Name = "tabPage7";
         tabPage7.Padding = new Padding(3);
-        tabPage7.Size = new Size(389, 371);
+        tabPage7.Size = new Size(389, 363);
         tabPage7.TabIndex = 1;
         tabPage7.Text = "Update";
         tabPage7.UseVisualStyleBackColor = true;
@@ -701,9 +689,9 @@ partial class Form1
         // 
         tabPage8.Controls.Add(button2);
         tabPage8.Controls.Add(label10);
-        tabPage8.Location = new Point(4, 29);
+        tabPage8.Location = new Point(4, 37);
         tabPage8.Name = "tabPage8";
-        tabPage8.Size = new Size(389, 371);
+        tabPage8.Size = new Size(389, 363);
         tabPage8.TabIndex = 2;
         tabPage8.Text = "Delete";
         tabPage8.UseVisualStyleBackColor = true;
@@ -819,7 +807,6 @@ partial class Form1
     private Button button2;
     private Label label10;
     private Label label12;
-    private Label label13;
     private ComboBox comboBox1;
     private ListBox listBox3;
     private Button button1;

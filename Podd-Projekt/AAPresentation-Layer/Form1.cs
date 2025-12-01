@@ -479,5 +479,9 @@ namespace AAPresentation_Layer
 
         }
 
+        private void lblDisplayLink_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
