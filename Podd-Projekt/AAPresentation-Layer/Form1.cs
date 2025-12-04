@@ -161,7 +161,7 @@ namespace AAPresentation_Layer
             {
                 return;
             }
-            rtbSearchedPodInfo.Text = $"{selectedPod.Link}"; //Det som visas i richTextBox när vi valt en pod i listBox
+            rtbSearchedPodInfo.Text = $"{selectedPod.Titel}\n{selectedPod.Description}\n{selectedPod.PublishedDate}\n{selectedPod.Link}"; //Det som visas i richTextBox när vi valt en pod i listBox
         }
 
         private void Form1_Load(object sender, EventArgs e)//Dont touch
